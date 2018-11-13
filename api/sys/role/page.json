@@ -1,0 +1,147 @@
+{
+  "respCode": "0",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10000,
+    "count": 12,
+    "pageCount": 1,
+    "list": [
+      {
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "JU9TENYSEY",
+        "rname": "部长",
+        "rdesc": "科室经理-部长",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "9FZPVVJ4YX",
+        "rname": "副部长",
+        "rdesc": "科室经理-副部长",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "VSNCXSEBT9",
+        "rname": "高级经理",
+        "rdesc": "高级经理",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "ATTMBL5EAZ",
+        "rname": "部长助理",
+        "rdesc": "部长助理",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "AAM555BYWL",
+        "rname": "本部技术总监",
+        "rdesc": "部门总监-本部技术总监",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "YWYC7ME75K",
+        "rname": "超级管理员",
+        "rdesc": "超级管理员",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "ZVXUGCP56D",
+        "rname": "管理员",
+        "rdesc": "管理员",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "Z8GCB8URTR",
+        "rname": "本部长",
+        "rdesc": "部门经理-本部长",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "FBEM4T72Y9",
+        "rname": "副本部长",
+        "rdesc": "部门经理-副本部长",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "Q3HTRAJYSZ",
+        "rname": "技术总监",
+        "rdesc": "科室总监-技术总监",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      },
+      {
+        "rid": "Q6GVQ59XZV",
+        "rname": "财务人员",
+        "rdesc": "财务人员创建流程信息",
+        "enabled": 0,
+        "usercount": 0,
+        "belong": 0,
+        "extInfo": null,
+        "menus": [],
+        "menusstr": []
+      }
+    ],
+    "ext": {},
+    "orderBy": ""
+  },
+  "ok": true,
+  "message": ""
+}

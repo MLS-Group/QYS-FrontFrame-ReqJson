@@ -1,0 +1,512 @@
+{
+  "respCode": "0",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "count": 42,
+    "pageCount": 5,
+    "list": [
+      {
+        "avatar": null,
+        "usid": "2QUCZC92RS",
+        "account": "chengxu",
+        "usname": "程旭",
+        "password": null,
+        "extInfo": null,
+        "userCode": null,
+        "officePhone": null,
+        "cellPhoneNumber": null,
+        "homeAddress": null,
+        "postalCode": null,
+        "email": null,
+        "contactAddress": null,
+        "createTime": "2018-09-27 15:05:57",
+        "updateTime": "2018-10-11 08:26:12",
+        "userState": "0",
+        "rolesstr": [],
+        "roles": [
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "UA45W569GQ",
+            "remarks": "所有用户都属于的角色",
+            "name": "普通用户",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          },
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "Q3HTRAJYSZ",
+            "remarks": "科室总监-技术总监",
+            "name": "技术总监",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          }
+        ],
+        "orgsstr": [],
+        "orgs": [
+          {
+            "id": "MEGMW98MVJ",
+            "name": "软件开发部",
+            "parentId": "TT8S672VLL",
+            "parentIds": "0,CLEYQP8C27,MH8JQV5TSN,TT8S672VLL",
+            "parent": null,
+            "childList": null,
+            "delFlag": 0,
+            "orgDesc": "软件开发部",
+            "orgCode": "kfb",
+            "orgType": "4N36RBFTEZ",
+            "isShow": 0,
+            "remarks": null
+          }
+        ]
+      },
+      {
+        "avatar": null,
+        "usid": "3FPFD53L5Q",
+        "account": "renhuanhuan",
+        "usname": "任焕焕",
+        "password": null,
+        "extInfo": null,
+        "userCode": null,
+        "officePhone": null,
+        "cellPhoneNumber": null,
+        "homeAddress": null,
+        "postalCode": null,
+        "email": null,
+        "contactAddress": null,
+        "createTime": "2018-10-26 10:46:53",
+        "updateTime": "2018-10-26 11:04:50",
+        "userState": "0",
+        "rolesstr": [],
+        "roles": [
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "JU9TENYSEY",
+            "remarks": "科室经理-部长",
+            "name": "部长",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          }
+        ],
+        "orgsstr": [],
+        "orgs": [
+          {
+            "id": "J52VZJPJ97",
+            "name": "节能研究部",
+            "parentId": "LG2Q52HH7Y",
+            "parentIds": null,
+            "parent": null,
+            "childList": null,
+            "delFlag": 0,
+            "orgDesc": null,
+            "orgCode": "节能研究",
+            "orgType": null,
+            "isShow": 0,
+            "remarks": null
+          }
+        ]
+      },
+      {
+        "avatar": null,
+        "usid": "3WYWL9LY6G",
+        "account": "dongchangqing",
+        "usname": "董长青",
+        "password": null,
+        "extInfo": null,
+        "userCode": null,
+        "officePhone": null,
+        "cellPhoneNumber": null,
+        "homeAddress": null,
+        "postalCode": null,
+        "email": null,
+        "contactAddress": null,
+        "createTime": "2018-10-26 09:34:31",
+        "updateTime": null,
+        "userState": "0",
+        "rolesstr": [],
+        "roles": [
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "Z8GCB8URTR",
+            "remarks": "部门经理-本部长",
+            "name": "本部长",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          }
+        ],
+        "orgsstr": [],
+        "orgs": [
+          {
+            "id": "TT8S672VLL",
+            "name": "软件业务本部",
+            "parentId": "MH8JQV5TSN",
+            "parentIds": "0,CLEYQP8C27,MH8JQV5TSN",
+            "parent": null,
+            "childList": null,
+            "delFlag": 0,
+            "orgDesc": "软件业务本部",
+            "orgCode": "rjbm",
+            "orgType": "GURZU2VFNZ",
+            "isShow": 0,
+            "remarks": null
+          }
+        ]
+      },
+      {
+        "avatar": null,
+        "usid": "3XADN9TVXA",
+        "account": "zhaoshuai",
+        "usname": "赵帅",
+        "password": null,
+        "extInfo": null,
+        "userCode": null,
+        "officePhone": null,
+        "cellPhoneNumber": null,
+        "homeAddress": null,
+        "postalCode": null,
+        "email": null,
+        "contactAddress": null,
+        "createTime": "2018-10-26 10:46:03",
+        "updateTime": "2018-10-26 11:05:13",
+        "userState": "0",
+        "rolesstr": [],
+        "roles": [
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "JU9TENYSEY",
+            "remarks": "科室经理-部长",
+            "name": "部长",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          }
+        ],
+        "orgsstr": [],
+        "orgs": [
+          {
+            "id": "4LVBC8WSYL",
+            "name": "技术发展部",
+            "parentId": "X2JQL6ZGVF",
+            "parentIds": null,
+            "parent": null,
+            "childList": null,
+            "delFlag": 0,
+            "orgDesc": null,
+            "orgCode": "jishufazhan",
+            "orgType": null,
+            "isShow": 0,
+            "remarks": null
+          }
+        ]
+      },
+      {
+        "avatar": null,
+        "usid": "56WVKV6RV5",
+        "account": "赵晓晨",
+        "usname": "赵晓晨",
+        "password": null,
+        "extInfo": null,
+        "userCode": null,
+        "officePhone": null,
+        "cellPhoneNumber": null,
+        "homeAddress": null,
+        "postalCode": null,
+        "email": null,
+        "contactAddress": null,
+        "createTime": "2018-10-26 10:15:33",
+        "updateTime": null,
+        "userState": "0",
+        "rolesstr": [],
+        "roles": [
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "ZVXUGCP56D",
+            "remarks": "管理员",
+            "name": "管理员",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          }
+        ],
+        "orgsstr": [],
+        "orgs": [
+          {
+            "id": "MH8JQV5TSN",
+            "name": "数据资源中心",
+            "parentId": "CLEYQP8C27",
+            "parentIds": "0,CLEYQP8C27",
+            "parent": null,
+            "childList": null,
+            "delFlag": 0,
+            "orgDesc": "数据资源中心",
+            "orgCode": "ADC",
+            "orgType": "7RXKSKQPSV",
+            "isShow": 0,
+            "remarks": null
+          }
+        ]
+      },
+      {
+        "avatar": "/assets/images/avatar/boy1.png",
+        "usid": "5NVNDUMLEA",
+        "account": "admin2",
+        "usname": "管理员2号",
+        "password": null,
+        "extInfo": null,
+        "userCode": null,
+        "officePhone": null,
+        "cellPhoneNumber": null,
+        "homeAddress": null,
+        "postalCode": null,
+        "email": null,
+        "contactAddress": null,
+        "createTime": null,
+        "updateTime": "2018-11-09 17:03:13",
+        "userState": "1",
+        "rolesstr": [],
+        "roles": [
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "ZVXUGCP56D",
+            "remarks": "管理员",
+            "name": "管理员",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          },
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "UA45W569GQ",
+            "remarks": "所有用户都属于的角色",
+            "name": "普通用户",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          }
+        ],
+        "orgsstr": [],
+        "orgs": []
+      },
+      {
+        "avatar": null,
+        "usid": "5RYG6H4VJU",
+        "account": "wenquan",
+        "usname": "温泉",
+        "password": null,
+        "extInfo": null,
+        "userCode": null,
+        "officePhone": null,
+        "cellPhoneNumber": null,
+        "homeAddress": null,
+        "postalCode": null,
+        "email": null,
+        "contactAddress": null,
+        "createTime": "2018-10-26 08:53:41",
+        "updateTime": null,
+        "userState": "0",
+        "rolesstr": [],
+        "roles": [
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "JU9TENYSEY",
+            "remarks": "科室经理-部长",
+            "name": "部长",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          }
+        ],
+        "orgsstr": [],
+        "orgs": [
+          {
+            "id": "H2FCVPFDVX",
+            "name": "工程数据部",
+            "parentId": "YYKU3J77UA",
+            "parentIds": null,
+            "parent": null,
+            "childList": null,
+            "delFlag": 0,
+            "orgDesc": "工程数据部",
+            "orgCode": "gongchengshujubu",
+            "orgType": "4N36RBFTEZ",
+            "isShow": 0,
+            "remarks": null
+          }
+        ]
+      },
+      {
+        "avatar": null,
+        "usid": "673V4TAFCQ",
+        "account": "libingyang",
+        "usname": "李冰阳",
+        "password": null,
+        "extInfo": null,
+        "userCode": null,
+        "officePhone": null,
+        "cellPhoneNumber": null,
+        "homeAddress": null,
+        "postalCode": null,
+        "email": null,
+        "contactAddress": null,
+        "createTime": "2018-10-26 10:48:48",
+        "updateTime": "2018-10-26 11:07:12",
+        "userState": "0",
+        "rolesstr": [],
+        "roles": [
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "JU9TENYSEY",
+            "remarks": "科室经理-部长",
+            "name": "部长",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          }
+        ],
+        "orgsstr": [],
+        "orgs": [
+          {
+            "id": "V3PJQG56BY",
+            "name": "市场数据部",
+            "parentId": "YYKU3J77UA",
+            "parentIds": null,
+            "parent": null,
+            "childList": null,
+            "delFlag": 0,
+            "orgDesc": "市场数据部",
+            "orgCode": "scsjb",
+            "orgType": "4N36RBFTEZ",
+            "isShow": 0,
+            "remarks": null
+          }
+        ]
+      },
+      {
+        "avatar": null,
+        "usid": "69LYQZYSX7",
+        "account": "guoweiming",
+        "usname": "郭维明",
+        "password": null,
+        "extInfo": null,
+        "userCode": null,
+        "officePhone": null,
+        "cellPhoneNumber": null,
+        "homeAddress": null,
+        "postalCode": null,
+        "email": null,
+        "contactAddress": null,
+        "createTime": "2018-10-26 10:49:15",
+        "updateTime": "2018-10-26 11:08:37",
+        "userState": "0",
+        "rolesstr": [],
+        "roles": [
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "JU9TENYSEY",
+            "remarks": "科室经理-部长",
+            "name": "部长",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          }
+        ],
+        "orgsstr": [],
+        "orgs": [
+          {
+            "id": "UUEV2PLBUH",
+            "name": "后市场数据部",
+            "parentId": "YYKU3J77UA",
+            "parentIds": null,
+            "parent": null,
+            "childList": null,
+            "delFlag": 0,
+            "orgDesc": "后市场数据部",
+            "orgCode": "houshihcang",
+            "orgType": "4N36RBFTEZ",
+            "isShow": 0,
+            "remarks": null
+          }
+        ]
+      },
+      {
+        "avatar": null,
+        "usid": "92DD9VCGDP",
+        "account": "duzhibin",
+        "usname": "杜志彬",
+        "password": null,
+        "extInfo": null,
+        "userCode": null,
+        "officePhone": null,
+        "cellPhoneNumber": null,
+        "homeAddress": null,
+        "postalCode": null,
+        "email": null,
+        "contactAddress": null,
+        "createTime": "2018-10-26 10:55:15",
+        "updateTime": "2018-10-26 11:08:58",
+        "userState": "0",
+        "rolesstr": [],
+        "roles": [
+          {
+            "isDefault": null,
+            "delFlag": 0,
+            "dataScope": null,
+            "id": "Z8GCB8URTR",
+            "remarks": "部门经理-本部长",
+            "name": "本部长",
+            "extInfo": null,
+            "menuEOList": [],
+            "menuEOIdList": []
+          }
+        ],
+        "orgsstr": [],
+        "orgs": [
+          {
+            "id": "X2JQL6ZGVF",
+            "name": "综合业务本部",
+            "parentId": "MH8JQV5TSN",
+            "parentIds": null,
+            "parent": null,
+            "childList": null,
+            "delFlag": 0,
+            "orgDesc": null,
+            "orgCode": "zongheyewu",
+            "orgType": null,
+            "isShow": 0,
+            "remarks": null
+          }
+        ]
+      }
+    ],
+    "ext": {},
+    "orderBy": ""
+  },
+  "ok": true,
+  "message": ""
+}

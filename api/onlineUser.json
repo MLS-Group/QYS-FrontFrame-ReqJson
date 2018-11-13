@@ -1,0 +1,25 @@
+{
+  "respCode": "0",
+  "data": {
+    "onlineUsers": [
+      {
+        "ip": "10.10.0.1",
+        "account": "admin1",
+        "loginTime": 1541988279565
+      },
+      {
+        "ip": "10.10.0.1",
+        "account": "admin1",
+        "loginTime": 1541985240324
+      },
+      {
+        "ip": "10.10.0.3",
+        "account": "admin1",
+        "loginTime": 1541984858147
+      }
+    ],
+    "total": 3
+  },
+  "ok": true,
+  "message": ""
+}

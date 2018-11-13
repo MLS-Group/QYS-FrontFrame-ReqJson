@@ -1,0 +1,277 @@
+{
+  "respCode": "0",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "count": 11,
+    "pageCount": 2,
+    "list": [
+      {
+        "id": "QA29K3UERY",
+        "dictionaryCode": "formType",
+        "dictionaryName": "表单类别",
+        "delFlag": 0,
+        "dicTypeEOList": [
+          {
+            "id": "39PLV3TNJF",
+            "dicTypeCode": "0",
+            "dicTypeName": "行政管理",
+            "dicId": "QA29K3UERY",
+            "delFlag": 0
+          },
+          {
+            "id": "6HYL2QWAFL",
+            "dicTypeCode": "1",
+            "dicTypeName": "人事管理",
+            "dicId": "QA29K3UERY",
+            "delFlag": 0
+          },
+          {
+            "id": "DYFT3ELM2E",
+            "dicTypeCode": "2",
+            "dicTypeName": "财务管理",
+            "dicId": "QA29K3UERY",
+            "delFlag": 0
+          },
+          {
+            "id": "XK7XN8RYPC",
+            "dicTypeCode": "3",
+            "dicTypeName": "项目管理",
+            "dicId": "QA29K3UERY",
+            "delFlag": 0
+          }
+        ]
+      },
+      {
+        "id": "SERYMW8TZ3",
+        "dictionaryCode": "process_condition",
+        "dictionaryName": "流程流转条件",
+        "delFlag": 0,
+        "dicTypeEOList": [
+          {
+            "id": "TDGSR4BRLG",
+            "dicTypeCode": "agree",
+            "dicTypeName": "同意",
+            "dicId": "SERYMW8TZ3",
+            "delFlag": 0
+          },
+          {
+            "id": "FB6WYSETZG",
+            "dicTypeCode": "rollback",
+            "dicTypeName": "不同意",
+            "dicId": "SERYMW8TZ3",
+            "delFlag": 0
+          },
+          {
+            "id": "PJGEUC9XH5",
+            "dicTypeCode": "reject",
+            "dicTypeName": "驳回",
+            "dicId": "SERYMW8TZ3",
+            "delFlag": 0
+          }
+        ]
+      },
+      {
+        "id": "9F8Y7H635N",
+        "dictionaryCode": "userState",
+        "dictionaryName": "用户状态",
+        "delFlag": 0,
+        "dicTypeEOList": [
+          {
+            "id": "YK32UTAG36",
+            "dicTypeCode": "0",
+            "dicTypeName": "使用",
+            "dicId": "9F8Y7H635N",
+            "delFlag": 0
+          },
+          {
+            "id": "NU3MDHUMEA",
+            "dicTypeCode": "1",
+            "dicTypeName": "停用",
+            "dicId": "9F8Y7H635N",
+            "delFlag": 0
+          }
+        ]
+      },
+      {
+        "id": "7NETF38DNN",
+        "dictionaryCode": "org",
+        "dictionaryName": "组织机构",
+        "delFlag": 0,
+        "dicTypeEOList": [
+          {
+            "id": "W25XHLVHSF",
+            "dicTypeCode": "test",
+            "dicTypeName": "软件测试部",
+            "dicId": "7NETF38DNN",
+            "delFlag": 0
+          },
+          {
+            "id": "PLCX5UGPES",
+            "dicTypeCode": "system",
+            "dicTypeName": "系统部",
+            "dicId": "7NETF38DNN",
+            "delFlag": 0
+          },
+          {
+            "id": "DLJFF32NZ7",
+            "dicTypeCode": "soft",
+            "dicTypeName": "软件开发部",
+            "dicId": "7NETF38DNN",
+            "delFlag": 0
+          }
+        ]
+      },
+      {
+        "id": "S3G79EH2ME",
+        "dictionaryCode": "orgtype",
+        "dictionaryName": "组织类别",
+        "delFlag": 0,
+        "dicTypeEOList": [
+          {
+            "id": "4N36RBFTEZ",
+            "dicTypeCode": "1",
+            "dicTypeName": "科室",
+            "dicId": "S3G79EH2ME",
+            "delFlag": 0
+          },
+          {
+            "id": "GURZU2VFNZ",
+            "dicTypeCode": "1",
+            "dicTypeName": "部门",
+            "dicId": "S3G79EH2ME",
+            "delFlag": 0
+          },
+          {
+            "id": "3B7CGE76NV",
+            "dicTypeCode": "1",
+            "dicTypeName": "小组",
+            "dicId": "S3G79EH2ME",
+            "delFlag": 0
+          },
+          {
+            "id": "DWW6RJMSZ3",
+            "dicTypeCode": "1",
+            "dicTypeName": "测试",
+            "dicId": "S3G79EH2ME",
+            "delFlag": 0
+          }
+        ]
+      },
+      {
+        "id": "HSRL4QSK9D",
+        "dictionaryCode": "SINGLEBOX",
+        "dictionaryName": "SINGLEBOX",
+        "delFlag": 0,
+        "dicTypeEOList": [
+          {
+            "id": "42C2SMVEAX",
+            "dicTypeCode": "0",
+            "dicTypeName": "case0",
+            "dicId": "HSRL4QSK9D",
+            "delFlag": 0
+          },
+          {
+            "id": "Y4B86FM744",
+            "dicTypeCode": "1",
+            "dicTypeName": "case1",
+            "dicId": "HSRL4QSK9D",
+            "delFlag": 0
+          }
+        ]
+      },
+      {
+        "id": "SSYX9EYKFN",
+        "dictionaryCode": "control",
+        "dictionaryName": "控件类别",
+        "delFlag": 0,
+        "dicTypeEOList": [
+          {
+            "id": "DNYW6ZNSM7",
+            "dicTypeCode": "ddl",
+            "dicTypeName": "下拉框",
+            "dicId": "SSYX9EYKFN",
+            "delFlag": 0
+          }
+        ]
+      },
+      {
+        "id": "2Z4DYZLXQE",
+        "dictionaryCode": "sex11",
+        "dictionaryName": "性别",
+        "delFlag": 0,
+        "dicTypeEOList": [
+          {
+            "id": "VRXJU2FS39",
+            "dicTypeCode": "0",
+            "dicTypeName": "男",
+            "dicId": "2Z4DYZLXQE",
+            "delFlag": 0
+          },
+          {
+            "id": "5PSFMAX7YP",
+            "dicTypeCode": "1",
+            "dicTypeName": "女",
+            "dicId": "2Z4DYZLXQE",
+            "delFlag": 0
+          }
+        ]
+      },
+      {
+        "id": "7ZURP4W22F",
+        "dictionaryCode": "leaveCategory",
+        "dictionaryName": "请假类别",
+        "delFlag": 0,
+        "dicTypeEOList": [
+          {
+            "id": "F87XP2W2QQ",
+            "dicTypeCode": "3",
+            "dicTypeName": "换休假",
+            "dicId": "7ZURP4W22F",
+            "delFlag": 0
+          },
+          {
+            "id": "7CB6BHXFM4",
+            "dicTypeCode": "1",
+            "dicTypeName": "事假",
+            "dicId": "7ZURP4W22F",
+            "delFlag": 0
+          },
+          {
+            "id": "NPCCAPSDKG",
+            "dicTypeCode": "2",
+            "dicTypeName": "年假",
+            "dicId": "7ZURP4W22F",
+            "delFlag": 0
+          }
+        ]
+      },
+      {
+        "id": "GRM86KDM6J",
+        "dictionaryCode": "property",
+        "dictionaryName": "项目性质",
+        "delFlag": 0,
+        "dicTypeEOList": [
+          {
+            "id": "4MD7ANYZ4Y",
+            "dicTypeCode": "1",
+            "dicTypeName": "新增",
+            "dicId": "GRM86KDM6J",
+            "delFlag": 0
+          },
+          {
+            "id": "DZ5B2QHH4E",
+            "dicTypeCode": "0",
+            "dicTypeName": "持续",
+            "dicId": "GRM86KDM6J",
+            "delFlag": 0
+          }
+        ]
+      }
+    ],
+    "ext": {},
+    "orderBy": ""
+  },
+  "ok": true,
+  "message": ""
+}

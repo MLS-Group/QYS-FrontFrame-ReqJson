@@ -1,0 +1,50 @@
+{
+  "respCode": "0",
+  "data": {
+    "avatar": "/assets/images/avatar/girl3.png",
+    "usid": "GHVRTMA9H2",
+    "account": "admin1",
+    "usname": "管理员1号",
+    "password": null,
+    "extInfo": null,
+    "userCode": "123131",
+    "officePhone": "12312321",
+    "cellPhoneNumber": "13132131312",
+    "homeAddress": "23332",
+    "postalCode": null,
+    "email": null,
+    "contactAddress": null,
+    "createTime": null,
+    "updateTime": "2018-11-09 17:12:24",
+    "userState": "0",
+    "rolesstr": [],
+    "roles": [
+      {
+        "isDefault": null,
+        "delFlag": 0,
+        "dataScope": null,
+        "id": "UA45W569GQ",
+        "remarks": "所有用户都属于的角色",
+        "name": "普通用户",
+        "extInfo": null,
+        "menuEOList": [],
+        "menuEOIdList": []
+      },
+      {
+        "isDefault": null,
+        "delFlag": 0,
+        "dataScope": null,
+        "id": "ZVXUGCP56D",
+        "remarks": "管理员",
+        "name": "管理员",
+        "extInfo": null,
+        "menuEOList": [],
+        "menuEOIdList": []
+      }
+    ],
+    "orgsstr": [],
+    "orgs": []
+  },
+  "ok": true,
+  "message": ""
+}
