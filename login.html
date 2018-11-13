@@ -212,7 +212,7 @@ HISTORY:
                     url: config.base_server + '/api/login',
                     data: JSON.stringify(field),
                     //当访问静态数据时，使用get方法请求 qitian 2018-11-12
-                    type: config.reqJson ? 'get' : 'POST',
+                    type: config.reqJson ? 'get' : 'GET',
                     contentType: 'application/json; charset=UTF-8',
                     dataType: 'JSON',
                     timeout: 5000,

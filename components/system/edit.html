@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--/*
+ * @Description:可编辑表格
+ * @Date 2018/11/13 13:19
+ * @author Wang ke long
+*/-->
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md12 autoScrollLeft">
+        <div class="layui-card p-main">
+            <div class="layui-card-header">项目单列表</div>
+            <!-- 卡片容器 -->
+            <div class="layui-card-body">
+                <!-- 数据表格顶部控制栏 -->
+                <div class="layui-form">
+                    <div class="layui-form-item table-top-bar">
+                        <!-- 左侧 -->
+                        <div class="layui-inline">
+                            <div class="layui-inline search-item">
+                                <i class="layui-icon layui-icon-search"></i>
+                                <input type="text" name="ListName" placeholder="输入项目单号" class="layui-input">
+                            </div>
+                            <div class="layui-inline">
+                                <button class="layui-btn layui-btn-sm layui-btn-normal" lay-filter="btn_search_list"
+                                        lay-submit>查询</button>
+                            </div>
+                            <div class="layui-inline">
+                                <button class="layui-btn layui-btn-sm layui-btn-primary" lay-filter="btn_reset_list"
+                                        lay-submit>重置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 下部表格容器 -->
+                <table style="margin-top: 2%;" class="layui-hide" id="demo" lay-filter="demo"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    /*
+     * @Description:可编辑表格
+     * @Date 2018/11/13 13:21
+     * @author Wang ke long
+    */
+    layui.use('table', function(){
+        var table = layui.table,
+            admin = layui.admin,
+            form = layui.form,
+            config = layui.config
+        var renderTable = function (where) {
+            //执行一个 table 实例
+            table.render({
+                elem: '#demo'
+                ,height: 450
+                ,url: admin.formatUrl('/api/sys/edit/edit') //数据接口
+                ,title: '项目单表'
+                ,page: true //开启分页
+                ,cols: [[ //表头
+                    {type: 'checkbox', fixed: 'left'},
+                    {field: 'listNumber', title: '项目单编号（验证：只能输数字）', edit: 'text',width:250,fixed: 'left'}
+                    ,{field: 'mySqe', title: '负责SQE（验证：只能输入汉字）',edit: 'text'}
+                    ,{field: 'myEmail', title: '邮箱（验证：邮箱格式验证）',edit: 'text'}
+                    ,{field: 'myPhone', title: '电话号（验证：电话号格式验证）', edit: 'text'}
+                ]],
+                where: where,
+                // 列宽最少 120，防止在小屏幕上显示不全列标题
+                cellMinWidth: 120,
+                id: 'testReload'
+            });
+        }
+        // 初始化，执行一次渲染表格树
+        renderTable();
+
+        // 搜索
+        form.on('submit(btn_search_list)', function (data) {
+            var searchValue = data.field;
+            renderTable(searchValue);
+        });
+        // 重置
+        form.on('submit(btn_reset_list)', function () {
+            $('input[name="ListName"]').val('');
+            renderTable({
+                ListName: ''
+            });
+        });
+
+        //监听单元格编辑
+        table.on('edit(demo)', function(obj){
+            var value = obj.value //得到修改后的值
+                ,data = obj.data //得到所在行所有键值
+                ,field = obj.field; //得到字段
+            //可编辑表格输入验证实例
+            var testChina = /^[\u4e00-\u9fa5]+$/;
+            var testNumber = /^[0-9]*$/;
+            var testEmail = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+            var testPhone = /^1[34578]\d{9}$/;
+            if(value == ''){
+                layer.msg('输入不能为空')
+                table.reload("testReload")
+            }else if(obj.field == "mySqe" && !testChina.test(value)){
+                layer.msg('必须输入汉字')
+                table.reload("testReload")
+            }else if((obj.field == "listNumber" || obj.field == "projectType")&& !testNumber.test(value)){
+                layer.msg('必须输入数字')
+                table.reload("testReload")
+            }else if(obj.field == "myEmail" && !testEmail.test(value)){
+                layer.msg('请输入正确邮箱')
+                table.reload("testReload")
+            }else if(obj.field == "myPhone" && !testPhone.test(value)){
+                layer.msg('请输入正确电话号')
+                table.reload("testReload")
+            }
+            else {
+                layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+            }
+        });
+    });
+</script>
+</body>
+</html>
