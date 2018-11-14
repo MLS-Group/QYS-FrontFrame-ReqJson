@@ -2,7 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>可编辑表格</title>
+    <style>
+        .layui-upload-img{
+            width: 40px;
+            height: 40px;
+        }
+        .upLoadBtn{
+            width: 80px;
+            height: 30px;
+            font-size: 10px;
+            float: left;
+        }
+        .layui-upload-list{
+            float: left;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
 <!--/*
@@ -13,7 +29,7 @@
 <div class="layui-row layui-col-space15">
     <div class="layui-col-md12 autoScrollLeft">
         <div class="layui-card p-main">
-            <div class="layui-card-header">项目单列表</div>
+            <div class="layui-card-header">可编辑表格</div>
             <!-- 卡片容器 -->
             <div class="layui-card-body">
                 <!-- 数据表格顶部控制栏 -->
@@ -37,45 +53,135 @@
                     </div>
                 </div>
                 <!-- 下部表格容器 -->
-                <table style="margin-top: 2%;" class="layui-hide" id="demo" lay-filter="demo"></table>
+                <table class="layui-hide" id="demo" lay-filter="demo"></table>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/html" id="fileBtn">
+    <div class="layui-upload">
+        <button type="button" class="layui-btn upLoadBtn" id="test2">图片上传</button>
+        <div class="layui-upload-list" id="demo2"></div>
+    </div>
+</script>
+
 <script>
     /*
      * @Description:可编辑表格
      * @Date 2018/11/13 13:21
      * @author Wang ke long
     */
-    layui.use('table', function(){
-        var table = layui.table,
+    var $ = null;
+    layui.use(["jquery", "table"], function(){
+        var $ = layui.jquery,
+            table = layui.table,
             admin = layui.admin,
-            form = layui.form,
-            config = layui.config
+            form = layui.form;
+
+        //记录选中的数据:做缓存使用,作为参数传递给后台,然后生成pdf ,压缩
+        var ids =new Array();
+        //当前表格中的全部数据:在表格的checkbox全选的时候没有得到数据, 因此用全局存放变量
+        var table_data=new Array();
+
         var renderTable = function (where) {
             //执行一个 table 实例
             table.render({
                 elem: '#demo'
-                ,height: 450
+                ,height: 472
                 ,url: admin.formatUrl('/api/sys/edit/edit') //数据接口
                 ,title: '项目单表'
-                ,page: true //开启分页
                 ,cols: [[ //表头
-                    {type: 'checkbox', fixed: 'left'},
-                    {field: 'listNumber', title: '项目单编号（验证：只能输数字）', edit: 'text',width:250,fixed: 'left'}
-                    ,{field: 'mySqe', title: '负责SQE（验证：只能输入汉字）',edit: 'text'}
+                    {checkbox: true, width: 60, fixed: true}
+                    ,{field: 'listNumber', title: '项目单编号（验证：只能输数字）', edit: 'text',fixed: 'left'}
+                    ,{field: 'mySqe', title: '负责SQE（验证：只能输汉字）',edit: 'text'}
                     ,{field: 'myEmail', title: '邮箱（验证：邮箱格式验证）',edit: 'text'}
                     ,{field: 'myPhone', title: '电话号（验证：电话号格式验证）', edit: 'text'}
+                    ,{field:'upfile', title:'文件上传',templet: '#fileBtn', unresize: true}
                 ]],
                 where: where,
                 // 列宽最少 120，防止在小屏幕上显示不全列标题
                 cellMinWidth: 120,
-                id: 'testReload'
+                id: 'testReload',
+
+                page: { //分页设定
+                    layout: ['count', 'prev', 'page', 'next'] //自定义分页布局
+                    , curr: 1 //设定初始在第 1 页
+                    , limit: 10//每页多少数据
+                    , groups: 5 //只显示 5 个连续页码
+                },
+                even: true
+                ,done: function(res, curr, count){
+                    //数据表格加载完成时调用此函数
+                    //如果是异步请求数据方式，res即为你接口返回的信息。
+                    //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+
+                    //设置全部数据到全局变量
+                    table_data=res.data;
+
+                    //在缓存中找到id ,然后设置data表格中的选中状态
+                    //循环所有数据，找出对应关系，设置checkbox选中状态
+                    for(var i=0;i< res.data.length;i++){
+                        for (var j = 0; j < ids.length; j++) {
+                            //数据id和要勾选的id相同时checkbox选中
+                            if(res.data[i].id == ids[j])
+                            {
+                                //这里才是真正的有效勾选
+                                res.data[i]["LAY_CHECKED"]='true';
+                                //找到对应数据改变勾选样式，呈现出选中效果
+                                var index= res.data[i]['LAY_TABLE_INDEX'];
+                                $('.layui-table-fixed-l tr[data-index=' + index + '] input[type="checkbox"]').prop('checked', true);
+                                $('.layui-table-fixed-l tr[data-index=' + index + '] input[type="checkbox"]').next().addClass('layui-form-checked');
+                            }
+                        }
+                    }
+                    //设置全选checkbox的选中状态，只有改变LAY_CHECKED的值， table.checkStatus才能抓取到选中的状态
+                    var checkStatus = table.checkStatus('my-table');
+                    if(checkStatus.isAll){
+                        $(' .layui-table-header th[data-field="0"] input[type="checkbox"]').prop('checked', true);
+                        $('.layui-table-header th[data-field="0"] input[type="checkbox"]').next().addClass('layui-form-checked');
+                    }
+                    //得到所有数据
+                    console.log(res);
+                    //得到当前页码
+                    console.log(curr);
+                    //得到数据总量
+                    console.log(count);
+                }
             });
         }
+
         // 初始化，执行一次渲染表格树
         renderTable();
+
+        //复选框选中监听,将选中的id 设置到缓存数组,或者删除缓存数组
+        table.on('checkbox(demo)', function (obj) {
+            if(obj.checked==true){
+                if(obj.type=='one'){
+                    ids.push(obj.data.id);
+                }else{
+                    for(var i=0;i<table_data.length;i++){
+                        ids.push(table_data[i].id);
+                    }
+                }
+            }else{
+                if(obj.type=='one'){
+                    for(var i=0;i<ids.length;i++){
+                        if(ids[i]==obj.data.id){
+                            ids.remove(i);
+                        }
+                    }
+                }else{
+                    for(var i=0;i<ids.length;i++){
+                        for(var j=0;j<table_data.length;j++){
+                            if(ids[i]==table_data[j].id){
+                                ids.remove(i);
+                            }
+                        }
+                    }
+                }
+            }
+        });
 
         // 搜索
         form.on('submit(btn_search_list)', function (data) {
@@ -96,10 +202,10 @@
                 ,data = obj.data //得到所在行所有键值
                 ,field = obj.field; //得到字段
             //可编辑表格输入验证实例
-            var testChina = /^[\u4e00-\u9fa5]+$/;
+            var testChina = /^[\u4e00-\u9fa5]{0,}$/;
             var testNumber = /^[0-9]*$/;
-            var testEmail = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
-            var testPhone = /^1[34578]\d{9}$/;
+            var testEmail = /^[A-Za-z0-9]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
+            var testPhone = /^1[3|4|5|6|7|8|9][0-9]\d{8}$/;
             if(value == ''){
                 layer.msg('输入不能为空')
                 table.reload("testReload")
@@ -116,8 +222,28 @@
                 layer.msg('请输入正确电话号')
                 table.reload("testReload")
             }
-            else {
+            /*else {
                 layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+            }*/
+            //表格某两列进行即时联动
+            });
+        });
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+        //多图片上传
+        upload.render({
+            elem: '#test2'
+            ,url: '/upload/'
+            ,multiple: true
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+                    $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">')
+                });
+            }
+            ,done: function(res){
+                //上传完毕
             }
         });
     });
