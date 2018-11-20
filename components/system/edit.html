@@ -55,6 +55,16 @@
                                         lay-submit>重置</button>
                             </div>
                         </div>
+
+                        <!-- 右侧 -->
+                        <div class="layui-inline layui-pull-right">
+                            <div class="layui-inline">
+                                <button class="layui-btn layui-btn-sm layui-btn-primary" lay-filter="btn_add_file"
+                                        lay-submit>
+                                    <i class="layui-icon layui-icon-add-1"></i>新增项目跟踪单
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- 下部表格容器 -->
@@ -165,6 +175,21 @@
             }*/
             //表格某两列进行即时联动
             });
+
+        // 新增
+        form.on('submit(btn_add_file)', function () {
+            admin.popupCenter({
+                title: "新增项目跟踪单",
+                path: 'components/tpl/system_org_tpl_add_file.html',
+                finish: function () {
+                    renderTable();
+                },
+                success: function () {
+
+                }
+            });
+        });
+
         });
     layui.use('upload', function(){
         var upload = layui.upload;

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>带进度条的文件上传</title>
+</head>
+<body>
+<!--/*
+ * @Description:带进度条的文件上传
+ * @Date 2018/11/20 16:26
+ * @author Wang ke long
+*/-->
+
+<button type="button" class="layui-btn" id="chooseFile">
+    <i class="layui-icon">&#xe67c;</i>选择文件
+</button> 文件名称: <span id="fileName"></span>
+<div style="height: 20px;"></div>
+<button type="button" class="layui-btn" id="uploadBtn">
+    <i class="layui-icon">&#xe67c;</i>上传文件
+</button>
+<div style="height: 20px;"></div>
+<div class="layui-progress layui-progress-big" lay-showPercent="yes" lay-filter="progressBar">
+    <div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div>
+</div>
+
+<script type="text/javascript">
+
+    layui.use(['upload','element'], function(){
+
+    var upload = layui.upload,
+        element = layui.element;
+    element.init();
+
+    upload.render({
+        elem: '#chooseFile', // 文件选择
+        accept:'file',
+        url: '/fileUpload',
+        multiple: true,
+        auto: false, // 设置不自动提交
+        bindAction: '#uploadBtn', // 提交按钮
+        progress: function(e , percent) {
+            console.log("进度：" + percent + '%');
+            element.progress('progressBar',percent  + '%');
+        },
+        choose: function(obj) {
+            obj.preview(function(index, file, result) {
+                $("#fileName").append(file.name);
+            });
+        },
+        done: function(res) {
+            layer.msg(res.msg);
+        },
+        error: function(res) {
+            //layer.msg(res.msg);
+            layer.msg("上传失败！");
+        }
+    });
+
+    })
+</script>
+</body>
+</html>
