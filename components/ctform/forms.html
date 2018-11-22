@@ -1,0 +1,258 @@
+<!--
+Created: 2018-11-20
+Author : liuzhijie
+-->
+<style>
+
+</style>
+
+<div class="layui-row layui-col-space15">
+    <!-- 列表展示 -->
+    <div class="layui-col-md12 card-show-list">
+        <div class="layui-card">
+            <div class="layui-card-header">表单管理</div>
+            <div class="layui-card-body">
+                <table id="tableContent-form2" lay-filter="tableContent-form2"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 表格操作列 -->
+<script type="text/html" id="control-2">
+    <a class="table-control-btn" lay-event="edit2">编辑</a>
+    <a class="table-control-btn" lay-event="upload2">图片上传</a>
+</script>
+
+<!--表格数据根据不同的状态显示不同的颜色-->
+<!--<script type="text/html" id="statusTpl">
+    {{# if (d.status == 0) { }}
+    <span style="color: #9ACD32;">成功</span>
+    {{# }else if (d.status == 1){ }}
+    <span style="color: #E1E100;">警告</span>
+    {{# }else if (d.status == 2){ }}
+    <span style="color: #EE0000;">危险</span>
+    {{# } }}
+</script>-->
+
+<!--显示上传的图片-->
+<script type="text/html" id="picTpl">
+    <img />
+</script>
+
+<script>
+
+    layui.use(['table', 'form'], function () {
+        var table = layui.table,
+            form = layui.form,
+            config = layui.config,
+            admin = layui.admin,
+            layer = layui.layer;
+        // 渲染表格
+        table.render({
+            elem: '#tableContent-form2',
+            id: 'tableContent-form2',
+            url: admin.formatUrl('/api/form'),
+            // 格式化后台返回的数据
+            parseData: function (res) {
+                return {
+                    "code": res.respCode, //解析接口状态
+                    "msg": res.message, //解析提示文本
+                    "count": res.data.count, //解析数据长度
+                    "data": res.data.list //解析数据列表
+                };
+            },
+            done: function (res, curr, count) {
+                //如果是异步请求数据方式，res即为你接口返回的信息。
+                //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+
+                showTrColor();
+
+            },
+            height: 472,
+            cols: [
+                [{
+                    type: 'checkbox'
+                }, {
+                    field: 'formName',
+                    title: '表单名称',
+                    edit: 'text'
+                }, {
+                    field: 'formCode',
+                    title: '表单编号',
+                    align: 'center',
+                }, {
+                    field: 'createTime',
+                    title: '创建时间',
+                    align: 'center',
+                    sort: true,
+                }, {
+                    field: 'createName',
+                    title: '创建人',
+                    align: 'center',
+                    edit: 'text'
+                }, {
+                    field: 'version',
+                    title: '编辑次数',
+                    align: 'center'
+                }, {
+                    field: 'status',
+                    title: '状态',
+                    align: 'center'
+                }, {
+                    templet: '#picTpl',
+                    title: '图片',
+                    align: 'center'
+                },{
+                    templet: '#control-2',
+                    title: '操作',
+                    align: 'center',
+                    unresize: true
+                }]
+            ],
+            cellMinWidth: 120,
+            page: {
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+            },
+            request: {
+                pageName: 'pageNo',
+                limitName: 'pageSize'
+            },
+            where: {
+                design: 0
+            }
+        });
+        // 监听工具条事件
+        table.on('tool(tableContent-form2)', function (obj) {
+            // 获取点击列的数据
+            let data = obj.data;
+            let layEvent = obj.event;
+            let tr = obj.tr;
+            // 判断操作类型
+            if (layEvent === 'edit2') {
+                // 编辑表单
+                popMenu('edit2', data);
+            }
+            if (layEvent === 'upload2') {
+
+            }
+
+            //表格数据根据不同的状态显示不同的颜色
+            /*if (data.status == 0){
+                $(tr).css("color","#9ACD32");
+            } else if (data.status == 1) {
+                $(tr).css("color","#E1E100");
+            }else if (data.status == 2) {
+                $(tr).css("color","#EE0000");
+            }*/
+        });
+
+        // 弹出框
+        function popMenu(type, data) {
+            if (type == 'edit2') {
+                var title = '编辑表单：' + data.formName
+            } else if (type == 'upload2') {
+                var title = '上传图片'
+            }
+
+            data.type = type;
+            admin.popupCenter({
+                title: title,
+                path: 'components/tpl/ctform_forms_tpl_edit.html',
+                finish: function () {
+                    table.reload('tableContent-form2');
+                },
+                success: function () {
+                    setFormValue(data);
+                    loseBlur();
+                }
+            });
+        }
+
+        // 设置表单内容
+        function setFormValue(obj) {
+            let formNames = ['formCode', 'formName', 'createName', 'version'],
+                valSetting = {};  //表单初始值
+            for (let i = 0; i < formNames.length; i++) {
+                if (obj[formNames[i]]) {
+                    valSetting[formNames[i]] = obj[formNames[i]]
+                } else {
+                    valSetting[formNames[i]] = ''
+                }
+            }
+            form.val("forms_tpl", valSetting); //表单初始赋值
+        }
+
+        //失去焦点验证
+        function loseBlur() {
+            let inputs = $('.p-form').find('input');
+            for (let input of inputs) {
+                let verifyVal = $(input).attr('lay-verify');
+                if (verifyVal == 'required') {
+                    input.onblur = (e) => {
+                        if ($(input).val() == '') {
+                            layer.alert('该项不能为空！！');
+                        }
+                    }
+                } else if (verifyVal == 'number') {
+                    input.onblur = (e) => {
+                        if ($(input).val() != '' && !/^\d{1,}$/.test($(input).val())) {
+                            layer.alert('该项只能填数字！！');
+                            $(input).val('');
+                        }
+                    }
+                }
+            }
+        }
+
+        //监听 “提交” 按钮
+        form.on('submit(menuSave-role)', (data) => {
+            admin.req('/api/form', data.field, (result) => {
+                admin.closePopupCenter();
+            })
+        })
+        //监听“取消”按钮
+        form.on('submit(popmenuCancle)', (data) => {
+            admin.closePopupCenter();
+        })
+
+
+        //表格联动
+        //表单名称 和 创建人 联动
+        table.on('row(tableContent-form2)', function(obj){
+            console.log(obj);
+            console.log(obj.data);
+            console.log(obj.data.createName );
+            let linkageObjArray = [{'formName':'f1','createName':'c1'},
+                {'formName':'f2','createName':'c2'},
+                {'formName':'f3','createName':'c3'}]
+            for (let linkageObj of linkageObjArray) {
+                if (obj.data.createName == linkageObj.createName) {
+                    $(obj.tr).children('td[data-field =\'formName\']').text(linkageObj.formName);
+                }
+                if (obj.data.formName == linkageObj.formName) {
+                    $(obj.tr).children('td[data-field =\'createName\']').text(linkageObj.createName);
+                }
+            }
+        });
+
+
+        //表格数据根据不同的状态显示不同的颜色
+        function showTrColor() {
+            for (let tr of $('tbody tr')) {
+                let status = $(tr).children('td[data-field =\'status\']').text();
+                if (status !== undefined && status == 0) {
+                    $(tr).css("color", "#9ACD32");
+                } else if (status == 1) {
+                    $(tr).css("color", "#E1E100");
+                } else if (status == 2) {
+                    $(tr).css("color", "#EE0000");
+                }
+            }
+        }
+
+
+    });
+
+
+</script>
