@@ -3,15 +3,17 @@ Created: 2018-11-20
 Author : liuzhijie
 -->
 <style>
-    .layui-upload-img{
+    .layui-upload-img {
         width: 40px;
         height: 40px;
         cursor: pointer;
     }
-    .upImg{
+
+    .upImg {
         width: 400px;
         height: 400px;
     }
+
 
 </style>
 
@@ -51,13 +53,17 @@ Author : liuzhijie
 
 <script>
 
-    layui.use(['table', 'form','upload'], function () {
+    layui.use(['table', 'form', 'upload'], function () {
         let table = layui.table,
             form = layui.form,
             config = layui.config,
             admin = layui.admin,
             layer = layui.layer,
             upload = layui.upload;
+
+        let ids = [],  // 选中的数据的 id
+            table_data = []; // tabke的全部数据
+
         // 渲染表格
         table.render({
             elem: '#tableContent-form2',
@@ -76,8 +82,10 @@ Author : liuzhijie
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
 
-                showTrColor();
-                uploadRender();
+                showTrColor();  //表格数据根据不同的状态显示不同的颜色
+                loadCheckBox(res.data);//加载之前选中的复选框
+                uploadRender(); //上传图片功能渲染
+
             },
             height: 472,
             cols: [
@@ -113,12 +121,12 @@ Author : liuzhijie
                     templet: '#picTpl',
                     title: '图片',
                     align: 'center'
-                },{
+                }, {
                     templet: '#control-2',
                     title: '操作',
                     align: 'center',
                     width: 200,
-                    unresize:false
+                    unresize: false
                 }]
             ],
             cellMinWidth: 120,
@@ -155,6 +163,64 @@ Author : liuzhijie
             }else if (data.status == 2) {
                 $(tr).css("color","#EE0000");
             }*/
+        });
+
+
+        //监听 “提交” 按钮
+        form.on('submit(menuSave-role)', (data) => {
+            admin.req('/api/form', data.field, (result) => {
+                admin.closePopupCenter();
+            })
+        })
+
+        //监听“取消”按钮
+        form.on('submit(popmenuCancle)', (data) => {
+            admin.closePopupCenter();
+        })
+
+        //表格联动
+        //表单名称 和 创建人 联动
+        table.on('row(tableContent-form2)', function (obj) {
+            let linkageObjArray = [{'formName': 'f1', 'createName': 'c1'},
+                {'formName': 'f2', 'createName': 'c2'},
+                {'formName': 'f3', 'createName': 'c3'}]
+            for (let linkageObj of linkageObjArray) {
+                if (obj.data.createName == linkageObj.createName) {
+                    $(obj.tr).children('td[data-field =\'formName\']').text(linkageObj.formName);
+                }
+                if (obj.data.formName == linkageObj.formName) {
+                    $(obj.tr).children('td[data-field =\'createName\']').text(linkageObj.createName);
+                }
+            }
+        });
+
+        //复选框选中监听
+        table.on('checkbox(tableContent-form2)', function(obj){
+            if(obj.checked==true){
+                if(obj.type=='one'){
+                    ids.push(obj.data.formCode);
+                }else{
+                    for(var i=0;i<table_data.length;i++){
+                        ids.push(table_data[i].formCode);
+                    }
+                }
+            }else{
+                if(obj.type=='one'){
+                    for(var i=0;i<ids.length;i++){
+                        if(ids[i]==obj.data.formCode){
+                            ids.splice(i);
+                        }
+                    }
+                }else{
+                    for(var i=0;i<ids.length;i++){
+                        for(var j=0;j<table_data.length;j++){
+                            if(ids[i]==table_data[j].formCode){
+                                ids.splice(i);
+                            }
+                        }
+                    }
+                }
+            }
         });
 
         // 弹出框
@@ -215,34 +281,6 @@ Author : liuzhijie
             }
         }
 
-        //监听 “提交” 按钮
-        form.on('submit(menuSave-role)', (data) => {
-            admin.req('/api/form', data.field, (result) => {
-                admin.closePopupCenter();
-            })
-        })
-
-        //监听“取消”按钮
-        form.on('submit(popmenuCancle)', (data) => {
-            admin.closePopupCenter();
-        })
-
-        //表格联动
-        //表单名称 和 创建人 联动
-        table.on('row(tableContent-form2)', function(obj){
-            let linkageObjArray = [{'formName':'f1','createName':'c1'},
-                {'formName':'f2','createName':'c2'},
-                {'formName':'f3','createName':'c3'}]
-            for (let linkageObj of linkageObjArray) {
-                if (obj.data.createName == linkageObj.createName) {
-                    $(obj.tr).children('td[data-field =\'formName\']').text(linkageObj.formName);
-                }
-                if (obj.data.formName == linkageObj.formName) {
-                    $(obj.tr).children('td[data-field =\'createName\']').text(linkageObj.createName);
-                }
-            }
-        });
-
         //表格数据根据不同的状态显示不同的颜色
         function showTrColor() {
             for (let tr of $('tbody tr')) {
@@ -260,64 +298,57 @@ Author : liuzhijie
         //上传图片功能渲染
         function uploadRender() {
             upload.render({
-                 elem: '.upload2' //绑定元素
-                ,url: '/upload/' //上传接口
-                ,auto: false
-                ,multiple: true
-                ,choose: function (obj) {
+                elem: '.upload2' //绑定元素
+                , url: '/upload/' //上传接口
+                , auto: false
+                , multiple: true
+                , choose: function (obj) {
                     var files = obj.pushFile();
                     var item = this.item;
                     //预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
-                    obj.preview(function(index, file, result){
-                      /*  console.log(index); //得到文件索引
-                        console.log(file); //得到文件对象
-                        console.log(result); //得到文件base64编码，比如图片
-                       */
+                    obj.preview(function (index, file, result) {
                         $(item).parents('tr').find('.imgsT').append(`<img  onclick="clickImgForms(this)" src="${result}" alt="${file.name}" class="layui-upload-img">`)
-
-                        //obj.resetFile(index, file, '123.jpg'); //重命名文件名，layui 2.3.0 开始新增
-
-                        //这里还可以做一些 append 文件列表 DOM 的操作
-
-                        //obj.upload(index, file); //对上传失败的单个文件重新上传，一般在某个事件中使用
-                        //delete files[index]; //删除列表中对应的文件，一般在某个事件中使用
                     });
-                }
-                ,before: function (obj){
-                     console.log("before")
-                }
-                ,error: function(){
-                    //请求异常回调
-                    console.log("error")
-                }
-                ,done: function(res){
-                    //上传完毕的回调
-                    console.log("done")
                 }
             });
 
         }
 
-
-
-
+        //加载之前选中的复选框
+        function loadCheckBox (data) {
+            console.log("loadCheckBox")
+            table_data=data;
+            for(let i=0;i<data.length;i++){
+                for (let j = 0; j < ids.length; j++) {
+                    //数据id和要勾选的id相同时checkbox选中
+                    if(data[i].formCode == ids[j])
+                    {
+                        //这里才是真正的有效勾选
+                        data[i]["LAY_CHECKED"]='true';
+                        //找到对应数据改变勾选样式，呈现出选中效果
+                        let index= data[i]['LAY_TABLE_INDEX'];
+                        $('.layui-table-main tr[data-index=' + index + '] input[type="checkbox"]').prop('checked', true);
+                        $('.layui-table-main tr[data-index=' + index + '] input[type="checkbox"]').next().addClass('layui-form-checked');
+                    }
+                }
+            }
+        }
 
     });
+
     /**
      * 点击图片预览
      * @param imgDom  要展示的dom对象
      */
-    function clickImgForms(imgDom){
+    function clickImgForms(imgDom) {
         let srcData = $(imgDom).attr("src");
         layer.open({
             type: 1,
             title: false,
-            area:['400px', '400px'],
+            area: ['400px', '400px'],
             closeBtn: 0,
-            //area: '516px',
-            skin: 'layui-layer-nobg', //没有背景色
             shadeClose: true,
-            content: `<img  src="${srcData}" class="upImg"`
+            content: `<img  src="${srcData}" class="upImg" />`
         });
     }
 
