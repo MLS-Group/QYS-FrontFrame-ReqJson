@@ -260,24 +260,9 @@ Author : liuzhijie
             admin.closePopupCenter();
         })
 
-        //表格联动
-        //表单名称 和 创建人 联动
-        table.on('row(tableContent-form2)', function (obj) {
-            let linkageObjArray = [{'formName': 'f1', 'createName': 'c1'},
-                {'formName': 'f2', 'createName': 'c2'},
-                {'formName': 'f3', 'createName': 'c3'}]  //联动的数据
-            for (let linkageObj of linkageObjArray) {
-                if (obj.data.createName == linkageObj.createName) {
-                    $(obj.tr).children('td[data-field =\'formName\']').text(linkageObj.formName);
-                }
-                if (obj.data.formName == linkageObj.formName) {
-                    $(obj.tr).children('td[data-field =\'createName\']').text(linkageObj.createName);
-                }
-            }
-        });
 
-        //表格某一列,失焦可以按既定规则进行验证并请求接口保存数据，如果不符合验证规则，清空并提示
         table.on('edit(tableContent-form2)', function (obj) {
+            //表格某一列,失焦可以按既定规则进行验证并请求接口保存数据，如果不符合验证规则，清空并提示
             if ((obj.field == 'formCode' || obj.field == 'version') && !/^\d{1,}$/.test(obj.value)) {
                 layer.alert("该项只能为数字！！");
                 $(this).val('');
@@ -293,6 +278,19 @@ Author : liuzhijie
                     console.log('修改成功')
                 }
             })
+            //表格联动
+            //表单名称 和 创建人 联动
+            let linkageObjArray = [{'formName': 'f1', 'createName': 'c1'},
+                {'formName': 'f2', 'createName': 'c2'},
+                {'formName': 'f3', 'createName': 'c3'}]  //联动的数据
+            for (let linkageObj of linkageObjArray) {
+                if (obj.field == 'createName'&& obj.value == linkageObj.createName) {
+                    $(this).parents('tr').children('td[data-field =\'formName\'] ').find('div').text(linkageObj.formName)
+                }
+                if (obj.field == 'formName'&& obj.value == linkageObj.formName) {
+                    $(this).parents('tr').children('td[data-field =\'createName\']').find('div').text(linkageObj.createName)
+                }
+            }
         })
 
         //复选框选中监听
