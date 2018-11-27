@@ -23,6 +23,11 @@ Author : liuzhijie
         <div class="layui-card">
             <div class="layui-card-header">表单管理</div>
             <div class="layui-card-body">
+                <div class="layui-inline">
+                    <button class="layui-btn layui-btn-sm layui-btn-primary" lay-filter="dynamicFixedColumn"
+                            lay-submit>动态固定列
+                    </button>
+                </div>
                 <table id="tableContent-form2" lay-filter="tableContent-form2"></table>
             </div>
         </div>
@@ -34,17 +39,6 @@ Author : liuzhijie
     <button class="layui-btn layui-btn-primary" lay-event="edit2">编辑</button>
     <button class="layui-btn layui-btn-normal upload2" lay-event="upload2">图片上传</button>
 </script>
-
-<!--表格数据根据不同的状态显示不同的颜色-->
-<!--<script type="text/html" id="statusTpl">
-    {{# if (d.status == 0) { }}
-    <span style="color: #9ACD32;">成功</span>
-    {{# }else if (d.status == 1){ }}
-    <span style="color: #E1E100;">警告</span>
-    {{# }else if (d.status == 2){ }}
-    <span style="color: #EE0000;">危险</span>
-    {{# } }}
-</script>-->
 
 <!--显示上传的图片-->
 <script type="text/html" id="picTpl">
@@ -65,7 +59,7 @@ Author : liuzhijie
             table_data = []; // tabke的全部数据
 
         // 渲染表格
-        table.render({
+        let tableIns = table.render({
             elem: '#tableContent-form2',
             id: 'tableContent-form2',
             url: admin.formatUrl('/api/form'),
@@ -87,40 +81,48 @@ Author : liuzhijie
                 uploadRender(); //上传图片功能渲染
 
             },
-            height: 472,
             cols: [
                 [{
                     type: 'checkbox'
                 }, {
                     field: 'formName',
                     title: '表单名称',
-                    edit: 'text'
+                    edit: 'text',
+                    fixed: ''
                 }, {
                     field: 'formCode',
                     title: '表单编号',
                     align: 'center',
+                    edit: 'text',
+                    fixed: ''
                 }, {
                     field: 'createTime',
                     title: '创建时间',
                     align: 'center',
-                    sort: true,
+                    fixed: ''
                 }, {
                     field: 'createName',
                     title: '创建人',
                     align: 'center',
-                    edit: 'text'
+                    edit: 'text',
+                    fixed: ''
                 }, {
                     field: 'version',
                     title: '编辑次数',
-                    align: 'center'
+                    align: 'center',
+                    edit: 'text',
+                    fixed: ''
                 }, {
                     field: 'status',
                     title: '状态',
-                    align: 'center'
+                    align: 'center',
+                    edit: 'text',
+                    fixed: ''
                 }, {
                     templet: '#picTpl',
                     title: '图片',
-                    align: 'center'
+                    align: 'center',
+                    fixed: ''
                 }, {
                     templet: '#control-2',
                     title: '操作',
@@ -153,8 +155,6 @@ Author : liuzhijie
                 // 编辑表单
                 popMenu('edit2', data);
             }
-
-
             //表格数据根据不同的状态显示不同的颜色
             /*if (data.status == 0){
                 $(tr).css("color","#9ACD32");
@@ -165,6 +165,87 @@ Author : liuzhijie
             }*/
         });
 
+        //监听“动态固定列”按钮
+        form.on('submit(dynamicFixedColumn)', function () {
+            let obj = {
+                createTime: true,
+                formName: false,
+                formCode: false,
+                createName: false,
+                version: false,
+                status: true
+            }  //配置参数
+            let keys = Object.getOwnPropertyNames(obj); //参数对象中所有的属性名
+            let calObjs = [
+                {
+                    type: 'checkbox'
+                }, {
+                    field: 'formName',
+                    title: '表单名称',
+                    edit: 'text',
+                    fixed: ''
+                }, {
+                    field: 'formCode',
+                    title: '表单编号',
+                    align: 'center',
+                    edit: 'text',
+                    fixed: ''
+                }, {
+                    field: 'createTime',
+                    title: '创建时间',
+                    align: 'center',
+                    edit: 'text',
+                    fixed: ''
+                }, {
+                    field: 'createName',
+                    title: '创建人',
+                    align: 'center',
+                    edit: 'text',
+                    fixed: ''
+                }, {
+                    field: 'version',
+                    title: '编辑次数',
+                    align: 'center',
+                    edit: 'text',
+                    fixed: ''
+                }, {
+                    field: 'status',
+                    title: '状态',
+                    align: 'center',
+                    edit: 'text',
+                    fixed: ''
+                }, {
+                    templet: '#picTpl',
+                    title: '图片',
+                    align: 'center',
+                    fixed: ''
+                }, {
+                    templet: '#control-2',
+                    title: '操作',
+                    align: 'center',
+                    width: 200,
+                    unresize: false
+                }
+            ]    //表格的列
+            let fixedColumn = keys.filter((key) => { //需要固定的列
+                return obj[key];
+            })
+            //对需要固定的列进行 配置
+            fixedColumn.forEach((val) => {
+                for (let calObj of calObjs) {
+                    if (calObj.field === val) {
+                        calObj.fixed = 'left';
+                    }
+                }
+            })
+
+            tableIns.reload({
+                cols: [
+                    calObjs
+                ],
+            });
+
+        })
 
         //监听 “提交” 按钮
         form.on('submit(menuSave-role)', (data) => {
@@ -183,7 +264,7 @@ Author : liuzhijie
         table.on('row(tableContent-form2)', function (obj) {
             let linkageObjArray = [{'formName': 'f1', 'createName': 'c1'},
                 {'formName': 'f2', 'createName': 'c2'},
-                {'formName': 'f3', 'createName': 'c3'}]
+                {'formName': 'f3', 'createName': 'c3'}]  //联动的数据
             for (let linkageObj of linkageObjArray) {
                 if (obj.data.createName == linkageObj.createName) {
                     $(obj.tr).children('td[data-field =\'formName\']').text(linkageObj.formName);
@@ -194,27 +275,46 @@ Author : liuzhijie
             }
         });
 
+        //表格某一列,失焦可以按既定规则进行验证并请求接口保存数据，如果不符合验证规则，清空并提示
+        table.on('edit(tableContent-form2)', function (obj) {
+            if ((obj.field == 'formCode' || obj.field == 'version') && !/^\d{1,}$/.test(obj.value)) {
+                layer.alert("该项只能为数字！！");
+                $(this).val('');
+                return 0;
+            }
+            if (obj.field == 'createTime' && !/^\d{4}(\-|\/|\.)\d{1,2}\1\d{1,2}(\s)\d{1,2}(:)\d{1,2}(:)\d{1,2}$/.test(obj.value)) {
+                layer.alert("输入的日期格式不正确！！");
+                $(this).val('');
+                return 0;
+            }
+            admin.req('#', obj.data, (result) => {
+                if (data.ok) {
+                    console.log('修改成功')
+                }
+            })
+        })
+
         //复选框选中监听
-        table.on('checkbox(tableContent-form2)', function(obj){
-            if(obj.checked==true){
-                if(obj.type=='one'){
+        table.on('checkbox(tableContent-form2)', function (obj) {
+            if (obj.checked == true) {
+                if (obj.type == 'one') {
                     ids.push(obj.data.formCode);
-                }else{
-                    for(var i=0;i<table_data.length;i++){
+                } else {
+                    for (var i = 0; i < table_data.length; i++) {
                         ids.push(table_data[i].formCode);
                     }
                 }
-            }else{
-                if(obj.type=='one'){
-                    for(var i=0;i<ids.length;i++){
-                        if(ids[i]==obj.data.formCode){
+            } else {
+                if (obj.type == 'one') {
+                    for (var i = 0; i < ids.length; i++) {
+                        if (ids[i] == obj.data.formCode) {
                             ids.splice(i);
                         }
                     }
-                }else{
-                    for(var i=0;i<ids.length;i++){
-                        for(var j=0;j<table_data.length;j++){
-                            if(ids[i]==table_data[j].formCode){
+                } else {
+                    for (var i = 0; i < ids.length; i++) {
+                        for (var j = 0; j < table_data.length; j++) {
+                            if (ids[i] == table_data[j].formCode) {
                                 ids.splice(i);
                             }
                         }
@@ -283,14 +383,14 @@ Author : liuzhijie
 
         //表格数据根据不同的状态显示不同的颜色
         function showTrColor() {
-            for (let tr of $('tbody tr')) {
+            for (let tr of $('.layui-table-body tr')) {
                 let status = $(tr).children('td[data-field =\'status\']').text();
                 if (status !== undefined && status == 0) {
-                    $(tr).css("color", "#9ACD32");
+                    $(tr).css("background-color", "#9ACD32");
                 } else if (status == 1) {
-                    $(tr).css("color", "#E1E100");
+                    $(tr).css("background-color", "#E1E100");
                 } else if (status == 2) {
-                    $(tr).css("color", "#EE0000");
+                    $(tr).css("background-color", "#EE0000");
                 }
             }
         }
@@ -315,18 +415,16 @@ Author : liuzhijie
         }
 
         //加载之前选中的复选框
-        function loadCheckBox (data) {
-            console.log("loadCheckBox")
-            table_data=data;
-            for(let i=0;i<data.length;i++){
+        function loadCheckBox(data) {
+            table_data = data;
+            for (let i = 0; i < data.length; i++) {
                 for (let j = 0; j < ids.length; j++) {
                     //数据id和要勾选的id相同时checkbox选中
-                    if(data[i].formCode == ids[j])
-                    {
+                    if (data[i].formCode == ids[j]) {
                         //这里才是真正的有效勾选
-                        data[i]["LAY_CHECKED"]='true';
+                        data[i]["LAY_CHECKED"] = 'true';
                         //找到对应数据改变勾选样式，呈现出选中效果
-                        let index= data[i]['LAY_TABLE_INDEX'];
+                        let index = data[i]['LAY_TABLE_INDEX'];
                         $('.layui-table-main tr[data-index=' + index + '] input[type="checkbox"]').prop('checked', true);
                         $('.layui-table-main tr[data-index=' + index + '] input[type="checkbox"]').next().addClass('layui-form-checked');
                     }
@@ -334,7 +432,8 @@ Author : liuzhijie
             }
         }
 
-    });
+    })
+    ;
 
     /**
      * 点击图片预览
