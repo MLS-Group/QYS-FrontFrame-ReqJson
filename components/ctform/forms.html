@@ -273,11 +273,7 @@ Author : liuzhijie
                 $(this).val('');
                 return 0;
             }
-            admin.req('#', obj.data, (result) => {
-                if (data.ok) {
-                    console.log('修改成功')
-                }
-            })
+
             //表格联动
             //表单名称 和 创建人 联动
             let linkageObjArray = [{'formName': 'f1', 'createName': 'c1'},
@@ -286,11 +282,21 @@ Author : liuzhijie
             for (let linkageObj of linkageObjArray) {
                 if (obj.field == 'createName'&& obj.value == linkageObj.createName) {
                     $(this).parents('tr').children('td[data-field =\'formName\'] ').find('div').text(linkageObj.formName)
+                    obj.data.formName = linkageObj.formName;
                 }
                 if (obj.field == 'formName'&& obj.value == linkageObj.formName) {
                     $(this).parents('tr').children('td[data-field =\'createName\']').find('div').text(linkageObj.createName)
+                    obj.data.createName = linkageObj.createName;
                 }
             }
+            console.log(obj.data)
+            //向提交提交修改内容
+            admin.req('#', obj.data, (result) => {
+                if (data.ok) {
+                    console.log('修改成功')
+                }
+            })
+
         })
 
         //复选框选中监听
