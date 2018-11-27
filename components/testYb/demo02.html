@@ -1,0 +1,250 @@
+<!--
+违反程序索赔确认单
+yueben
+2018-11-26 22:18
+-->
+<style>
+    .table{
+        width: 100%;
+    }
+
+    /*设置小表格标题样式*/
+    .data-title{
+        width: 100%;
+        height: 45px;
+        padding: 0 0 0 5px;
+        background-color: #F5F5F5;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    /*设置项名称样式*/
+    .data-item{
+        width: 10%;
+        height: 40px;
+        background-color: #EBF9FF;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /*设置项名称样式*/
+    .data-item-1{
+        background-color: #FFDDAB;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /*设置输入框单元格样式*/
+    .data-value{
+        width: 15%;
+        height: 40px;
+    }
+
+    /*设置输入框样式*/
+    .data-input-text{
+        height: 100%;
+        width: 95%;
+        border: none;
+        margin: 0 2px 0 5px;
+    }
+
+    /*设置表格标题样式*/
+    .title{
+        text-align: center;
+        height: 60px;
+    }
+
+    /*设置表格左上角图标样式*/
+    .title-photo{
+        float: left;
+        display: inline-block;
+    }
+
+    /*设置表标题样式*/
+    .title-name{
+        vertical-align: middle;
+        margin: 10px 10px 0 0;
+        height: 40px;
+        display: inline-block;
+    }
+
+    /*设置表格状态样式*/
+    .title-state{
+        float: right;
+        margin: 25px 10px 0 0;
+        height: 20px;
+        display: inline-block;
+    }
+
+    /*设置按钮样式*/
+    .button-three{
+        margin: 5px 0 0 0;
+        float: right;
+    }
+</style>
+
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md12 autoScrollLeft">
+        <div class="layui-card">
+            <!--表格标题-->
+            <div class="title">
+                <div class="title-photo" ><img src="../../assets/images/avatar/boy1.png" height="60px" width="60px"></div>
+                <div class="title-name"><span style="color: red;font-size: 18px;font-weight: bold">违反程序索赔确认单</span><br><span style="color: #B9BAB9">表单编号：CX-2018-0001</span></div>
+                <div class="title-state"><span style="color: #1a1a1a">状态：SQ总监待审批</span></div>
+            </div>
+            <!--表格内容-->
+            <table border="1" class="table">
+                <!--第一个小标题-->
+                <tr>
+                    <td class="data-title" colspan="8">问题基础信息</td>
+                </tr>
+                <tr>
+                    <td class="data-item">关联PRR编号</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">发布科室</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">发布SQE</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">发布日期</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                </tr>
+                <tr>
+                    <td class="data-item">供货工厂</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">供应商编号</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">供应商名称</td>
+                    <td class="data-value" colspan="3"><input type="text" class="data-input-text"></td>
+                </tr>
+                <tr>
+                    <td class="data-item">零部件编号</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">零部件名称</td>
+                    <td class="data-value" colspan="3"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">车型</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                </tr>
+                <tr>
+                    <td class="data-item">供应商质量部长</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">图片</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">其他文件</td>
+                    <td class="data-value" colspan="3"><input type="text" class="data-input-text"></td>
+                </tr>
+
+                <!--第二个小标题-->
+                <tr>
+                    <td class="data-title" colspan="8">发布审批</td>
+                </tr>
+                <tr>
+                    <td class="data-item">问题类型</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">索赔金额</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">注释</td>
+                    <td class="data-value" colspan="3"><input type="text" class="data-input-text"></td>
+                </tr>
+                <tr>
+                    <td class="data-item">SQE</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">发布日期</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">备注</td>
+                    <td class="data-value" colspan="3"><input type="text" class="data-input-text"></td>
+                </tr>
+                <tr>
+                    <td class="data-item">SQE主管</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">发布日期</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">审批意见</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">备注</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                </tr>
+                <tr>
+                    <td class="data-item">SQE经理</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">发布日期</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">审批意见</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">备注</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                </tr>
+                <tr>
+                    <td class="data-item">SQ总监</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">发布日期</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">审批意见</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">备注</td>
+                    <td class="data-value"><input type="text" class="data-input-text" placeholder="不同意时必须输入"></td>
+                </tr>
+
+                <!--第三个小标题-->
+                <tr>
+                    <td class="data-title" colspan="8">供应商确认</td>
+                </tr>
+
+                <tr>
+                    <td class="data-item">负责人</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">职务</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">联系电话</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">确认日期</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                </tr>
+
+                <tr>
+                    <td class="data-item-1">供应商意见</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item-1">备注</td>
+                    <td class="data-value" colspan="3"><input type="text" class="data-input-text"></td>
+                    <td class="data-item-1">附件</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                </tr>
+
+                <!--第四个小标题-->
+                <tr>
+                    <td class="data-title" colspan="8">复议审批</td>
+                </tr>
+                <tr>
+                    <td class="data-item">SQE经理</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">审批日期</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">审批意见</td>
+                    <td class="data-value" colspan="6"><input type="text" class="data-input-text"></td>
+                </tr>
+                <tr>
+                    <td class="data-item">SQ总监</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">审批日期</td>
+                    <td class="data-value"><input type="text" class="data-input-text"></td>
+                    <td class="data-item">审批意见</td>
+                    <td class="data-value" colspan="3" style="text-align: center">
+                        <label><input type="radio" value="1" name="isAgree">同意供应商复议</label>&nbsp;&nbsp;
+                        <label><input type="radio" value="0" name="isAgree">不同意供应商复议</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data-item">备注</td>
+                    <td class="data-value" colspan="7"><input type="text" class="data-input-text"></td>
+                </tr>
+            </table>
+            <!--按钮-->
+            <div class="button-three">
+                <button class="layui-btn layui-btn-sm layui-btn-primary btn-one">重置</button>
+                <button class="layui-btn layui-btn-sm layui-btn-primary btn-two">保存</button>
+                <button class="layui-btn layui-btn-sm layui-btn-normal btn-three">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
