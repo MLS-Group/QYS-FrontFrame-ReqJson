@@ -1,0 +1,77 @@
+{
+  "respCode": "0",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10000,
+    "count": 12,
+    "pageCount": 1,
+    "list": [
+      {
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },
+      {
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },{
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },{
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },{
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },{
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },{
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },{
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },{
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },{
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },{
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      },{
+        "rid": "UA45W569GQ",
+        "rname": "普通用户",
+        "rdesc": "所有用户都属于的角色",
+        "menusstr": []
+      }
+    ],
+    "ext": {},
+    "orderBy": ""
+  },
+  "ok": true,
+  "message": ""
+}
