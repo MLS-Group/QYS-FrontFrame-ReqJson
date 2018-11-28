@@ -7,65 +7,65 @@
     "pageCount": 1,
     "list": [
       {
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "1",
+        "name": "建一",
+        "addr": "建家坡",
         "menusstr": []
       },
       {
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "2",
+        "name": "牛二",
+        "addr": "夹皮沟",
         "menusstr": []
       },{
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "3",
+        "name": "张三",
+        "addr": "张家庄",
         "menusstr": []
       },{
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "4",
+        "name": "李四",
+        "addr": "李子村",
         "menusstr": []
       },{
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "5",
+        "name": "王五",
+        "addr": "王八屯",
         "menusstr": []
       },{
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "6",
+        "name": "赵六",
+        "addr": "赵存庙",
         "menusstr": []
       },{
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "7",
+        "name": "田七",
+        "addr": "田家嘴",
         "menusstr": []
       },{
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "8",
+        "name": "钱八",
+        "addr": "钱东里",
         "menusstr": []
       },{
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "9",
+        "name": "孙九",
+        "addr": "花果山",
         "menusstr": []
       },{
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "10",
+        "name": "全十",
+        "addr": "滴滴滴",
         "menusstr": []
       },{
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "11",
+        "name": "十一",
+        "addr": "嘀嘀嘀",
         "menusstr": []
       },{
-        "rid": "UA45W569GQ",
-        "rname": "普通用户",
-        "rdesc": "所有用户都属于的角色",
+        "id": "12",
+        "name": "十二",
+        "addr": "啦啦啦",
         "menusstr": []
       }
     ],
