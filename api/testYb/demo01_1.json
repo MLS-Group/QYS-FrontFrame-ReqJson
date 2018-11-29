@@ -1,0 +1,57 @@
+{
+  "respCode": "0",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10000,
+    "count": 12,
+    "pageCount": 1,
+    "list": [
+      {
+        "id": "1",
+        "name": "建一",
+        "addr1": "建家坡",
+        "addr2": "一户",
+        "menusstr": []
+      },
+      {
+        "id": "2",
+        "name": "牛二",
+        "addr1": "夹皮沟",
+        "addr2": "二户",
+        "menusstr": []
+      },
+      {
+        "id": "3",
+        "name": "张三",
+        "addr1": "张家庄",
+        "addr2": "三户",
+        "menusstr": []
+      },
+      {
+        "id": "4",
+        "name": "李四",
+        "addr1": "李子村",
+        "addr2": "四户",
+        "menusstr": []
+      },
+      {
+        "id": "5",
+        "name": "王五",
+        "addr1": "王八屯",
+        "addr2": "五户",
+        "menusstr": []
+      },
+      {
+        "id": "6",
+        "name": "赵六",
+        "addr1": "赵存庙",
+        "addr2": "六户",
+        "menusstr": []
+      }
+    ],
+    "ext": {},
+    "orderBy": ""
+  },
+  "ok": true,
+  "message": ""
+}
