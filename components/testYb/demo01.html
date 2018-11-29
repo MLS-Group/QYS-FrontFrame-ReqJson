@@ -44,11 +44,31 @@
                 <!-- 下部表格容器 -->
             </div>
     </div>
+
+    <!-- 右侧角色对用用户列表 -->
+    <div class="layui-col-md5 layui-hide autoScrollRight-from">
+        <div class="layui-card p-form">
+            <div class="layui-card-header"></div>
+            <!-- 卡片右上角关闭按钮 -->
+            <i class="layui-icon layui-icon-close layui-card-close"></i>
+            <!-- 卡片容器 -->
+            <div class="layui-card-body">
+                <input type="text" name="userid" id="userid" class="layui-hide">
+                <input type="text" name="username" id="username" class="layui-hide">
+                <!-- 数据表格顶部控制栏 -->
+
+                <!-- 表格容器 -->
+                <table id="table-from" lay-filter="table-from"></table>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script type="text/html" id="demo-con-1">
-    <a class="table-control-btn" lay-event="del">删除</a>
+    <a class="table-control-btn" lay-event="from">同村</a>
     <a class="table-control-btn" lay-event="update">编辑</a>
+    <a class="table-control-btn table-control-btn-danger" lay-event="del">删除</a>
 </script>
 
 <script>
@@ -57,55 +77,61 @@
             form = layui.form,
             config = layui.config,
             admin = layui.admin;
+
         //初始化表格
-        table.render({
-            elem: '#demo01-tab1',
-            id: 'demo-tab1',
-            url: admin.formatUrl('/api/testYb/demo01'),
-            skin: 'line',
-            //转换返回的结果集
-            parseData: function (res) {
-                return {
-                    "code": res.respCode,
-                    "msg": res.message,
-                    "count": res.data.count,
-                    "data": res.data.list
-                }
-            },
-            height: 500,
-            cols: [
-                [
-                    {
-                        type: 'checkbox'
-                    },
-                    {
-                        field: 'name',
-                        align: 'center',
-                        title: '名称'
-                    },
-                    {
-                        field: 'addr',
-                        align: 'center',
-                        title: '地址'
-                    },
-                    {
-                        templet: '#demo-con-1',
-                        title: '操作',
-                        align: 'center',
-                        width: 200
+        var initTable = function () {
+            //渲染表格
+            table.render({
+                elem: '#demo01-tab1',
+                id: 'demo-tab1',
+                url: admin.formatUrl('/api/testYb/demo01'),
+                //转换返回的结果集
+                parseData: function (res) {
+                    return {
+                        "code": res.respCode,
+                        "msg": res.message,
+                        "count": res.data.count,
+                        "data": res.data.list
                     }
-                ]
-            ],
-            limit: 10,
-            limits: [5,10,15,20],
-            page: {
-                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
-            },
-            request: {
-                pageName: 'pageNo',
-                limitName: 'pageSize'
-            }
-        })
+                },
+                height: 500,
+                cols: [
+                    [
+                        {
+                            type: 'numbers'
+                        },
+                        {
+                            field: 'name',
+                            align: 'center',
+                            title: '名称'
+                        },
+                        {
+                            field: 'addr',
+                            align: 'center',
+                            title: '地址'
+                        },
+                        {
+                            templet: '#demo-con-1',
+                            title: '操作',
+                            align: 'center',
+                            width: 200,
+                            unresize: true
+                        }
+                    ]
+                ],
+                cellMinWidth: 120,
+                page: {
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                },
+                request: {
+                    pageName: 'pageNo',
+                    limitName: 'pageSize'
+                }
+            });
+        }
+
+        //加载表格
+        initTable();
 
         //页面重置按钮
         form.on('submit(btn_reset_role)',function () {
@@ -131,14 +157,35 @@
         //表格内工具条事件删除和编辑
         table.on('tool(demo-tab1)',function (data) {
             var row = data.data,        //获取点击行数据
-                event = data.event,     //获取点击按钮lay-event的属性值
-                tr = data.tr;           //获取点击行tr元素DOM对象
+                event = data.event;     //获取点击按钮lay-event的属性值
 
             //判断操作类型
             if(event === 'del'){
-                //这是删除
+                layer.confirm('确定删除用户：' + row.name + ' 吗?',{
+                    icon: 3,
+                    title: '删除'
+                }, function () {
+                    admin.req('url...',{/*data*/},function (data) {
+                        if(data.ok){
+                            layer.msg('删除成功!',{icon: 1});
+                            table.reload('demo-tab1',{
+                                where: {
+                                    /*接口请求参数*/
+                                }
+                            });
+                        } else {
+                            layer.msg('删除失败:' + data.message, {
+                                icon: 5
+                            });
+                        }
+                    },{
+                        method: 'delete'
+                    });
+                });
             } else if (event === 'update') {
                 addUpdate('update',row);
+            } else if (event === 'from') {
+                showFrom(row);
             }
         })
 
@@ -166,19 +213,113 @@
             })
         }
 
-        //给新增修改弹出层页面赋值
+        //给修改弹出层页面赋值
         function setUpdataWin(data) {
-            var inputs = $('.p-form').find('input'),
-                params = ['name','addr'];
+            var inputs = $('.p-form').find('input'),        //获取class=p-form下的所有input元素
+                params = ['name','addr'];                   //要传入的参数名
 
+
+            //遍历参数赋值到弹窗
             for(var i=0 ; i<params.length ; i++){
                 if(data[params[i]]){
-                    $('.p-form input[name="'+ params[i] +'"]').val(data[params[i]])
+                    $('.p-form input[name="'+ params[i] +'"]').val(data[params[i]]);
                 } else {
-                    $('.p-form input[name="'+ params[i] +'"]').val(data[params[i]])
+                    $('.p-form input[name="'+ params[i] +'"]').val(data[params[i]]);
                 }
             }
         }
+
+        //展示同村人员
+        function showFrom(data) {
+            var title = $('.p-form .layui-card-header');     //获取存放标题的元素
+            title.text(data.name + ' 所在的 ' + data.addr );
+
+            //将用户表压缩，给同村表腾位置
+            $('.autoScrollLeft').removeClass('layui-col-md12');
+            $('.autoScrollLeft').addClass('layui-col-md7');
+
+
+//          展示 同村表
+            setTimeout(function () {
+                //去掉同村表的隐藏样式
+                $('.autoScrollRight-from').removeClass('layui-hide');
+
+                //重置表格尺寸
+                admin.resize();
+
+                //存放行用户数据
+                $('#userid').val(data.id);
+                $('#username').val(data.name);
+
+                //初始化 同村表
+                table.render({
+                    elem: '#table-from',
+                    id: 'table-from',
+                    url: admin.formatUrl('/api/testYb/demo01_1?name=' + data.name),
+                    // 格式化后台返回的数据
+                    parseData: function (res) { //res 即为原始返回的数据
+                        // 返回结果，进行渲染表格
+                        return {
+                            "code": res.respCode, //解析接口状态
+                            "msg": res.message, //解析提示文本
+                            "count": res.data.count, //解析数据长度
+                            "data": res.data.list //解析数据列表
+                        };
+                    },
+                    height: 470,
+                    cols: [[
+                        {
+                            type: 'checkbox',
+                            rowspan: 2
+                        }, {
+                            type: 'numbers',
+                            rowspan: 2
+                        }, {
+                            field: 'name',
+                            title: '同村人',
+                            rowspan: 2
+                        }, {
+                            title: '地址',
+                            colspan: 2
+
+                        }],
+                        [
+                            {
+                                field: 'addr1',
+                                title: '村'
+                            },{
+                                field: 'addr2',
+                                title: '组'
+                            }
+                        ]
+                    ],
+                    cellMinWidth: 90,
+                    page: {
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                    },
+                    request: {
+                        pageName: 'pageNo',
+                        limitName: 'pageSize'
+                    }
+                });
+            },300);
+
+        }
+
+        //关闭同村表
+        $('.layui-card-close').on('click',function () {
+            //判断是否打开了 同村表,判断class值中是否有layui-hide(隐藏)
+//            var dom = $('div[class*=autoScrollRight]');
+//            var isHide = dom[0].className.indexOf("layui-hide");
+//            if (isHide < 0){
+                //将 同村表隐藏
+                $('.autoScrollRight-from').addClass('layui-hide');
+                //将 用户表宽度回复
+                $('.autoScrollLeft').removeClass('layui-col-md7');
+                $('.autoScrollLeft').addClass('layui-col-md12');
+//            }
+
+        });
 
     });
 </script>
