@@ -6,14 +6,14 @@ Author : liuzhijie
 <style>
 
     .container {
-        width: 100%;
+        width: 1079px;
         border-top: 2px solid #C1C0BF;
         border-left: 2px solid #C1C0BF;
 
     }
 
     .container .head {
-        width: 100%;
+        width: 1079px;
         height: 70px;
         background-color: white;
         border-bottom: 2px solid #C1C0BF;
@@ -70,12 +70,12 @@ Author : liuzhijie
         border-right: 2px solid #C1C0BF;
     }
 
-    .container .content-item {
+    .container .basic-info {
         width: 100%;
 
     }
 
-    .container .content-item .title {
+    .container > div > .title {
         font-size: 18px;
         font-weight: bolder;
         width: 1067px;
@@ -87,27 +87,265 @@ Author : liuzhijie
         background-color: rgb(245, 245, 245);
     }
 
-    .container .content-item .content-wrapper .content-top {
+    .container .basic-info .content-wrapper .content-top {
         border-bottom: 2px solid #C1C0BF;
         height: 52px;
         font-weight: bolder;
     }
 
-    .container .content-item .content-wrapper .content-top > div > div {
+    .container .basic-info .content-wrapper .content-top > div > div {
         float: left;
         width: 92.9px;
-        height: 34px;
-        padding-top: 18px;
+        height: 35px;
+        padding-top: 17px;
         padding-left: 13px;
         border-right: 2px solid #C1C0BF;
     }
 
-    .container .content-item .content-wrapper .content-top .name {
+    .container .basic-info .content-wrapper .content-top .name {
         background-color: rgb(183, 223, 233);
     }
 
-    .container .content-item .content-wrapper .content-top .content {
+    .container .basic-info .content-wrapper .content-top .val {
         background-color: white;
+    }
+
+    .container .basic-info .content-wrapper .content-center {
+        width: 1077px;
+        text-align: center;
+    }
+
+    .container .basic-info .content-wrapper .content-center > div {
+        width: 1077px;
+        height: 53px;
+        border-bottom: 2px solid #C1C0BF;
+        border-right: 2px solid #C1C0BF;
+    }
+
+    .container .basic-info .content-wrapper .content-center > div > div {
+        width: 132.6px;
+        float: left;
+        height: 37px;
+        padding-top: 16px;
+        border-right: 2px solid #C1C0BF;
+    }
+
+    .container .basic-info .content-wrapper .content-center .name {
+        background-color: rgb(235, 245, 255);
+    }
+
+    .container .basic-info .content-wrapper .content-center .name .major {
+        color: red;
+    }
+
+    .container .basic-info .content-wrapper .content-center .val {
+        background-color: white;
+
+    }
+
+    .container .basic-info .content-wrapper .content-bottom {
+        width: 1077px;
+        height: 53px;
+        border-bottom: 2px solid #C1C0BF;
+        border-right: 2px solid #C1C0BF;
+        background-color: white;
+    }
+
+    .container .basic-info .content-wrapper .content-bottom > div {
+        float: left;
+        height: 30px;
+        margin-top: 10px;
+        margin-left: 1px;
+        margin-right: 1px;
+        background-color: rgb(235, 245, 255);
+        border-radius: 5px;
+
+    }
+
+    .container .basic-info .content-wrapper .content-bottom .left {
+        margin-right: 10px;
+        width: 363px;
+    }
+
+    .container .basic-info .content-wrapper .content-bottom .right {
+        width: 700px;
+    }
+
+    .container .basic-info .content-wrapper .content-bottom > div > div {
+        float: left;
+        height: 25px;
+        margin-top: 5px;
+    }
+
+    .container .basic-info .content-wrapper .content-bottom > div .name {
+        font-weight: bolder;
+
+    }
+
+    .container .basic-info .content-wrapper .content-bottom > div .name > span {
+        border-right: 2px solid #C1C0BF;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .container .basic-info .content-wrapper .content-bottom > div .val {
+        padding-left: 20px;
+    }
+
+    .container .basic-info .content-wrapper .content-bottom .left .val span {
+        margin-left: 150px;
+    }
+
+    .container .basic-info .content-wrapper .content-bottom > div > div .major {
+        color: red;
+    }
+
+    .container .approval-status .content-wrapper {
+
+    }
+
+    .container .parts-approval-status .content-wrapper > div {
+        height: 53px;
+        width: 1079px;
+        border-bottom: 2px solid #C1C0BF;
+        background-color: white;
+    }
+
+    .container .parts-approval-status .content-wrapper > .name {
+        background-color: rgb(183, 223, 233);
+    }
+
+    .container .parts-approval-status .content-wrapper > div > div {
+        float: left;
+        width: 151.8px;
+        height: 35px;
+        padding-top: 18px;
+        text-align: center;
+        border-right: 2px solid #C1C0BF;
+    }
+
+    .container .parts-approval-status .content-wrapper > div > div:nth-child(1) {
+        width: 70.8px;
+    }
+
+    .container .parts-approval-status .content-wrapper > div > div:last-child {
+        width: 234.8px;
+    }
+
+    .container .parts-approval-status .btn {
+        height: 44px;
+        width: 1057px;
+        background-color: white;
+        border-right: 2px solid #C1C0BF;
+        border-bottom: 2px solid #C1C0BF;
+        padding-top: 9px;
+        padding-right: 20px;
+    }
+
+    .container .parts-approval-status .btn button {
+        float: right;
+        background-color: rgb(1, 120, 255);
+        border-radius: 3px;
+        border: 0;
+        color: white;
+        width: 100px;
+        height: 35px;
+        padding-left: 23px;
+    }
+
+    .container .parts-approval-status .btn button .layui-badge {
+        background-color: rgb(23, 158, 218);
+        top: -16px;
+        left: 25px;
+    }
+
+    .container .submit-list .content-wrapper {
+        width: 1077px;
+        border-right: 2px solid #C1C0BF;
+        border-bottom: 2px solid #C1C0BF;
+        height: 128px;
+    }
+
+    .container .submit-list .content-wrapper > div {
+        width: 1077px;
+        border-bottom: 2px solid #C1C0BF;
+        text-align: center;
+    }
+
+    .container .submit-list .content-wrapper > .val-item {
+        height: 73px;
+        background-color: white;
+    }
+
+    .container .submit-list .content-wrapper .name {
+        height: 53px;
+        border-bottom: 2px solid #C1C0BF;
+    }
+
+    .container .submit-list .content-wrapper > div > div:nth-child(1) {
+        width: 61.8px;
+    }
+
+    .container .submit-list .content-wrapper > div > div:nth-child(2) {
+        width: 71.8px;
+    }
+
+    .container .submit-list .content-wrapper > div > div:nth-child(5) {
+        width: 251.8px;
+    }
+
+    .container .submit-list .content-wrapper > div > div:last-child {
+        width: 221.8px;
+    }
+
+    .container .submit-list .content-wrapper .name > div {
+        width: 151.8px;
+        height: 35px;
+        float: left;
+        border-right: 2px solid #C1C0BF;
+        padding-top: 18px;
+        text-align: center;
+        background-color: rgb(217, 229, 187);
+    }
+
+    .container .submit-list .content-wrapper .name .major {
+        color: red;
+    }
+
+    .container .submit-list .content-wrapper .name > div:nth-last-child(1),
+    .container .submit-list .content-wrapper .name > div:nth-last-child(2) {
+        background-color: rgb(203, 191, 219);
+    }
+
+    .container .submit-list .content-wrapper .val-item > div {
+        border-right: 2px solid #C1C0BF;
+        width: 151.8px;
+        height: 73px;
+        float: left;
+        position: relative;
+
+    }
+
+    .container .submit-list .content-wrapper .val-item > div > div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .container .submit-list .one-approval {
+
+    }
+
+    .container .submit-list .one-approval .title{
+        font-size: 18px;
+        font-weight: bolder;
+        width: 1067px;
+        height: 37px;
+        border-bottom: 2px solid #C1C0BF;
+        border-right: 2px solid #C1C0BF;
+        padding-left: 10px;
+        padding-top: 13px;
+        background-color: rgb(255,255,205);
     }
 
 
@@ -127,49 +365,150 @@ Author : liuzhijie
             <div class="right">状态：供应商待提交</div>
         </div>
     </div>
-    <div class="content-item">
+    <div class="basic-info">
         <div class="title">基础信息</div>
         <div class="content-wrapper">
             <div class="content-top">
                 <div class="sqe">
                     <div class="name">SQE</div>
-                    <div class="content">XXXXX</div>
+                    <div class="val">XXXXX</div>
                 </div>
                 <div class="sq">
                     <div class="name">SQ业务科室</div>
-                    <div class="content">XXXXX</div>
+                    <div class="val">XXXXX</div>
                 </div>
                 <div class="create-time">
                     <div class="name">创建日期</div>
-                    <div class="content">XXXXX</div>
+                    <div class="val">XXXXX</div>
                 </div>
                 <div class="pe">
                     <div class="name">PE</div>
-                    <div class="content">XXXXX</div>
+                    <div class="val">XXXXX</div>
                 </div>
                 <div class="tdc">
                     <div class="name">TDC业务科室</div>
-                    <div class="content">XXXXX</div>
+                    <div class="val">XXXXX</div>
                 </div>
-                <div class="content-center">
-
+            </div>
+            <div class="content-center">
+                <div class="name">
+                    <div>项目跟踪单编码</div>
+                    <div>项目车型/机型</div>
+                    <div>供应商代码</div>
+                    <div>供应商名称</div>
+                    <div>风险检查结果</div>
+                    <div><span class="major">*</span>是否展开PPAP试生产审核</div>
+                    <div><span class="major">*</span>计划试生产审核的时间</div>
+                    <div><span class="major">*</span>PPAP文件提交等级</div>
                 </div>
-                <div class="content-bottom">
+                <div class="val">
+                    <div>XXX</div>
+                    <div>XXX</div>
+                    <div>XXX</div>
+                    <div>XXX</div>
+                    <div><select style="width: 124px"></select></div>
+                    <div><select style="width: 124px"></select></div>
+                    <div><input style="width: 124px"/></div>
+                    <div><select style="width: 124px"></select></div>
+                </div>
+            </div>
+            <div class="content-bottom">
+                <div class="left">
+                    <div class="name"><span><span class="major">*</span>PPAP提交原因</span></div>
+                    <div class="val">
+                        <div>新零件<span class="layui-badge layui-bg-blue">10</span></div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="name"><span><span class="major">*</span>说明</span></div>
+                    <div class="val"></div>
+                </div>
+            </div>
 
+        </div>
+
+    </div>
+    <div class="parts-approval-status">
+        <div class="title">零件批准状态</div>
+        <div class="content-wrapper">
+            <div class="name">
+                <div class="index">序号</div>
+                <div>产品阶段</div>
+                <div>最新零件号</div>
+                <div>零件名称</div>
+                <div>旧零件号</div>
+                <div>最新EWO</div>
+                <div class="remark">备注</div>
+            </div>
+            <div class="val-item1">
+                <div>1</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div><input style="width: 222px;margin-left: 3px"/></div>
+            </div>
+            <div class="val-item2">
+                <div>2</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div><input style="width: 222px;margin-left: 3px"/></div>
+
+            </div>
+        </div>
+        <div class="btn">
+            <button>删除<span class="layui-badge layui-bg-blue">8</span></button>
+
+        </div>
+    </div>
+    <div class="submit-list">
+        <div class="title">PPAP 文件要求提交列表</div>
+        <div class="content-wrapper">
+            <div class="name">
+                <div>序号</div>
+                <div>文件标识</div>
+                <div>文件名</div>
+                <div>附件</div>
+                <div>说明（非必须）</div>
+                <div><span class="major">*</span>文件确认</div>
+                <div>说明（非必须）</div>
+            </div>
+            <div class="val-item">
+                <div>
+                    <div>1</div>
+                </div>
+                <div></div>
+                <div>
+                    <div>其他</div>
+                </div>
+                <div>
+                    <div><img style="width: 50px;height: 50px;background-color: #ccc;"/></div>
+                </div>
+                <div>
+                    <div>XXXXXXXXX</div>
+                </div>
+                <div>
+                    <div><select style="width: 145px;"></select></div>
+                </div>
+                <div>
+                    <div class="remark"><textarea style="width: 145px;"></textarea></div>
                 </div>
             </div>
         </div>
-        <div class="content-item">
-            <div class="title">零件批准状态</div>
-        </div>
-        <div class="content-item">
-            <div class="title">PPAP 文件要求提交列表</div>
-        </div>
-        <div class="content-item">
+        <div class="one-approval">
             <div class="title">一次审批</div>
         </div>
     </div>
-
+    <div class="ppap-approval-status">
+        <div class="title">PPAP批准状态</div>
+    </div>
+    <div class="approval-column">
+        <div class="title">审批栏</div>
+    </div>
 
     <script>
 

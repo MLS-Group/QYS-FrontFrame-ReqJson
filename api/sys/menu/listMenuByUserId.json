@@ -733,6 +733,23 @@
       "extInfo": null
     },
     {
+      "id": "75dc7c52f4",
+      "name": "PPAP生产件批准单",
+      "parentId": "f3620e872e",
+      "parentIds": "0,6f6fafb4a7,f3620e872e,",
+      "parent": null,
+      "childList": null,
+      "delFlag": 0,
+      "href": "ctform/approval-list.html",
+      "icon": null,
+      "sort": "3-3",
+      "permission": null,
+      "remarks": null,
+      "belong": null,
+      "isShow": 1,
+      "extInfo": null
+    },
+    {
       "id": "2482bd7099",
       "name": "字典类型删除",
       "parentId": "e019b55642",
