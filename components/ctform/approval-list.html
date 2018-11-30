@@ -9,7 +9,7 @@ Author : liuzhijie
         width: 1079px;
         border-top: 2px solid #C1C0BF;
         border-left: 2px solid #C1C0BF;
-
+        background-color: white;
     }
 
     .container .head {
@@ -332,11 +332,12 @@ Author : liuzhijie
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
     .container .submit-list .one-approval {
 
     }
 
-    .container .submit-list .one-approval .title{
+    .container .submit-list .one-approval .title {
         font-size: 18px;
         font-weight: bolder;
         width: 1067px;
@@ -345,9 +346,183 @@ Author : liuzhijie
         border-right: 2px solid #C1C0BF;
         padding-left: 10px;
         padding-top: 13px;
-        background-color: rgb(255,255,205);
+        background-color: rgb(255, 255, 205);
+        position: relative;
     }
 
+    .container .submit-list .one-approval .title .layui-badge{
+        position: absolute;
+        top: 0;
+        left: 1060px;
+    }
+
+    .container .submit-list .one-approval .title .arrow {
+        position: absolute;
+        top: 13px;
+        left: 1049px;
+    }
+
+    .container .submit-list .one-approval .title .arrow div{
+        width: 8px;
+        height: 8px;
+        border-bottom: 2px solid black;
+        border-left: 2px solid black;
+        transform: rotate(-45deg);
+    }
+
+    .container .ppap-approval-status .content-wrapper {
+        width: 1077px;
+        border-right: 2px solid #C1C0BF;
+        text-align: center;
+    }
+
+    .container .ppap-approval-status .content-wrapper .name {
+        font-weight: bolder;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div {
+        width: 1077px;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(1) {
+        height: 53px;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(2) {
+        height: 127px;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(3) {
+        height: 53px;
+        width: 1079px;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(4) {
+        height: 256px;
+        width: 1079px;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(1) > div {
+        border-right: 2px solid #C1C0BF;
+        border-bottom: 2px solid #C1C0BF;
+        float: left;
+        width: 247.2px;
+        height: 35px;
+        padding-top: 18px;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(1) > div:nth-child(4) {
+        width: 327.2px;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(1) .name {
+        background-color: rgb(204, 191, 219);
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(2) .name {
+        float: left;
+        background-color: rgb(204, 191, 219);
+        width: 247.2px;
+        height: 69px;
+        padding-top: 54px;
+        border-right: 2px solid #C1C0BF;
+        border-bottom: 2px solid #C1C0BF;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(3) .name {
+        width: 1079px;
+        height: 53px;
+        border-bottom: 2px solid #C1C0BF;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(2) .val {
+        float: left;
+        height: 105px;
+        text-align: left;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(2) .val > div {
+        padding-top: 12px;
+        width: 810.5px;
+        height: 27.6px;
+        padding-left: 15px;
+        border-bottom: 2px solid #C1C0BF;
+        border-right: 2px solid #C1C0BF;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(3) .name > div {
+        float: left;
+        width: 213.4px;
+        height: 35px;
+        border-bottom: 2px solid #C1C0BF;
+        border-right: 2px solid #C1C0BF;
+        padding-top: 18px;
+        background-color: rgb(233, 241, 255);
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(3) .val > div {
+        float: left;
+        width: 213.4px;
+        height: 35px;
+        border-bottom: 2px solid #C1C0BF;
+        border-right: 2px solid #C1C0BF;
+        padding-top: 18px;
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(4) div:not(.name) > div {
+        float: left;
+        width: 177.5px;
+        height: 35px;
+        border-bottom: 2px solid #C1C0BF;
+        border-right: 2px solid #C1C0BF;
+        padding-top: 18px;
+
+    }
+
+    .container .ppap-approval-status .content-wrapper > div:nth-child(4) .name > div {
+        float: left;
+        width: 177.5px;
+        height: 27px;
+        border-bottom: 2px solid #C1C0BF;
+        border-right: 2px solid #C1C0BF;
+        padding-top: 6px;
+        background-color: rgb(204, 191, 219);
+    }
+
+    .container .approval-column .content-wrapper {
+        width: 1077px;
+        border-right: 2px solid #C1C0BF;
+    }
+
+    .container .approval-column .content-wrapper .name {
+        font-weight: bolder;
+    }
+
+    .container .approval-column .content-wrapper > div {
+        width: 1077px;
+        height: 53px;
+        border-bottom: 2px solid #C1C0BF;
+        text-align: center;
+    }
+
+    .container .approval-column .content-wrapper > div > div {
+        float: left;
+        width: 132.6px;
+        height: 53px;
+        border-right: 2px solid #C1C0BF;
+
+    }
+
+    .container .approval-column .content-wrapper > div .name {
+        background-color: rgb(204, 191, 219);
+        height: 35px;
+        padding-top: 18px;
+    }
+
+    .container .approval-column .content-wrapper > div .val {
+        height: 35px;
+        padding-top: 18px;
+    }
 
 </style>
 
@@ -500,14 +675,130 @@ Author : liuzhijie
             </div>
         </div>
         <div class="one-approval">
-            <div class="title">一次审批</div>
+            <div class="title">一次审批
+                <div class="arrow">
+                    <div></div>
+                    <div></div>
+                </div>
+                <span class="layui-badge layui-bg-blue">7</span>
+            </div>
         </div>
     </div>
     <div class="ppap-approval-status">
         <div class="title">PPAP批准状态</div>
+        <div class="content-wrapper">
+            <div>
+                <div class="name">临时批准有效期至</div>
+                <div class="val">不能超过三个月</div>
+                <div class="name">临时批准原因</div>
+                <div class="val">XXXXXXXX</div>
+            </div>
+            <div>
+                <div class="name">其他要求</div>
+                <div class="val">
+                    <div>
+                        <input type="radio" checked>
+                        <span>对前期的样件进行标识，隔离或报废处理</span>
+                    </div>
+                    <div>
+                        <input type="radio">
+                        <span>按照PPAP批准状态组织生产，如产品发生设计/工艺/生产场地/分供方等影响性能和装配的变更，则必须向SGMW变更提出申请</span>
+                    </div>
+                    <div>
+                        <input type="radio">
+                        <span>对前期的样件进行标识，隔离或报废处理</span>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <div class="name">
+                    <div>尺寸</div>
+                    <div>外观</div>
+                    <div>试验</div>
+                    <div>工艺过程</div>
+                    <div>工程</div>
+                </div>
+                <div class="val">
+                    <div>I</div>
+                    <div>I</div>
+                    <div>N</div>
+                    <div>I</div>
+                    <div>I</div>
+                </div>
+            </div>
+            <div>
+                <div class="name">
+                    <div>问题描述</div>
+                    <div>行动计划</div>
+                    <div>要求完成时间</div>
+                    <div>负责人</div>
+                    <div>备注</div>
+                    <div>是否纳入GP12检查点</div>
+                </div>
+                <div class="val">
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                </div>
+                <div class="val">
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                </div>
+                <div class="val">
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                    <div>XXXXXX</div>
+                </div>
+
+            </div>
+        </div>
     </div>
     <div class="approval-column">
         <div class="title">审批栏</div>
+        <div class="content-wrapper">
+            <div>
+                <div class="name">SQ经理</div>
+                <div class="val">XXXX</div>
+                <div class="name">审批意见</div>
+                <div class="val">同意</div>
+                <div class="name">创建日期</div>
+                <div class="val">2018-XX-XX</div>
+                <div class="name">备注</div>
+                <div class="val">XXXX</div>
+            </div>
+            <div>
+                <div class="name">平台总工</div>
+                <div class="val">XXXX</div>
+                <div class="name">审批意见</div>
+                <div class="val">同意</div>
+                <div class="name">创建日期</div>
+                <div class="val">2018-XX-XX</div>
+                <div class="name">备注</div>
+                <div class="val">XXXX</div>
+            </div>
+            <div>
+                <div class="name">SQ总监</div>
+                <div class="val">XXXX</div>
+                <div class="name">审批意见</div>
+                <div class="val">同意</div>
+                <div class="name">创建日期</div>
+                <div class="val">2018-XX-XX</div>
+                <div class="name">备注</div>
+                <div class="val">XXXX</div>
+            </div>
+
+        </div>
     </div>
 
     <script>
