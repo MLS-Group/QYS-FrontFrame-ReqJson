@@ -1,0 +1,51 @@
+{
+  "respCode": "0",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10000,
+    "count": 4,
+    "pageCount": 1,
+    "list": [
+      {
+        "id": "1",
+        "state": "",
+        "stage": "",
+        "partsNumber": "p-001",
+        "partsName": "雨刮器",
+        "oldPartsNum": "000001",
+        "newEwo": "xxxxxxxx"
+      },
+      {
+        "id": "2",
+        "state": "",
+        "stage": "",
+        "partsNumber": "p-002",
+        "partsName": "后视镜",
+        "oldPartsNum": "000002",
+        "newEwo": "zzzzzzzz"
+      },
+      {
+        "id": "3",
+        "state": "",
+        "stage": "",
+        "partsNumber": "p-003",
+        "partsName": "前左车灯",
+        "oldPartsNum": "000003",
+        "newEwo": "vvvvvvvv"
+      },
+      {
+        "id": "4",
+        "state": "",
+        "stage": "",
+        "partsNumber": "p-004",
+        "partsName": "前右车灯",
+        "oldPartsNum": "000004",
+        "newEwo": "xxxxxxx"
+      }
+    ],
+    "ext": {},
+    "orderBy": ""
+  },
+  "ok": true,
+  "message": ""
+}

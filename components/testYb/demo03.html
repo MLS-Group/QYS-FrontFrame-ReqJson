@@ -1,0 +1,448 @@
+<style>
+    .title-ppap-approve{
+        width: 100%;
+        text-align: center;
+        height: 60px;
+    }
+
+    .title-photo{
+        display: inline-block;
+        float: left;
+        width: 60px;
+    }
+
+    .title-content{
+        display: inline-block;
+        height: 50px;
+        padding: 10px 0 0 0;
+        text-align: center;
+    }
+
+    .title-state{
+        display: inline-block;
+        height: 40px;
+        padding: 20px 10px 0 0;
+        float: right;
+    }
+
+    table{
+        width: 100%;
+    }
+
+    .table-value-input{
+        margin: 0 0 0 5px;
+        width: 92%;
+        height: 45px;
+        border: hidden;
+    }
+
+    .table-tr{
+        height: 45px;
+    }
+
+    .table-head-title{
+        width: 100%;
+        height: 45px;
+        padding: 0 0 0 5px;
+        background-color: #EBEBEB;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .table-body-tr-time{
+        width: 8%;
+        background-color: #B7DFE9;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .table-body-tr-value{
+        width: 12%;
+    }
+
+    .table-state-head{
+        background-color: #B7DFE9;
+        text-align: center;
+        height: 45px;
+        font-weight: bold;
+    }
+
+    .table-state-row{
+        text-align: center;
+    }
+
+    .table-title-yellow{
+        background-color: #C4E759;
+        height: 45px;
+        font-weight: bold;
+        text-align: center;
+
+    }
+
+    .table-title-violet{
+        background-color: #CCBFDB;
+        height: 45px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .button-tr-1{
+        background-color: #F7EA68;
+        height: 45px;
+    }
+
+    .button-tr-2{
+        background-color: #CB8611;
+        border-top: #01AAED;
+        border-left: #01AAED;
+        height: 45px;
+    }
+
+
+</style>
+<div class="layui-row layui-col-space15" id="2">
+    <div class="layui-col-md12 autoScrollLeft">
+        <div class="layui-card">
+            <!--表格标题-->
+            <div class="title-ppap-approve" id="1">
+                <div class="title-photo"><img src="../../assets/images/head.png" style="width: 60px;height: 60px;"></div>
+                <div class="title-content"><p style="color: red;font-weight: bold;font-size: 16px">xxx车型项目PPAP审批单创建</p><p style="color: #CEC6CB">表单型号:xxxxxxxx</p></div>
+                <div class="title-state"><p style="color: #6B7078">状态：PE待审批</p></div>
+            </div>
+
+            <table id="ppap-message" border="1">
+                <!--基础信息-->
+                    <tr>
+                        <th class="table-head-title table-tr" colspan="10">基础信息</th>
+                    </tr>
+                    <tr class="table-tr">
+                        <td class="table-body-tr-time">SQE</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">SQ业务科室</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">创建日期</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">PE</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">PE</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                    </tr>
+
+                    <tr class="table-tr">
+                        <td class="table-body-tr-time">车型/项目</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">供应商名称</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">供应商编号</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">供应商代表姓名</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">供应商代表职务</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                    </tr>
+
+                    <tr class="table-tr">
+                        <td class="table-body-tr-time">风险等级</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">是否开PPAP试生产审核</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">计划试生产的审核时间</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time">PPAP文件提交等级</td>
+                        <td class="table-body-tr-value"><input type="text" class="table-value-input"></td>
+                        <td class="table-body-tr-time"></td>
+                        <td class="table-body-tr-value"></td>
+                    </tr>
+            </table>
+
+            <table border="1" style="border-top: hidden">
+                <!--零件批准状态-->
+                <tr>
+                    <th class="table-head-title table-tr" colspan="8">零件批准状态</th>
+                </tr>
+                <tr class="table-state-head">
+                    <td style="width: 3%;">序号</td>
+                    <td style="width: 16%;">零件状态</td>
+                    <td style="width: 16%;">产品阶段</td>
+                    <td style="width: 12%;">最新零件号</td>
+                    <td style="width: 12%;">零件名称</td>
+                    <td style="width: 12%;">旧零件号</td>
+                    <td style="width: 12%;">最新EWO</td>
+                    <td style="width: 17%;"><p>升级高风险描述</p><p>(非高风险可填写无)</p></td>
+                </tr>
+
+                <!--使用laytpl模板引擎,动态加载零件批发状态表-->
+                <script type="text/html" id="stateDataTpl">
+                    {{# var da = d.data.list;}}
+                    {{# layui.each(da,function(index,item){ }}
+                    <tr class="table-state-row">
+                        <td>{{ index+1 }}</td>
+                        <td><input type="text" value="{{ item.state }}" class="table-value-input"></td>
+                        <td><input type="text" value="{{ item.stage }}" class="table-value-input"></td>
+                        <td><input type="text" value="{{ item.partsNumber }}" class="table-value-input"></td>
+                        <td><input type="text" value="{{ item.partsName }}" class="table-value-input"></td>
+                        <td><input type="text" value="{{ item.oldPartsNum }}" class="table-value-input"></td>
+                        <td><input type="text" value="{{ item.newEwo }}" class="table-value-input"></td>
+                        <td><input type="text" value="" class="table-value-input"></td>
+                    </tr>
+                    {{# }); }}
+                </script>
+
+                <tr class="table-state-row">
+                    <td colspan="8" style="text-align: right;"><button class="layui-btn layui-btn-sm layui-btn-normal" style="margin: 0 10px 0 0;width: 100px">删除</button></td>
+                </tr>
+            </table>
+
+            <table border="1" style="border-top: hidden">
+                <!--PPAP文件需求提交列表-->
+                <tr>
+                    <th class="table-head-title table-tr" colspan="8">PPAP文件需求提交列表</th>
+                </tr>
+                <tr>
+                    <td class="table-title-yellow" style="width: 4%">序号</td>
+                    <td class="table-title-yellow" style="width: 17%">文件名</td>
+                    <td class="table-title-yellow" style="width: 14%">附件</td>
+                    <td class="table-title-yellow" style="width: 25%">说明(非必需)</td>
+                    <td class="table-title-violet" style="width: 15%">文件确认</td>
+                    <td class="table-title-violet" style="width: 25%">说明(非必需)</td>
+                </tr>
+
+                <script type="text/html" id="ppapfile">
+                    {{# var da = d.data.list;}}
+                    {{# layui.each(da,function(index,item){ }}
+                        {{# var files = item.filepath.split(";"); }}
+                        {{# var Explain1s = item.Explain1.split(";"); }}
+                        {{# layui.each(files,function(i,file){ }}
+                            {{# if(i === 0){ }}
+                                <tr class="table-state-row">
+                                    <td rowspan="{{files.length}}">{{ index+1 }}</td>
+                                    <td rowspan="{{ files.length }}">{{ item.filename }}</td>
+                                    <td>
+                                        {{# if(file.endsWith('doc')){ }}
+                                            <a href=""><img src="../../assets/images/fileType/word.png"></a>
+                                        {{# }else if(file.endsWith('txt')){ }}
+                                            <a href=""><img src="../../assets/images/fileType/txt.png"></a>
+                                        {{# }else if(file.endsWith('xls')||file.endsWith('xlsx')){ }}
+                                        <a href=""><img src="../../assets/images/fileType/xlsx.png"></a>
+                                        {{# } }}
+                                    </td>
+                                    <td>{{ Explain1s[i] }}</td>
+                                    <td>
+                                        <select>
+                                            <option>批准</option>
+                                            <option>临时批准</option>
+                                            <option>不批准</option>
+                                        </select>
+                                    </td>
+                                    <td><textarea style="width: 85%;" rows="3"></textarea></td>
+                                </tr>
+                            {{# }else{ }}
+                                <tr class="table-state-row">
+                                    <td>
+                                        {{# if(file.endsWith('doc')){ }}
+                                        <a href=""><img src="../../assets/images/fileType/word.png"></a>
+                                        {{# }else if(file.endsWith('txt')){ }}
+                                        <a href=""><img src="../../assets/images/fileType/txt.png"></a>
+                                        {{# }else if(file.endsWith('xls')||file.endsWith('xlsx')){ }}
+                                        <a href=""><img src="../../assets/images/fileType/xlsx.png"></a>
+                                        {{# } }}
+                                    </td>
+                                    <td>{{ Explain1s[i] }}</td>
+                                    <td>
+                                        <select>
+                                            <option>批准</option>
+                                            <option>临时批准</option>
+                                            <option>不批准</option>
+                                        </select>
+                                    </td>
+                                    <td><textarea style="width: 85%;" rows="3"></textarea></td>
+                                </tr>
+                            {{# } }}
+                        {{# }); }}
+                    {{# }); }}
+
+                </script>
+
+            </table>
+
+            <table border="1" style="border-top: hidden">
+                <tr>
+                    <td class="table-title-yellow" style="width: 8%">供应商代表姓名</td>
+                    <td style="width: 14%"><input class="table-value-input"></td>
+                    <td class="table-title-yellow" style="width: 8%">供应商代表职务</td>
+                    <td style="width: 14%"><input class="table-value-input"></td>
+                    <td class="table-title-yellow" style="width: 8%">提交日期</td>
+                    <td style="width: 14%"><input class="table-value-input"></td>
+                    <td class="table-title-yellow" style="width: 8%">说明</td>
+                    <td style="width: 26%"><input class="table-value-input"></td>
+                </tr>
+
+                <tr class="button-tr-1" id="button-tr">
+                    <td colspan="8">
+                        <div style="display: inline-block;float: left;margin: 0 0 0 10px;font-weight: bold;">一次审批</div>
+                        <div style="display: inline-block;float: right;margin: 0 10px 0 0;">
+                            <img src="../../assets/images/list.png">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div id="ppap-div-approval" style="display: none;" class="layui-anim layui-anim-scale">
+                <table border="1" style="border-top: hidden">
+                    <!--PPAP批准状态-->
+                    <tr>
+                        <th class="table-head-title table-tr" colspan="8">PPAP批准状态</th>
+                    </tr>
+                    <tr>
+                        <td class="table-title-violet" style="width: 17%">临时批准有效期至</td>
+                        <td style="width: 16%"><input class="table-value-input"></td>
+                        <td class="table-title-violet" style="width: 17%">临时批准原因</td>
+                        <td style="width: 50%"><input class="table-value-input"></td>
+                    </tr>
+                </table>
+
+                <table border="1" style="border-top: hidden">
+                    <tr>
+                        <td class="table-title-violet" style="width: 17%">问题描述</td>
+                        <td class="table-title-violet" style="width: 34%">行动计划</td>
+                        <td class="table-title-violet" style="width: 16%">需求完成时间</td>
+                        <td class="table-title-violet" style="width: 15%">负责人</td>
+                        <td class="table-title-violet" style="width: 18%">备注</td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                        <td><input class="table-value-input"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-title-violet" rowspan="3">其他需求</td>
+                        <td colspan="4" style="height: 45px;padding: 0 0 0 10px;">
+                            <label><input type="radio" name="otherReq">对前期的样件进行标识，隔离或报废处理</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="height: 45px;padding: 0 0 0 10px;">
+                            <label><input type="radio" name="otherReq">按APP批准状态组织生产，如产品发生设计/工艺/生产场
+                                地分供方等影响性能和装配的更变，则必须向SGMW提出变更申请</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="height: 45px;padding: 0 0 0 10px;">
+                            <label><input type="radio" name="otherReq">如在GP-12期间无重大质量问题，可向SQE书面提出GP-12
+                                退出申请报告，经批准后，方可退出</label>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <table border="1" style="border-top: hidden">
+                    <!--审批栏-->
+                    <tr>
+                        <th class="table-head-title table-tr" colspan="8">审批栏</th>
+                    </tr>
+
+                    <tr>
+                        <td class="table-title-violet">SQ经理</td>
+                        <td><input type="text" class="table-value-input"></td>
+                        <td class="table-title-violet">审批意见</td>
+                        <td><input type="text" class="table-value-input"></td>
+                        <td class="table-title-violet">创建日期</td>
+                        <td><input type="text" class="table-value-input"></td>
+                        <td class="table-title-violet">备注</td>
+                        <td><input type="text" class="table-value-input"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-title-violet">平台总工</td>
+                        <td><input type="text" class="table-value-input"></td>
+                        <td class="table-title-violet">审批意见</td>
+                        <td><input type="text" class="table-value-input"></td>
+                        <td class="table-title-violet">创建日期</td>
+                        <td><input type="text" class="table-value-input"></td>
+                        <td class="table-title-violet">备注</td>
+                        <td><input type="text" class="table-value-input"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-title-violet">SQ总监</td>
+                        <td><input type="text" class="table-value-input"></td>
+                        <td class="table-title-violet">审批意见</td>
+                        <td><input type="text" class="table-value-input"></td>
+                        <td class="table-title-violet">创建日期</td>
+                        <td><input type="text" class="table-value-input"></td>
+                        <td class="table-title-violet">备注</td>
+                        <td><input type="text" class="table-value-input"></td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use('laytpl',function () {
+        var laytpl = layui.laytpl;
+
+        //加载零件批准状态表数据
+        $.ajax({
+            type: 'get',
+            url: '../../api/testYb/demo03.json',
+            dataType: 'json',
+            success: function (data) {
+                if(data.ok){
+                    laytpl(stateDataTpl.innerHTML).render(data,function (html) {
+                        $('#stateDataTpl').after(html)
+                    })
+                }
+            }
+        });
+
+        //加载PPAP文件需求提交列表数据
+        $.ajax({
+            type: 'get',
+            url: '../../api/testYb/demo03_1.json',
+            dataType: 'json',
+            success: function (data) {
+                if(data.ok){
+                    laytpl(ppapfile.innerHTML).render(data,function (html) {
+                        $('#ppapfile').after(html)
+                    });
+                }
+            }
+        });
+
+        $('#button-tr').click(function () {
+            if($('#ppap-div-approval').css("display") === "none"){
+                $('#ppap-div-approval').css({"display":""});
+                $("html").animate({scrollTop: '100px'})
+            }else{
+                $('#ppap-div-approval').css({"display":"none"});
+            }
+
+        });
+
+    });
+</script>
