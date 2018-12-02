@@ -1,4 +1,5 @@
 <!--
+Describe: 表格系列的 demo
 Created: 2018-11-20
 Author : liuzhijie
 -->
@@ -24,8 +25,7 @@ Author : liuzhijie
 
     .layui-card-body .search .search-title {
         position: absolute;
-        top: -10px;
-
+        transform:translate(-50%,-10px)
     }
 
     .layui-card-body .search .search-title button {
@@ -623,7 +623,6 @@ Author : liuzhijie
      * @param thi  当前元素this
      */
     function closeSearch(thi) {
-        console.log($(thi).parents('.layui-form-item'))
         $(thi).parents('.layui-form-item').css('display', 'none');
     }
 
@@ -632,19 +631,8 @@ Author : liuzhijie
      * @param thi  当前元素this
      */
     function oenSearch(thi) {
-        console.log($(thi).parent())
         $(thi).parent().next('.layui-form-item').css('display', 'block');
     }
 
-    /**
-     * 调整搜索功能的 标题 的位置
-     */
-    function adjustSeacherTitle() {
-        let bts = $('.search-title ');
-        for (let bt of bts) {
-            $(bt).css('left',-parseInt($(bt).css('width'))/2 + 'px')
-        }
-    }
-    adjustSeacherTitle();
 
 </script>
