@@ -299,9 +299,7 @@ Author : liuzhijie
     }
 
     .container .submit-list .content-wrapper > .val > div {
-        height: 73px;
         background-color: white;
-        /*border-bottom: 2px solid #C1C0BF;*/
     }
 
     .container .submit-list .content-wrapper .name {
@@ -309,7 +307,7 @@ Author : liuzhijie
         border-bottom: 2px solid #C1C0BF;
     }
 
-    .container .submit-list .content-wrapper > .val > div > div > div:nth-child(1),
+    /*.container .submit-list .content-wrapper > .val > div > div > div:nth-child(1),
     .container .submit-list .content-wrapper > .name > div > div:nth-child(1) {
         width: 61.8px;
     }
@@ -327,7 +325,7 @@ Author : liuzhijie
     .container .submit-list .content-wrapper > .val > div > div > div:last-child,
     .container .submit-list .content-wrapper > .name > div > div:last-child {
         width: 153.8px;
-    }
+    }*/
 
     .container .submit-list .content-wrapper .name > div {
         width: 151.8px;
@@ -351,12 +349,7 @@ Author : liuzhijie
     .container .submit-list .content-wrapper .val > div > div {
         border-right: 2px solid #C1C0BF;
         width: 151.8px;
-        height: 73px;
         float: left;
-    }
-
-    .container .submit-list .content-wrapper .val > div > div > div {
-        border-bottom: 2px solid #C1C0BF;
     }
 
     .container .one-approval {
@@ -713,34 +706,34 @@ Author : liuzhijie
                 <div>说明（非必须）</div>
             </div>
             <div class="val">
-                <!-- <div class="val-item">
-                     <div>
-                         <div class="val">1</div>
-                     </div>
-                     <div>
-                         <div class="val"></div>
-                     </div>
-                     <div>
-                         <div class="val">其他</div>
-                     </div>
-                     <div>
-                         <div class="val"><img style="width: 50px;height: 50px;background-color: #ccc;"/></div>
+                <!--  <div class="val-item">
+                      <div>
+                          <div class="val">1</div>
+                      </div>
+                      <div>
+                          <div class="val"></div>
+                      </div>
+                      <div>
+                          <div class="val">其他</div>
+                      </div>
+                      <div>
+                          <div class="val"><img style="width: 50px;height: 50px;background-color: #ccc;"/></div>
 
-                     </div>
-                     <div>
-                         <div class="val">XXXXXXXXX</div>
+                      </div>
+                      <div>
+                          <div class="val">XXXXXXXXX</div>
 
-                     </div>
-                     <div>
-                         <div class="val"><select style="width: 145px;"></select></div>
+                      </div>
+                      <div>
+                          <div class="val"><select style="width: 145px;"></select></div>
 
-                     </div>
-                     <div>
-                         <div class="remark"><textarea style="width: 145px;"></textarea></div>
+                      </div>
+                      <div>
+                          <div class="remark"><textarea style="width: 145px;"></textarea></div>
 
-                     </div>
-                 </div>-->
-            </div>
+                      </div>
+                  </div>-->
+             </div>
         </div>
     </div>
     <div class="one-approval">
@@ -892,12 +885,9 @@ Author : liuzhijie
 
         //配置PPAP 文件要求提交列表
         configSubmitList([
-            ['一个标识', '一个文件名', [[{type: 'excel', url: '#'}, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]],
-            ['一个标识', '一个文件名', [[{type: 'excel', url: '#'}, '这是一个说明（非必需）', '1', '又一个说明（非必须）'], [{
-                type: 'work',
-                url: '#'
-            }, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]],
-            ['一个标识', '一个文件名', [[{type: 'work', url: '#'}, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]]
+            ['一个标识', '一个文件名', [[{type: 'excel', url: 'https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip'}, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]],
+            ['一个标识', '一个文件名', [[{type: 'excel', url: 'https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip'}, '这是一个说明（非必需）', '1', '又一个说明（非必须）'], [{type: 'word', url: '#'}, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]],
+            ['一个标识', '一个文件名', [[{type: 'word', url: 'https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip'}, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]]
         ])
 
         //动态配置 “一次审批” 标题的徽标中的数字
@@ -940,7 +930,11 @@ Author : liuzhijie
      * @param url : 下载的地址
      */
     function fujianDownload(url) {
-        windows.location.href = url;
+        layer.confirm('是否下载附件?', {icon: 3, title:'提示'}, function(index){
+            window.location.href = url;
+            layer.close(index);
+        });
+
     }
 
 
@@ -1017,49 +1011,62 @@ Author : liuzhijie
     function configSubmitList(dataArray) {
         let str = '';
         for (let i = 0; i < dataArray.length; i++) {
+
             str += `<div class="val-item${+i + 1}">
                 <div>
-                    <div class="val">${+i + 1}</div>
+                    <div class="content-val1">${+i + 1}</div>
                 </div>
-                <div class="val">${dataArray[i][0]}</div>
                 <div>
-                    <div class="val">${dataArray[i][1]}</div>
+                    <div class="content-val1">${dataArray[i][0]}</div>
+                </div>
+                <div>
+                    <div class="content-val1">${dataArray[i][1]}</div>
                 </div>`;
 
             let fujian = '<div>'
                 , shuoming1 = '<div>'
                 , wenjianqueren = '<div>'
                 , shuoming2 = '<div>';
-            console.log(dataArray[i][2])
+
             for (let j = 0; j < dataArray[i][2].length; j++) {
                 let src = ''; //附件图片的src
                 if (dataArray[i][2][j][0].type == 'excel') {
-                    src = 'http://img3.imgtn.bdimg.com/it/u=997919593,2801061002&fm=26&gp=0.jpg'
+                    src = '../../assets/images/approval-list/excel.jpg'
                 } else if (dataArray[i][2][j][0].type == 'word') {
-                    src = 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2662200433,3924771054&fm=26&gp=0.jpg'
+                    src = '../../assets/images/approval-list/word.jpg'
                 }
-
-                fujian += `<div class="val"><img style="width: 50px;height: 50px;background-color: #ccc;"  src="${src}" onclick="fujianDownload(${dataArray[i][2][j][0].url})"/></div>`;
-                shuoming1 += `<div class="val">${dataArray[i][2][j][1]}</div>`;
-                wenjianqueren += ` <div class="val"><select style="width: 145px;" value="${dataArray[i][2][j][2]}">
-                                                                    <option value="0">没通过</option>
-                                                                    <option value="1">通过</option>
-                                    </select></div>`;
-                shuoming2 += `<div class="remark"><textarea style="width: 145px;">${dataArray[i][2][j][3]}</textarea></div>`;
+                fujian += `<div class="content-val2"><img style="width: 50px;height: 50px;background-color: #ccc;"  src="${src}" onclick="fujianDownload('${dataArray[i][2][j][0].url}')"/></div>`;
+                shuoming1 += `<div class="content-val2">${dataArray[i][2][j][1]}</div>`;
+                wenjianqueren += ` <div class="content-val2"><select style="width: 145px;">`
+                        if(dataArray[i][2][j][2] == 0){
+                            wenjianqueren += ` <option value="0" selected>没通过</option><option value="1">通过</option>`
+                        }else if (dataArray[i][2][j][2] == 1){
+                            wenjianqueren += ` <option value="0" >没通过</option><option value="1" selected>通过</option>`
+                        }
+                wenjianqueren += `</select></div>`;
+                shuoming2 += `<div class="content-val2"><textarea style="width: 145px;">${dataArray[i][2][j][3]}</textarea></div>`;
             }
             fujian += '</div>';
             shuoming1 += '</div>';
             wenjianqueren += '</div>';
             shuoming2 += '</div>';
 
-            str += fujian + shuoming1 + wenjianqueren + shuoming2;
+            str += fujian + shuoming1 + wenjianqueren + shuoming2 +'</div>';
         }
-        console.log( $('.submit-list .content-wrapper .val'))
-        console.log( str)
 
         $('.submit-list .content-wrapper .val').html('');
         $('.submit-list .content-wrapper .val').append(str);
 
+        //动态调节边框的css
+        for (let i = 0; i < dataArray.length; i++) {
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1}`).css('height',dataArray[i][2].length * 73 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('height',dataArray[i][2].length * 61 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('padding-top',dataArray[i][2].length * 10 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('border-bottom','2px solid #C1C0BF');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('height',61 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('padding-top', 10 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('border-bottom','2px solid #C1C0BF');
+        }
     }
 
     /**
