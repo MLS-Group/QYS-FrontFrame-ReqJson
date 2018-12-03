@@ -88,10 +88,14 @@ Author : liuzhijie
         background-color: rgb(245, 245, 245);
     }
 
+    .container .name {
+        font-weight: bolder;
+    }
+
     .container .basic-info .content-wrapper .content-top {
         border-bottom: 2px solid #C1C0BF;
         height: 52px;
-        font-weight: bolder;
+
     }
 
     .container .basic-info .content-wrapper .content-top > div > div {
@@ -287,19 +291,17 @@ Author : liuzhijie
     .container .submit-list .content-wrapper {
         width: 1077px;
         border-right: 2px solid #C1C0BF;
-        border-bottom: 2px solid #C1C0BF;
-        height: 128px;
     }
 
     .container .submit-list .content-wrapper > div {
         width: 1077px;
-        border-bottom: 2px solid #C1C0BF;
         text-align: center;
     }
 
-    .container .submit-list .content-wrapper > .val-item {
+    .container .submit-list .content-wrapper > .val > div {
         height: 73px;
         background-color: white;
+        /*border-bottom: 2px solid #C1C0BF;*/
     }
 
     .container .submit-list .content-wrapper .name {
@@ -307,20 +309,24 @@ Author : liuzhijie
         border-bottom: 2px solid #C1C0BF;
     }
 
-    .container .submit-list .content-wrapper > div > div:nth-child(1) {
+    .container .submit-list .content-wrapper > .val > div > div > div:nth-child(1),
+    .container .submit-list .content-wrapper > .name > div > div:nth-child(1) {
         width: 61.8px;
     }
 
-    .container .submit-list .content-wrapper > div > div:nth-child(2) {
+    .container .submit-list .content-wrapper > .val > div > div > div:nth-child(2),
+    .container .submit-list .content-wrapper > .name > div > div:nth-child(2) {
         width: 71.8px;
     }
 
-    .container .submit-list .content-wrapper > div > div:nth-child(5) {
+    .container .submit-list .content-wrapper > .val > div > div > div:nth-child(5),
+    .container .submit-list .content-wrapper > .name > div > div:nth-child(5) {
         width: 251.8px;
     }
 
-    .container .submit-list .content-wrapper > div > div:last-child {
-        width: 221.8px;
+    .container .submit-list .content-wrapper > .val > div > div > div:last-child,
+    .container .submit-list .content-wrapper > .name > div > div:last-child {
+        width: 153.8px;
     }
 
     .container .submit-list .content-wrapper .name > div {
@@ -342,20 +348,15 @@ Author : liuzhijie
         background-color: rgb(203, 191, 219);
     }
 
-    .container .submit-list .content-wrapper .val-item > div {
+    .container .submit-list .content-wrapper .val > div > div {
         border-right: 2px solid #C1C0BF;
         width: 151.8px;
         height: 73px;
         float: left;
-        position: relative;
-
     }
 
-    .container .submit-list .content-wrapper .val-item > div > div {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    .container .submit-list .content-wrapper .val > div > div > div {
+        border-bottom: 2px solid #C1C0BF;
     }
 
     .container .one-approval {
@@ -411,10 +412,6 @@ Author : liuzhijie
         text-align: center;
     }
 
-    .container .one-approval .ppap-approval-status .content-wrapper .name {
-        font-weight: bolder;
-    }
-
     .container .one-approval .ppap-approval-status .content-wrapper > div {
         width: 1077px;
     }
@@ -433,7 +430,7 @@ Author : liuzhijie
     }
 
     .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(4) {
-        height: 256px;
+        overflow: hidden;
         width: 1079px;
     }
 
@@ -678,29 +675,25 @@ Author : liuzhijie
                 <div class="remark">备注</div>
             </div>
             <div class="val">
-                <div class="val-item1">
-                    <div>1</div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div><input style="width: 222px;margin-left: 3px"/></div>
-                </div>
-                <div class="val-item2">
-                    <div>2</div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div><input style="width: 222px;margin-left: 3px"/></div>
-
-                </div>
-
+                <!--<div class="val-item1">-->
+                <!--<div>1</div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div><input style="width: 222px;margin-left: 3px"/></div>-->
+                <!--</div>-->
+                <!--<div class="val-item2">-->
+                <!--<div>2</div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div><input style="width: 222px;margin-left: 3px"/></div>-->
+                <!--</div>-->
             </div>
-
-
         </div>
         <div class="btn">
             <button>删除<span class="layui-badge layui-bg-blue">8</span></button>
@@ -715,30 +708,38 @@ Author : liuzhijie
                 <div>文件标识</div>
                 <div>文件名</div>
                 <div>附件</div>
-                <div>说明（非必须）</div>
+                <div>说明（非必需）</div>
                 <div><span class="major">*</span>文件确认</div>
                 <div>说明（非必须）</div>
             </div>
-            <div class="val-item">
-                <div>
-                    <div>1</div>
-                </div>
-                <div></div>
-                <div>
-                    <div>其他</div>
-                </div>
-                <div>
-                    <div><img style="width: 50px;height: 50px;background-color: #ccc;"/></div>
-                </div>
-                <div>
-                    <div>XXXXXXXXX</div>
-                </div>
-                <div>
-                    <div><select style="width: 145px;"></select></div>
-                </div>
-                <div>
-                    <div class="remark"><textarea style="width: 145px;"></textarea></div>
-                </div>
+            <div class="val">
+                <!-- <div class="val-item">
+                     <div>
+                         <div class="val">1</div>
+                     </div>
+                     <div>
+                         <div class="val"></div>
+                     </div>
+                     <div>
+                         <div class="val">其他</div>
+                     </div>
+                     <div>
+                         <div class="val"><img style="width: 50px;height: 50px;background-color: #ccc;"/></div>
+
+                     </div>
+                     <div>
+                         <div class="val">XXXXXXXXX</div>
+
+                     </div>
+                     <div>
+                         <div class="val"><select style="width: 145px;"></select></div>
+
+                     </div>
+                     <div>
+                         <div class="remark"><textarea style="width: 145px;"></textarea></div>
+
+                     </div>
+                 </div>-->
             </div>
         </div>
     </div>
@@ -803,7 +804,7 @@ Author : liuzhijie
                         <div>是否纳入GP12检查点</div>
                     </div>
                     <div class="val">
-                        <div class="val-item1">
+                        <!--<div class="val-item1">
                             <div>XXXXXX</div>
                             <div>XXXXXX</div>
                             <div>XXXXXX</div>
@@ -818,7 +819,7 @@ Author : liuzhijie
                             <div>XXXXXX</div>
                             <div>XXXXXX</div>
                             <div>XXXXXX</div>
-                        </div>
+                        </div>-->
                     </div>
 
 
@@ -867,8 +868,6 @@ Author : liuzhijie
 <script>
     //遗留问题
     //1.PPAP 文件要求提交列表
-    //2.PPAP批准状态 第3部分
-
 
     layui.use(['laydate'], function () {
         let laydate = layui.laydate;
@@ -883,12 +882,26 @@ Author : liuzhijie
         configBasicInfo1(['供应商质量工程师', '你猜', '2018-11-11', 'PGONE', '你再猜']);
         configBasicInfo2(['0001', 'A186', '1110', '这个公司', '1', '0', '2018-11-11', '2']);
         configBasicInfo3(['你可以猜猜猜', '22', '这是一个说明，内容是啥自行脑补']);
+
         //动态配置 “零件批准状态” 板块 内容
         configPartsApprovalStatus([
             ['这个阶段啊', '001', '一个零件啊', '0001', 'EWO0啊', '这是一个备注，内容你猜啊'],
             ['这个阶段呀', '002', '一个零件呀', '0002', 'EWO0呀', '这是一个备注，内容你猜呀'],
             ['这个阶段哈', '003', '一个零件哈', '0003', 'EWO0哈', '这是一个备注，内容你猜哈']
-        ]);
+        ], '3');
+
+        //配置PPAP 文件要求提交列表
+        configSubmitList([
+            ['一个标识', '一个文件名', [[{type: 'excel', url: '#'}, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]],
+            ['一个标识', '一个文件名', [[{type: 'excel', url: '#'}, '这是一个说明（非必需）', '1', '又一个说明（非必须）'], [{
+                type: 'work',
+                url: '#'
+            }, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]],
+            ['一个标识', '一个文件名', [[{type: 'work', url: '#'}, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]]
+        ])
+
+        //动态配置 “一次审批” 标题的徽标中的数字
+        configOneApproval('5');
         //动态配置 “一次审批---PPAP批准状态” 板块 内容
         configPpapApprovalStatus1(['今天', '回家过年', '2']);
         configPpapApprovalStatus2(['N', 'R', 'SR', 'SSR', 'UR']);
@@ -896,7 +909,7 @@ Author : liuzhijie
             ['这是个问题啊', 'PlanA', '2018-11-11', '小明啊', '这是一个备注啊', '是'],
             ['这是个问题呀', 'PlanB', '2018-11-11', '小明呀', '这是一个备注呀', '否'],
             ['这是个问题呦', 'PlanC', '2018-11-11', '小明呦', '这是一个备注呦', '是'],
-
+            ['这是个问题呦', 'PlanC', '2018-11-11', '小明呦', '这是一个备注呦', '是'],
         ]);
         //动态配置 “一次审批---审批栏” 板块 内容
         configApprovalColumn([
@@ -920,6 +933,16 @@ Author : liuzhijie
         }
 
     }
+
+
+    /**
+     * 点击附件图片进行下载
+     * @param url : 下载的地址
+     */
+    function fujianDownload(url) {
+        windows.location.href = url;
+    }
+
 
     //动态配置页面信息
     //=======基础信息=========
@@ -950,7 +973,7 @@ Author : liuzhijie
     }
 
     /**
-     * 3.第三行，*PPAP提交原因，徽章里的数字，说明
+     * 3.第三行，PPAP提交原因，徽章里的数字，说明
      * @param dataArray: 依次要填入的内容，是一个数组
      */
     function configBasicInfo3(dataArray) {
@@ -962,12 +985,14 @@ Author : liuzhijie
 
     }
 
-    //=======零件批准状态=========
+
     /**
+     * 零件批准状态
      * 产品阶段，最新零件号，零件名称，旧零件号，最新EWO，备注
      * @param dataArray: 依次要填入的内容，是一个二维数组
+     * @param num: “删除”按钮上的徽标中的数字
      */
-    function configPartsApprovalStatus(dataArray) {
+    function configPartsApprovalStatus(dataArray, num) {
         let str = '';
         for (let i = 0; i < dataArray.length; i++) {
             str += ` <div class="val-item${+i + 1}">
@@ -982,13 +1007,72 @@ Author : liuzhijie
         }
         $('.parts-approval-status .content-wrapper .val').html('');
         $('.parts-approval-status .content-wrapper .val').append(str);
+        $('.parts-approval-status .btn .layui-badge').text(num);
+    }
+
+    /**
+     * PPAP 文件要求提交列表
+     * @param dataArray: 依次要填入的内容，是一个二维数组
+     */
+    function configSubmitList(dataArray) {
+        let str = '';
+        for (let i = 0; i < dataArray.length; i++) {
+            str += `<div class="val-item${+i + 1}">
+                <div>
+                    <div class="val">${+i + 1}</div>
+                </div>
+                <div class="val">${dataArray[i][0]}</div>
+                <div>
+                    <div class="val">${dataArray[i][1]}</div>
+                </div>`;
+
+            let fujian = '<div>'
+                , shuoming1 = '<div>'
+                , wenjianqueren = '<div>'
+                , shuoming2 = '<div>';
+            console.log(dataArray[i][2])
+            for (let j = 0; j < dataArray[i][2].length; j++) {
+                let src = ''; //附件图片的src
+                if (dataArray[i][2][j][0].type == 'excel') {
+                    src = 'http://img3.imgtn.bdimg.com/it/u=997919593,2801061002&fm=26&gp=0.jpg'
+                } else if (dataArray[i][2][j][0].type == 'word') {
+                    src = 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2662200433,3924771054&fm=26&gp=0.jpg'
+                }
+
+                fujian += `<div class="val"><img style="width: 50px;height: 50px;background-color: #ccc;"  src="${src}" onclick="fujianDownload(${dataArray[i][2][j][0].url})"/></div>`;
+                shuoming1 += `<div class="val">${dataArray[i][2][j][1]}</div>`;
+                wenjianqueren += ` <div class="val"><select style="width: 145px;" value="${dataArray[i][2][j][2]}">
+                                                                    <option value="0">没通过</option>
+                                                                    <option value="1">通过</option>
+                                    </select></div>`;
+                shuoming2 += `<div class="remark"><textarea style="width: 145px;">${dataArray[i][2][j][3]}</textarea></div>`;
+            }
+            fujian += '</div>';
+            shuoming1 += '</div>';
+            wenjianqueren += '</div>';
+            shuoming2 += '</div>';
+
+            str += fujian + shuoming1 + wenjianqueren + shuoming2;
+        }
+        console.log( $('.submit-list .content-wrapper .val'))
+        console.log( str)
+
+        $('.submit-list .content-wrapper .val').html('');
+        $('.submit-list .content-wrapper .val').append(str);
 
     }
 
-    //=======PPAP 文件要求提交列表=========
-
-    //一次审批---PPAP批准状态
     /**
+     * 配置“一次审批” 标题的徽标中的数字
+     * num: “一次审批” 标题的徽标中的数字
+     */
+    function configOneApproval(num) {
+        $('.one-approval .title .layui-badge').text(num);
+    }
+
+
+    /**
+     * 一次审批---PPAP批准状态
      * 1.临时批准有效期至,临时批准原因,其他要求
      * @param dataArray: 依次要填入的内容，是一个二维数组
      */
@@ -1000,6 +1084,7 @@ Author : liuzhijie
     }
 
     /**
+     * 一次审批---PPAP批准状态
      * 2.尺寸，外观，试验，工艺，过程，工程
      * @param dataArray: 依次要填入的内容，是一个二维数组
      */
@@ -1012,6 +1097,7 @@ Author : liuzhijie
     }
 
     /**
+     * 一次审批---PPAP批准状态
      * 3.问题描述，行动计划，要求完成时间，负责人，备注，是否纳入GP12检查点
      * @param dataArray: 依次要填入的内容，是一个二维数组
      */
@@ -1032,25 +1118,22 @@ Author : liuzhijie
 
     }
 
-
     /**
      * 一次审批---审批栏
      * @param dataArray: 依次要填入的内容，是一个二维数组
      */
     function configApprovalColumn(dataArray) {
-        console.log ($('.approval-column .content-wrapper > div:eq(0) .val'))
-        for (let i =0 ;i <dataArray[0].length ;i++){
+        for (let i = 0; i < dataArray[0].length; i++) {
             $('.approval-column .content-wrapper > div:eq(0) .val')[i].innerHTML = dataArray[0][i];
         }
-        for (let i =0 ;i <dataArray[1].length ;i++){
+        for (let i = 0; i < dataArray[1].length; i++) {
             $('.approval-column .content-wrapper > div:eq(1) .val')[i].innerHTML = dataArray[1][i];
         }
-        for (let i =0 ;i <dataArray[2].length ;i++){
+        for (let i = 0; i < dataArray[2].length; i++) {
             $('.approval-column .content-wrapper > div:eq(2) .val')[i].innerHTML = dataArray[2][i];
         }
 
     }
-
 
 
 </script>
