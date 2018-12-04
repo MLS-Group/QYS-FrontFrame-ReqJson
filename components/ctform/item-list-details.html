@@ -1,0 +1,241 @@
+<!--
+Describe: 项目单详情 demo
+Created: 2018-12-04
+Author : liuzhijie
+-->
+<style>
+    .container {
+        background-color: white;
+    }
+
+    .container .title {
+        width: 920px;
+        height: 53px;
+        font-weight: bolder;
+        border: 2px solid rgb(235, 235, 235);
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+
+    .container .title > div {
+        padding-bottom: 5px;
+    }
+
+    .container .title > div:nth-child(1) {
+        font-size: 18px;
+        padding-left: 10px;
+    }
+
+    .container .title > div:nth-child(2) {
+        font-size: 6px;
+    }
+
+    .container .title > div:nth-child(2) > div {
+        float: left;
+    }
+
+    .container .title > div:nth-child(2) > .name {
+        padding-left: 10px;
+
+    }
+
+    .container .title > div:nth-child(2) > .val {
+        color: rgb(50, 153, 0);
+        border-right: 2px solid rgb(235, 235, 235);
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .container .tab {
+        width: 1229px;
+        height: 504px;
+        margin-top: 40px;
+        /*overflow-y:hidden;*/
+        overflow-x:auto;
+    }
+
+    .container .tab .my-table{
+      float: left;
+        width: 100px;
+    }
+
+
+</style>
+
+<div class="container">
+    <div class="title">
+        <div>
+            <div>项目零件跟踪表</div>
+        </div>
+        <div>
+            <div class="name">BETA/OTS2:</div>
+            <div class="val">XXX-XX-XX</div>
+            <div class="name">GAMMA/OTS2:</div>
+            <div class="val">XXX-XX-XX</div>
+            <div class="name">3C Piolt/NS:</div>
+            <div class="val">XXX-XX-XX</div>
+            <div class="name">SOP:</div>
+            <div class="val">XXX-XX-XX</div>
+        </div>
+    </div>
+
+    <div class="tab">
+        <div class="my-table">
+            <table id="basic-info"></table>
+        </div>
+        <div class="my-table">
+            <table id="system-recovery"></table>
+        </div>
+        <div class="my-table">
+            <table id="ots-approval"></table>
+        </div>
+        <div class="my-table">
+            <table id="appearance-approval"></table>
+        </div>
+        <div class="my-table">
+            <table id="fe-approval"></table>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['table'], function () {
+        let table = layui.table
+            , admin = layui.admin;
+        let basicInfoTab = table.render({
+            elem: '#basic-info'
+            , url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            , page: false
+            , cols: [[ //表头
+                {type: 'numbers', title: '序号No.', width: 80}
+                , {field: 'distributionDate', title: '分发日期Distribution Date'}
+                , {field: 'taskNumber', title: '任务单编号Task Number'}
+                , {field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
+                , {field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
+                , {field: 'supplierCode', title: '供应商代码Supplier Code'}
+                , {field: 'supplierName', title: '供应商名称Supplier Name'}
+                , {field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
+                , {field: 'pepeInChange', title: '负责PEPE in Change'}
+                , {field: 'sqe', title: 'SQE'}
+                , {field: 'approvalType', title: '批准形式Approval Type'}
+            ]]
+            , parseData: function (res) { //res 即为原始返回的数据
+                return {
+                    "code": res.respCode, //解析接口状态
+                    "msg": res.message, //解析提示文本
+                    "count": res.data.count, //解析数据长度
+                    "data": res.data.list //解析数据列表
+                };
+            }
+        })
+
+        let systemRecoveryTab = table.render({
+            elem: '#system-recovery'
+            , url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            , page: false
+            , cols: [[ //表头
+                {type: 'numbers', title: '序号No.', width: 80}
+                , {field: 'distributionDate', title: '分发日期Distribution Date'}
+                , {field: 'taskNumber', title: '任务单编号Task Number'}
+                , {field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
+                , {field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
+                , {field: 'supplierCode', title: '供应商代码Supplier Code'}
+                , {field: 'supplierName', title: '供应商名称Supplier Name'}
+                , {field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
+                , {field: 'pepeInChange', title: '负责PEPE in Change'}
+                , {field: 'sqe', title: 'SQE'}
+                , {field: 'approvalType', title: '批准形式Approval Type'}
+            ]]
+            , parseData: function (res) { //res 即为原始返回的数据
+                return {
+                    "code": res.respCode, //解析接口状态
+                    "msg": res.message, //解析提示文本
+                    "count": res.data.count, //解析数据长度
+                    "data": res.data.list //解析数据列表
+                };
+            }
+        })
+
+        let otsApprovalTab = table.render({
+            elem: '#ots-approval'
+            , url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            , page: false
+            , cols: [[ //表头
+                {type: 'numbers', title: '序号No.', width: 80}
+                , {field: 'distributionDate', title: '分发日期Distribution Date'}
+                , {field: 'taskNumber', title: '任务单编号Task Number'}
+                , {field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
+                , {field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
+                , {field: 'supplierCode', title: '供应商代码Supplier Code'}
+                , {field: 'supplierName', title: '供应商名称Supplier Name'}
+                , {field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
+                , {field: 'pepeInChange', title: '负责PEPE in Change'}
+                , {field: 'sqe', title: 'SQE'}
+                , {field: 'approvalType', title: '批准形式Approval Type'}
+            ]]
+            , parseData: function (res) { //res 即为原始返回的数据
+                return {
+                    "code": res.respCode, //解析接口状态
+                    "msg": res.message, //解析提示文本
+                    "count": res.data.count, //解析数据长度
+                    "data": res.data.list //解析数据列表
+                };
+            }
+        })
+
+        let appearanceApprovalTab = table.render({
+            elem: '#appearance-approval'
+            , url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            , page: false
+            , cols: [[ //表头
+                {type: 'numbers', title: '序号No.', width: 80}
+                , {field: 'distributionDate', title: '分发日期Distribution Date'}
+                , {field: 'taskNumber', title: '任务单编号Task Number'}
+                , {field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
+                , {field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
+                , {field: 'supplierCode', title: '供应商代码Supplier Code'}
+                , {field: 'supplierName', title: '供应商名称Supplier Name'}
+                , {field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
+                , {field: 'pepeInChange', title: '负责PEPE in Change'}
+                , {field: 'sqe', title: 'SQE'}
+                , {field: 'approvalType', title: '批准形式Approval Type'}
+            ]]
+            , parseData: function (res) { //res 即为原始返回的数据
+                return {
+                    "code": res.respCode, //解析接口状态
+                    "msg": res.message, //解析提示文本
+                    "count": res.data.count, //解析数据长度
+                    "data": res.data.list //解析数据列表
+                };
+            }
+        })
+
+        let feApprovalTab = table.render({
+            elem: '#fe-approval'
+            , url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            , page: false
+            , cols: [[ //表头
+                {type: 'numbers', title: '序号No.', width: 80}
+                , {field: 'distributionDate', title: '分发日期Distribution Date'}
+                , {field: 'taskNumber', title: '任务单编号Task Number'}
+                , {field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
+                , {field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
+                , {field: 'supplierCode', title: '供应商代码Supplier Code'}
+                , {field: 'supplierName', title: '供应商名称Supplier Name'}
+                , {field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
+                , {field: 'pepeInChange', title: '负责PEPE in Change'}
+                , {field: 'sqe', title: 'SQE'}
+                , {field: 'approvalType', title: '批准形式Approval Type'}
+            ]]
+            , parseData: function (res) { //res 即为原始返回的数据
+                return {
+                    "code": res.respCode, //解析接口状态
+                    "msg": res.message, //解析提示文本
+                    "count": res.data.count, //解析数据长度
+                    "data": res.data.list //解析数据列表
+                };
+            }
+        })
+
+    })
+</script>

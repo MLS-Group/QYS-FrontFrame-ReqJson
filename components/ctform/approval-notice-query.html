@@ -1,0 +1,353 @@
+<!--
+Describe: 审批通知查询 的 demo
+Created: 2018-12-04
+Author : liuzhijie
+-->
+<style>
+    .container {
+        background-color: white;
+        width: 1228.89px;
+    }
+
+    .container .search {
+        border-top: 2px solid #C1C0BF;
+        border-left: 2px solid #C1C0BF;
+        margin-top: 10px;
+        margin-left: 35px;
+        padding-bottom: 20px;
+        position: relative;
+    }
+
+    .container .search .title {
+        position: absolute;
+        transform: translate(-50%, -10px)
+    }
+
+    .container .search .title button {
+        height: 27px;
+        border: 2px solid #C1C0BF;
+        font-weight: bolder;
+        background-color: #F1F1F1;
+        border-radius: 8px;
+        padding-left: 5px;
+        padding-right: 5px;
+
+    }
+
+    .container .search .layui-form-item {
+        margin-bottom: 0;
+    }
+
+    .container .search .layui-form-item .search-content {
+        width: 1161.89px;
+        padding: 15px;
+    }
+
+    .container .search .layui-form-item .search-content .search-item {
+        float: left;
+        width: 387px;
+        padding-top: 20px;
+        height: 50px;
+        position: relative;
+    }
+
+    .container .search .layui-form-item .search-content .search-item .layui-form-label {
+        position: absolute;
+        left: -27px;
+        top: 50%;
+        width: 160px;
+        transform: translateY(-50%);
+    }
+
+    .container .search .layui-form-item .search-content .search-item .layui-input-block {
+        float: right;
+    }
+
+    .container .search .layui-form-item .search-content .search-item input {
+        width: 218px;
+    }
+
+    .container .search .layui-form-item .search-btn {
+        margin: 0;
+        margin-top: 10px;
+        margin-right: 35px;
+        padding: 0;
+        float: right;
+    }
+
+    .container .search .layui-form-item .search-btn a {
+        margin-right: 10px;
+    }
+
+    .container .search .layui-form-item .search-btn button {
+        width: 85px;
+
+    }
+
+    .container .task-list {
+        border-top: 2px solid #C1C0BF;
+        margin-top: 10px;
+        margin-left: 35px;
+        position: relative;
+    }
+
+    .container .task-list .title {
+        position: absolute;
+        transform: translate(-50%, -10px)
+    }
+
+    .container .task-list .title button {
+        height: 27px;
+        border: 2px solid #C1C0BF;
+        font-weight: bolder;
+        background-color: #F1F1F1;
+        border-radius: 8px;
+        padding-left: 5px;
+        padding-right: 5px;
+
+    }
+
+    .container .task-list .content .btn  {
+        padding-left: 20px;
+        padding-top: 10px;
+        width: 1174px;
+    }
+
+    .container .task-list .content .btn button {
+        width: 125px;
+        height: 50px;
+        background-color: rgb(0,120,250);
+        border: 0;
+        color: white;
+        margin-left: 30px;
+    }
+
+    .container .task-list .content .tab  {
+        padding-left: 10px;
+        padding-right: 30px;
+    }
+
+</style>
+
+<div class="container">
+    <div class="search">
+        <div class="title">
+            <button onclick="openSearch(this)">数据查找</button>
+        </div>
+        <div class="layui-form-item">
+            <div class="search-content">
+                <div class="search-item">
+                    <label class="layui-form-label">
+                        <div class="search-label-wrapper">
+                            <div>日期范围：</div>
+                            <div>Data Range</div>
+                        </div>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="search-text-data-range" class="layui-input"
+                               placeholder="输入日期范围/Input Date Range"/>
+                    </div>
+                </div>
+                <div class="search-item">
+                    <label class="layui-form-label">
+                        <div class="search-label-wrapper">
+                            <div>任务单号：</div>
+                            <div>Task Number</div>
+                        </div>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="search-text-task-number" class="layui-input"
+                               placeholder="键入/Input..."/>
+                    </div>
+                </div>
+                <div class="search-item">
+                    <label class="layui-form-label">
+                        <div class="search-label-wrapper">
+                            <div>项目跟踪表编号：</div>
+                            <div>Project Tracking Number</div>
+                        </div>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="search-text-project-tracking-number" class="layui-input"
+                               placeholder="键入..."/>
+                    </div>
+                </div>
+                <div class="search-item">
+                    <label class="layui-form-label">
+                        <div class="search-label-wrapper">
+                            <div>项目车型/机型：</div>
+                            <div>Project Vehicle/Engine</div>
+                        </div>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="search-text-project-vehiele" class="layui-input"
+                               placeholder="键入/Input..."/>
+                    </div>
+                </div>
+                <div class="search-item">
+                    <label class="layui-form-label">
+                        <div class="search-label-wrapper">
+                            <div>供应商代码：</div>
+                            <div>Supplier Code</div>
+                        </div>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="search-text-supplier-code" class="layui-input"
+                               placeholder="键入/Input..."/>
+                    </div>
+                </div>
+                <div class="search-item">
+                    <label class="layui-form-label">
+                        <div class="search-label-wrapper">
+                            <div>供应商名称：</div>
+                            <div>Supplier Name</div>
+                        </div>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="search-text-supplier-name" class="layui-input"
+                               placeholder="键入/Input..."/>
+                    </div>
+                </div>
+                <div class="search-item">
+                    <label class="layui-form-label">
+                        <div class="search-label-wrapper">
+                            <div>风险检查结果：</div>
+                            <div>Risk Check Result</div>
+                        </div>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="search-text-risk-check-result" class="layui-input"
+                               placeholder="键入/Input..."/>
+                    </div>
+                </div>
+                <div class="search-item">
+                    <label class="layui-form-label">
+                        <div class="search-label-wrapper">
+                            <div class="search-label-wrapper">
+                                <div>负责PE：</div>
+                                <div>PE in Change</div>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="search-text-pe-change" class="layui-input"
+                               placeholder="键入/Input..."/>
+                    </div>
+                </div>
+                <div class="search-item">
+                    <label class="layui-form-label">
+                        <div class="search-label-wrapper">
+                            <div>SQE：</div>
+                        </div>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="search-text-sqe" class="layui-input"
+                               placeholder="键入/Input..."/>
+                    </div>
+                </div>
+                <div class="search-item">
+                    <label class="layui-form-label">
+                        <div class="search-label-wrapper">
+                            <div>批准形式：</div>
+                            <div>Approve</div>
+                        </div>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="search-text-approve" class="layui-input"
+                               placeholder="键入/Input..."/>
+                    </div>
+                </div>
+            </div>
+            <div class="search-btn">
+                <a href="javascript:;" onclick="closeSearch(this)">收起搜索</a>
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="*">
+                    <i class="layui-icon layui-icon-search"></i>查询
+                </button>
+                <button type="reset" class=" layui-btn layui-btn-primary">
+                    <i class="layui-icon layui-icon-return"></i>重置
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="task-list">
+        <div class="title">
+            <button>任务单列表</button>
+        </div>
+        <div class="content">
+            <div class="btn">
+                <button>
+                    <div>查看</div>
+                    <div>VIEW</div>
+                </button>
+                <button>
+                    <div>总清单导出</div>
+                    <div>Export General List</div>
+                </button>
+                <button>
+                    <div>单一表单导出</div>
+                    <div>Export Single List</div>
+                </button>
+            </div>
+            <div class="tab">
+                <table id="my-tab"></table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    layui.use(['table'],function(){
+        let table = layui.table
+            ,admin = layui.admin;
+        table.render({
+            elem: '#my-tab'
+            ,url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            ,page: {
+                limits:[5,10,15]
+                ,limit:5
+                ,curr:2
+                ,layout:['count','prev', 'page', 'next','limit','skip']
+            }
+            ,cols: [[ //表头
+                 { type: 'numbers', title: '序号No.',width:80}
+                ,{field: 'distributionDate', title: '分发日期Distribution Date'}
+                ,{field: 'taskNumber', title: '任务单编号Task Number'}
+                ,{field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
+                ,{field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
+                ,{field: 'supplierCode', title: '供应商代码Supplier Code'}
+                ,{field: 'supplierName', title: '供应商名称Supplier Name'}
+                ,{field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
+                ,{field: 'pepeInChange', title: '负责PEPE in Change'}
+                ,{field: 'sqe', title: 'SQE'}
+                ,{field: 'approvalType', title: '批准形式Approval Type'}
+            ]]
+            ,parseData: function(res){ //res 即为原始返回的数据
+                return {
+                    "code": res.respCode, //解析接口状态
+                    "msg": res.message, //解析提示文本
+                    "count": res.data.count, //解析数据长度
+                    "data": res.data.list //解析数据列表
+                };
+            }
+        });
+    })
+
+    /**
+     * 搜索功能 隐藏
+     * @param thi  当前元素this
+     */
+    function closeSearch(thi) {
+        $(thi).parents('.layui-form-item').css('display', 'none');
+    }
+
+    /**
+     * 搜索功能 显示
+     * @param thi  当前元素this
+     */
+    function openSearch(thi) {
+        $(thi).parent().next('.layui-form-item').css('display', 'block');
+    }
+
+</script>

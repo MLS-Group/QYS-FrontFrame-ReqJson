@@ -295,7 +295,6 @@ Author : liuzhijie
 
     .container .submit-list .content-wrapper > div {
         width: 1077px;
-        text-align: center;
     }
 
     .container .submit-list .content-wrapper > .val > div {
@@ -351,6 +350,22 @@ Author : liuzhijie
         width: 151.8px;
         float: left;
     }
+
+
+
+    .container .submit-list .content-wrapper .val > div[class^='val-item'] .content-val1,
+    .container .submit-list .content-wrapper .val > div[class^='val-item'] .content-val2{
+        position: relative;
+        border-bottom: 2px solid #C1C0BF;
+    }
+
+    .container .submit-list .content-wrapper .val > div[class^='val-item'] .val-span {
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
 
     .container .one-approval {
 
@@ -431,15 +446,25 @@ Author : liuzhijie
         border-right: 2px solid #C1C0BF;
         border-bottom: 2px solid #C1C0BF;
         float: left;
-        width: 247.2px;
         height: 35px;
         padding-top: 18px;
     }
 
-    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(1) > div:nth-child(4) {
-        width: 327.2px;
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(1) > div:nth-child(1) {
+        width: 177px;
     }
 
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(1) > div:nth-child(2) {
+        width: 175px;
+    }
+
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(1) > div:nth-child(3) {
+        width: 175px;
+    }
+
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(1) > div:nth-child(4) {
+        width: 542px;
+    }
     .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(1) .name {
         background-color: rgb(204, 191, 219);
     }
@@ -447,7 +472,7 @@ Author : liuzhijie
     .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(2) .name {
         float: left;
         background-color: rgb(204, 191, 219);
-        width: 247.2px;
+        width: 177px;
         height: 69px;
         padding-top: 54px;
         border-right: 2px solid #C1C0BF;
@@ -468,7 +493,7 @@ Author : liuzhijie
 
     .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(2) .val > div {
         padding-top: 12px;
-        width: 810.5px;
+        width: 880.5px;
         height: 27.6px;
         padding-left: 15px;
         border-bottom: 2px solid #C1C0BF;
@@ -859,8 +884,6 @@ Author : liuzhijie
 
 </div>
 <script>
-    //遗留问题
-    //1.PPAP 文件要求提交列表
 
     layui.use(['laydate'], function () {
         let laydate = layui.laydate;
@@ -1014,13 +1037,13 @@ Author : liuzhijie
 
             str += `<div class="val-item${+i + 1}">
                 <div>
-                    <div class="content-val1">${+i + 1}</div>
+                    <div class="content-val1"><span class="val-span">${+i + 1}</span></div>
                 </div>
                 <div>
-                    <div class="content-val1">${dataArray[i][0]}</div>
+                    <div class="content-val1"><span class="val-span">${dataArray[i][0]}</span></div>
                 </div>
                 <div>
-                    <div class="content-val1">${dataArray[i][1]}</div>
+                    <div class="content-val1"><span class="val-span">${dataArray[i][1]}</span></div>
                 </div>`;
 
             let fujian = '<div>'
@@ -1035,16 +1058,16 @@ Author : liuzhijie
                 } else if (dataArray[i][2][j][0].type == 'word') {
                     src = '../../assets/images/approval-list/word.jpg'
                 }
-                fujian += `<div class="content-val2"><img style="width: 50px;height: 50px;background-color: #ccc;"  src="${src}" onclick="fujianDownload('${dataArray[i][2][j][0].url}')"/></div>`;
-                shuoming1 += `<div class="content-val2">${dataArray[i][2][j][1]}</div>`;
-                wenjianqueren += ` <div class="content-val2"><select style="width: 145px;">`
+                fujian += `<div class="content-val2"><span class="val-span"><img style="width: 50px;height: 50px;background-color: #ccc;"  src="${src}" onclick="fujianDownload('${dataArray[i][2][j][0].url}')"/></span></div>`;
+                shuoming1 += `<div class="content-val2"><span class="val-span">${dataArray[i][2][j][1]}</span></div>`;
+                wenjianqueren += ` <div class="content-val2"><span class="val-span"><select style="width: 145px;">`
                         if(dataArray[i][2][j][2] == 0){
                             wenjianqueren += ` <option value="0" selected>没通过</option><option value="1">通过</option>`
                         }else if (dataArray[i][2][j][2] == 1){
                             wenjianqueren += ` <option value="0" >没通过</option><option value="1" selected>通过</option>`
                         }
-                wenjianqueren += `</select></div>`;
-                shuoming2 += `<div class="content-val2"><textarea style="width: 145px;">${dataArray[i][2][j][3]}</textarea></div>`;
+                wenjianqueren += `</select></span></div>`;
+                shuoming2 += `<div class="content-val2"><span class="val-span"><textarea style="width: 145px;">${dataArray[i][2][j][3]}</textarea></span></div>`;
             }
             fujian += '</div>';
             shuoming1 += '</div>';
@@ -1057,15 +1080,11 @@ Author : liuzhijie
         $('.submit-list .content-wrapper .val').html('');
         $('.submit-list .content-wrapper .val').append(str);
 
-        //动态调节边框的css
+        //动态调节边框的hight
         for (let i = 0; i < dataArray.length; i++) {
             $(`.submit-list .content-wrapper .val .val-item${+i + 1}`).css('height',dataArray[i][2].length * 73 + 'px');
-            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('height',dataArray[i][2].length * 61 + 'px');
-            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('padding-top',dataArray[i][2].length * 10 + 'px');
-            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('border-bottom','2px solid #C1C0BF');
-            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('height',61 + 'px');
-            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('padding-top', 10 + 'px');
-            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('border-bottom','2px solid #C1C0BF');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('height',dataArray[i][2].length * 71 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('height',71 + 'px');
         }
     }
 
