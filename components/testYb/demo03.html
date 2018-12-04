@@ -90,18 +90,18 @@
     .button-tr-1{
         background-color: #F7EA68;
         height: 45px;
+        -moz-user-select:none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
     }
 
-    .button-tr-2{
-        background-color: #CB8611;
-        border-top: #01AAED;
-        border-left: #01AAED;
-        height: 45px;
+    .button-tr-1:active{
+        background-color: #aa7700;
     }
 
 
 </style>
-<div class="layui-row layui-col-space15" id="2">
+<div class="layui-row layui-col-space15">
     <div class="layui-col-md12 autoScrollLeft">
         <div class="layui-card">
             <!--表格标题-->
@@ -280,7 +280,7 @@
 
                 <tr class="button-tr-1" id="button-tr">
                     <td colspan="8">
-                        <div style="display: inline-block;float: left;margin: 0 0 0 10px;font-weight: bold;">一次审批</div>
+                        <div style="display: inline-block;float: left;margin: 0 0 0 10px;font-weight: bold;" >一次审批</div>
                         <div style="display: inline-block;float: right;margin: 0 10px 0 0;">
                             <img src="../../assets/images/list.png">
                         </div>
