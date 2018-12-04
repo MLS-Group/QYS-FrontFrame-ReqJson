@@ -1080,16 +1080,11 @@ Author : liuzhijie
         $('.submit-list .content-wrapper .val').html('');
         $('.submit-list .content-wrapper .val').append(str);
 
-        //动态调节边框的css
+        //动态调节边框的hight
         for (let i = 0; i < dataArray.length; i++) {
             $(`.submit-list .content-wrapper .val .val-item${+i + 1}`).css('height',dataArray[i][2].length * 73 + 'px');
             $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('height',dataArray[i][2].length * 71 + 'px');
-         /*   $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('padding-top',dataArray[i][2].length * 10 + 'px');
-            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('border-bottom','2px solid #C1C0BF');*/
             $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('height',71 + 'px');
-  /*          $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('padding-top', 10 + 'px');
-            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('border-bottom','2px solid #C1C0BF');*/
-
         }
     }
 
