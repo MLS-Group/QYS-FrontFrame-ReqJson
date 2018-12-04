@@ -75,7 +75,8 @@ Author : liuzhijie
 
     }
 
-    .container > div > .title {
+    .container > div > .title,
+    .container .one-approval > div .title {
         font-size: 18px;
         font-weight: bolder;
         width: 1067px;
@@ -87,19 +88,29 @@ Author : liuzhijie
         background-color: rgb(245, 245, 245);
     }
 
+    .container .name {
+        font-weight: bolder;
+    }
+
     .container .basic-info .content-wrapper .content-top {
         border-bottom: 2px solid #C1C0BF;
         height: 52px;
-        font-weight: bolder;
+
     }
 
     .container .basic-info .content-wrapper .content-top > div > div {
         float: left;
-        width: 92.9px;
-        height: 35px;
-        padding-top: 17px;
-        padding-left: 13px;
+        width: 105.9px;
+        height: 53px;
         border-right: 2px solid #C1C0BF;
+        position: relative;
+    }
+
+    .container .basic-info .content-wrapper .content-top > div > div > span {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
     }
 
     .container .basic-info .content-wrapper .content-top .name {
@@ -192,8 +203,14 @@ Author : liuzhijie
         padding-left: 20px;
     }
 
-    .container .basic-info .content-wrapper .content-bottom .left .val span {
-        margin-left: 150px;
+    .container .basic-info .content-wrapper .content-bottom .left .val > div {
+        position: relative;
+    }
+
+    .container .basic-info .content-wrapper .content-bottom .left .val .layui-badge {
+        position: absolute;
+        top: -4px;
+        left: 187px;
     }
 
     .container .basic-info .content-wrapper .content-bottom > div > div .major {
@@ -204,18 +221,28 @@ Author : liuzhijie
 
     }
 
-    .container .parts-approval-status .content-wrapper > div {
+    .container .parts-approval-status .content-wrapper > .val {
+        /*height: 53px;*/
+        width: 1079px;
+        background-color: white;
+    }
+
+    .container .parts-approval-status .content-wrapper > .name {
+        background-color: rgb(183, 223, 233);
+        height: 53px;
+        width: 1079px;
+        border-bottom: 2px solid #C1C0BF;
+    }
+
+    .container .parts-approval-status .content-wrapper > .val > div {
         height: 53px;
         width: 1079px;
         border-bottom: 2px solid #C1C0BF;
         background-color: white;
     }
 
-    .container .parts-approval-status .content-wrapper > .name {
-        background-color: rgb(183, 223, 233);
-    }
-
-    .container .parts-approval-status .content-wrapper > div > div {
+    .container .parts-approval-status .content-wrapper > .name > div,
+    .container .parts-approval-status .content-wrapper > .val > div > div {
         float: left;
         width: 151.8px;
         height: 35px;
@@ -224,11 +251,13 @@ Author : liuzhijie
         border-right: 2px solid #C1C0BF;
     }
 
-    .container .parts-approval-status .content-wrapper > div > div:nth-child(1) {
+    .container .parts-approval-status .content-wrapper > .name > div:nth-child(1),
+    .container .parts-approval-status .content-wrapper > .val > div > div:nth-child(1) {
         width: 70.8px;
     }
 
-    .container .parts-approval-status .content-wrapper > div > div:last-child {
+    .container .parts-approval-status .content-wrapper > .name > div:last-child,
+    .container .parts-approval-status .content-wrapper > .val > div > div:last-child {
         width: 234.8px;
     }
 
@@ -262,18 +291,14 @@ Author : liuzhijie
     .container .submit-list .content-wrapper {
         width: 1077px;
         border-right: 2px solid #C1C0BF;
-        border-bottom: 2px solid #C1C0BF;
-        height: 128px;
     }
 
     .container .submit-list .content-wrapper > div {
         width: 1077px;
-        border-bottom: 2px solid #C1C0BF;
         text-align: center;
     }
 
-    .container .submit-list .content-wrapper > .val-item {
-        height: 73px;
+    .container .submit-list .content-wrapper > .val > div {
         background-color: white;
     }
 
@@ -282,21 +307,25 @@ Author : liuzhijie
         border-bottom: 2px solid #C1C0BF;
     }
 
-    .container .submit-list .content-wrapper > div > div:nth-child(1) {
+    /*.container .submit-list .content-wrapper > .val > div > div > div:nth-child(1),
+    .container .submit-list .content-wrapper > .name > div > div:nth-child(1) {
         width: 61.8px;
     }
 
-    .container .submit-list .content-wrapper > div > div:nth-child(2) {
+    .container .submit-list .content-wrapper > .val > div > div > div:nth-child(2),
+    .container .submit-list .content-wrapper > .name > div > div:nth-child(2) {
         width: 71.8px;
     }
 
-    .container .submit-list .content-wrapper > div > div:nth-child(5) {
+    .container .submit-list .content-wrapper > .val > div > div > div:nth-child(5),
+    .container .submit-list .content-wrapper > .name > div > div:nth-child(5) {
         width: 251.8px;
     }
 
-    .container .submit-list .content-wrapper > div > div:last-child {
-        width: 221.8px;
-    }
+    .container .submit-list .content-wrapper > .val > div > div > div:last-child,
+    .container .submit-list .content-wrapper > .name > div > div:last-child {
+        width: 153.8px;
+    }*/
 
     .container .submit-list .content-wrapper .name > div {
         width: 151.8px;
@@ -317,27 +346,17 @@ Author : liuzhijie
         background-color: rgb(203, 191, 219);
     }
 
-    .container .submit-list .content-wrapper .val-item > div {
+    .container .submit-list .content-wrapper .val > div > div {
         border-right: 2px solid #C1C0BF;
         width: 151.8px;
-        height: 73px;
         float: left;
-        position: relative;
+    }
+
+    .container .one-approval {
 
     }
 
-    .container .submit-list .content-wrapper .val-item > div > div {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .container .submit-list .one-approval {
-
-    }
-
-    .container .submit-list .one-approval .title {
+    .container .one-approval > .title {
         font-size: 18px;
         font-weight: bolder;
         width: 1067px;
@@ -350,19 +369,20 @@ Author : liuzhijie
         position: relative;
     }
 
-    .container .submit-list .one-approval .title .layui-badge{
+    .container .one-approval > .title .layui-badge {
         position: absolute;
         top: 0;
         left: 1060px;
     }
 
-    .container .submit-list .one-approval .title .arrow {
+    .container .one-approval > .title .arrow {
         position: absolute;
         top: 13px;
         left: 1049px;
     }
 
-    .container .submit-list .one-approval .title .arrow div{
+    /*向下的箭头*/
+    .container .one-approval > .title .arrow .arrow1 {
         width: 8px;
         height: 8px;
         border-bottom: 2px solid black;
@@ -370,39 +390,44 @@ Author : liuzhijie
         transform: rotate(-45deg);
     }
 
-    .container .ppap-approval-status .content-wrapper {
+    /*向上的箭头*/
+    .container .one-approval > .title .arrow .arrow2 {
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid black;
+        border-left: 2px solid black;
+        transform: rotate(45deg);
+    }
+
+    .container .one-approval .ppap-approval-status .content-wrapper {
         width: 1077px;
         border-right: 2px solid #C1C0BF;
         text-align: center;
     }
 
-    .container .ppap-approval-status .content-wrapper .name {
-        font-weight: bolder;
-    }
-
-    .container .ppap-approval-status .content-wrapper > div {
+    .container .one-approval .ppap-approval-status .content-wrapper > div {
         width: 1077px;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(1) {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(1) {
         height: 53px;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(2) {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(2) {
         height: 127px;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(3) {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(3) {
         height: 53px;
         width: 1079px;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(4) {
-        height: 256px;
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(4) {
+        overflow: hidden;
         width: 1079px;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(1) > div {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(1) > div {
         border-right: 2px solid #C1C0BF;
         border-bottom: 2px solid #C1C0BF;
         float: left;
@@ -411,15 +436,15 @@ Author : liuzhijie
         padding-top: 18px;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(1) > div:nth-child(4) {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(1) > div:nth-child(4) {
         width: 327.2px;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(1) .name {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(1) .name {
         background-color: rgb(204, 191, 219);
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(2) .name {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(2) .name {
         float: left;
         background-color: rgb(204, 191, 219);
         width: 247.2px;
@@ -429,19 +454,19 @@ Author : liuzhijie
         border-bottom: 2px solid #C1C0BF;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(3) .name {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(3) .name {
         width: 1079px;
         height: 53px;
         border-bottom: 2px solid #C1C0BF;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(2) .val {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(2) .val {
         float: left;
         height: 105px;
         text-align: left;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(2) .val > div {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(2) .val > div {
         padding-top: 12px;
         width: 810.5px;
         height: 27.6px;
@@ -450,7 +475,7 @@ Author : liuzhijie
         border-right: 2px solid #C1C0BF;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(3) .name > div {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(3) .name > div {
         float: left;
         width: 213.4px;
         height: 35px;
@@ -460,7 +485,7 @@ Author : liuzhijie
         background-color: rgb(233, 241, 255);
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(3) .val > div {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(3) .val > div {
         float: left;
         width: 213.4px;
         height: 35px;
@@ -469,7 +494,7 @@ Author : liuzhijie
         padding-top: 18px;
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(4) div:not(.name) > div {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(4) .val > div > div {
         float: left;
         width: 177.5px;
         height: 35px;
@@ -479,7 +504,7 @@ Author : liuzhijie
 
     }
 
-    .container .ppap-approval-status .content-wrapper > div:nth-child(4) .name > div {
+    .container .one-approval .ppap-approval-status .content-wrapper > div:nth-child(4) .name > div {
         float: left;
         width: 177.5px;
         height: 27px;
@@ -489,23 +514,23 @@ Author : liuzhijie
         background-color: rgb(204, 191, 219);
     }
 
-    .container .approval-column .content-wrapper {
+    .container .one-approval .approval-column .content-wrapper {
         width: 1077px;
         border-right: 2px solid #C1C0BF;
     }
 
-    .container .approval-column .content-wrapper .name {
+    .container .one-approval .approval-column .content-wrapper .name {
         font-weight: bolder;
     }
 
-    .container .approval-column .content-wrapper > div {
+    .container .one-approval .approval-column .content-wrapper > div {
         width: 1077px;
         height: 53px;
         border-bottom: 2px solid #C1C0BF;
         text-align: center;
     }
 
-    .container .approval-column .content-wrapper > div > div {
+    .container .one-approval .approval-column .content-wrapper > div > div {
         float: left;
         width: 132.6px;
         height: 53px;
@@ -513,13 +538,13 @@ Author : liuzhijie
 
     }
 
-    .container .approval-column .content-wrapper > div .name {
+    .container .one-approval .approval-column .content-wrapper > div .name {
         background-color: rgb(204, 191, 219);
         height: 35px;
         padding-top: 18px;
     }
 
-    .container .approval-column .content-wrapper > div .val {
+    .container .one-approval .approval-column .content-wrapper > div .val {
         height: 35px;
         padding-top: 18px;
     }
@@ -545,24 +570,24 @@ Author : liuzhijie
         <div class="content-wrapper">
             <div class="content-top">
                 <div class="sqe">
-                    <div class="name">SQE</div>
-                    <div class="val">XXXXX</div>
+                    <div class="name"><span>SQE</span></div>
+                    <div class="val"><span>XXXXX</span></div>
                 </div>
                 <div class="sq">
-                    <div class="name">SQ业务科室</div>
-                    <div class="val">XXXXX</div>
+                    <div class="name"><span>SQ业务科室</span></div>
+                    <div class="val"><span>XXXXX</span></div>
                 </div>
                 <div class="create-time">
-                    <div class="name">创建日期</div>
-                    <div class="val">XXXXX</div>
+                    <div class="name"><span>创建日期</span></div>
+                    <div class="val"><span>XXXXX</span></div>
                 </div>
                 <div class="pe">
-                    <div class="name">PE</div>
-                    <div class="val">XXXXX</div>
+                    <div class="name"><span>PE</span></div>
+                    <div class="val"><span>XXXXX</span></div>
                 </div>
                 <div class="tdc">
-                    <div class="name">TDC业务科室</div>
-                    <div class="val">XXXXX</div>
+                    <div class="name"><span>TDC业务科室</span></div>
+                    <div class="val"><span>XXXXX</span></div>
                 </div>
             </div>
             <div class="content-center">
@@ -577,25 +602,52 @@ Author : liuzhijie
                     <div><span class="major">*</span>PPAP文件提交等级</div>
                 </div>
                 <div class="val">
-                    <div>XXX</div>
-                    <div>XXX</div>
-                    <div>XXX</div>
-                    <div>XXX</div>
-                    <div><select style="width: 124px"></select></div>
-                    <div><select style="width: 124px"></select></div>
-                    <div><input style="width: 124px"/></div>
-                    <div><select style="width: 124px"></select></div>
+                    <div>
+                        XXX
+                    </div>
+                    <div>
+                        XXX
+                    </div>
+                    <div>
+                        XXX
+                    </div>
+                    <div>
+                        XXX
+                    </div>
+                    <div><select style="width: 124px">
+                        <option value="-1">请选择</option>
+                        <option value="1">低</option>
+                        <option value="2">中</option>
+                        <option value="3">高</option>
+                    </select>
+                    </div>
+                    <div><select style="width: 124px">
+                        <option value="-1">请选择</option>
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    </div>
+                    <div><input id="planTrialProductionAuditTime" style="width: 124px"/>
+                    </div>
+                    <div><select style="width: 124px">
+                        <option value="-1">请选择</option>
+                        <option value="1">等级1</option>
+                        <option value="2">等级2</option>
+                        <option value="3">等级3</option>
+                    </select>
+                    </div>
                 </div>
             </div>
             <div class="content-bottom">
                 <div class="left">
-                    <div class="name"><span><span class="major">*</span>PPAP提交原因</span></div>
+                    <div class="name"><span><span class="major">*</span><span class="text-right">PPAP提交原因</span></span>
+                    </div>
                     <div class="val">
-                        <div>新零件<span class="layui-badge layui-bg-blue">10</span></div>
+                        <div><span class="text-left">新零件</span><span class="layui-badge layui-bg-blue">10</span></div>
                     </div>
                 </div>
                 <div class="right">
-                    <div class="name"><span><span class="major">*</span>说明</span></div>
+                    <div class="name"><span><span class="major">*</span><span class="text-right">说明</span></span></div>
                     <div class="val"></div>
                 </div>
             </div>
@@ -615,24 +667,25 @@ Author : liuzhijie
                 <div>最新EWO</div>
                 <div class="remark">备注</div>
             </div>
-            <div class="val-item1">
-                <div>1</div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div><input style="width: 222px;margin-left: 3px"/></div>
-            </div>
-            <div class="val-item2">
-                <div>2</div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div><input style="width: 222px;margin-left: 3px"/></div>
-
+            <div class="val">
+                <!--<div class="val-item1">-->
+                <!--<div>1</div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div><input style="width: 222px;margin-left: 3px"/></div>-->
+                <!--</div>-->
+                <!--<div class="val-item2">-->
+                <!--<div>2</div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div><input style="width: 222px;margin-left: 3px"/></div>-->
+                <!--</div>-->
             </div>
         </div>
         <div class="btn">
@@ -648,159 +701,446 @@ Author : liuzhijie
                 <div>文件标识</div>
                 <div>文件名</div>
                 <div>附件</div>
-                <div>说明（非必须）</div>
+                <div>说明（非必需）</div>
                 <div><span class="major">*</span>文件确认</div>
                 <div>说明（非必须）</div>
             </div>
-            <div class="val-item">
-                <div>
-                    <div>1</div>
+            <div class="val">
+                <!--  <div class="val-item">
+                      <div>
+                          <div class="val">1</div>
+                      </div>
+                      <div>
+                          <div class="val"></div>
+                      </div>
+                      <div>
+                          <div class="val">其他</div>
+                      </div>
+                      <div>
+                          <div class="val"><img style="width: 50px;height: 50px;background-color: #ccc;"/></div>
+
+                      </div>
+                      <div>
+                          <div class="val">XXXXXXXXX</div>
+
+                      </div>
+                      <div>
+                          <div class="val"><select style="width: 145px;"></select></div>
+
+                      </div>
+                      <div>
+                          <div class="remark"><textarea style="width: 145px;"></textarea></div>
+
+                      </div>
+                  </div>-->
+             </div>
+        </div>
+    </div>
+    <div class="one-approval">
+        <div class="title" onclick="oneApprovalshowAndHide()">一次审批
+            <div class="arrow">
+                <div class="arrow2"></div>
+                <div class="arrow2"></div>
+            </div>
+            <span class="layui-badge layui-bg-blue">7</span>
+        </div>
+        <div class="ppap-approval-status">
+            <div class="title">PPAP批准状态</div>
+            <div class="content-wrapper">
+                <div class="item1">
+                    <div class="name">临时批准有效期至</div>
+                    <div class="val">不能超过三个月</div>
+                    <div class="name">临时批准原因</div>
+                    <div class="val">XXXXXXXX</div>
                 </div>
-                <div></div>
-                <div>
-                    <div>其他</div>
+                <div class="item2">
+                    <div class="name">其他要求</div>
+                    <div class="val">
+                        <div>
+                            <input name="ppap-approval-status-radio-other-req" type="radio" value="1" checked>
+                            <span>对前期的样件进行标识，隔离或报废处理</span>
+                        </div>
+                        <div>
+                            <input name="ppap-approval-status-radio-other-req" type="radio" value="2">
+                            <span>按照PPAP批准状态组织生产，如产品发生设计/工艺/生产场地/分供方等影响性能和装配的变更，则必须向SGMW变更提出申请</span>
+                        </div>
+                        <div>
+                            <input name="ppap-approval-status-radio-other-req" type="radio" value="3">
+                            <span>对前期的样件进行标识，隔离或报废处理</span>
+                        </div>
+
+                    </div>
                 </div>
-                <div>
-                    <div><img style="width: 50px;height: 50px;background-color: #ccc;"/></div>
+                <div class="item3">
+                    <div class="name">
+                        <div>尺寸</div>
+                        <div>外观</div>
+                        <div>试验</div>
+                        <div>工艺过程</div>
+                        <div>工程</div>
+                    </div>
+                    <div class="val">
+                        <div>I</div>
+                        <div>I</div>
+                        <div>N</div>
+                        <div>I</div>
+                        <div>I</div>
+                    </div>
                 </div>
-                <div>
-                    <div>XXXXXXXXX</div>
-                </div>
-                <div>
-                    <div><select style="width: 145px;"></select></div>
-                </div>
-                <div>
-                    <div class="remark"><textarea style="width: 145px;"></textarea></div>
+                <div class="item4">
+                    <div class="name">
+                        <div>问题描述</div>
+                        <div>行动计划</div>
+                        <div>要求完成时间</div>
+                        <div>负责人</div>
+                        <div>备注</div>
+                        <div>是否纳入GP12检查点</div>
+                    </div>
+                    <div class="val">
+                        <!--<div class="val-item1">
+                            <div>XXXXXX</div>
+                            <div>XXXXXX</div>
+                            <div>XXXXXX</div>
+                            <div>XXXXXX</div>
+                            <div>XXXXXX</div>
+                            <div>XXXXXX</div>
+                        </div>
+                        <div class="val-item2">
+                            <div>XXXXXX</div>
+                            <div>XXXXXX</div>
+                            <div>XXXXXX</div>
+                            <div>XXXXXX</div>
+                            <div>XXXXXX</div>
+                            <div>XXXXXX</div>
+                        </div>-->
+                    </div>
+
+
                 </div>
             </div>
         </div>
-        <div class="one-approval">
-            <div class="title">一次审批
-                <div class="arrow">
-                    <div></div>
-                    <div></div>
+        <div class="approval-column">
+            <div class="title">审批栏</div>
+            <div class="content-wrapper">
+                <div>
+                    <div class="name">SQ经理</div>
+                    <div class="val">XXXX</div>
+                    <div class="name">审批意见</div>
+                    <div class="val">同意</div>
+                    <div class="name">创建日期</div>
+                    <div class="val">2018-XX-XX</div>
+                    <div class="name">备注</div>
+                    <div class="val">XXXX</div>
                 </div>
-                <span class="layui-badge layui-bg-blue">7</span>
+                <div>
+                    <div class="name">平台总工</div>
+                    <div class="val">XXXX</div>
+                    <div class="name">审批意见</div>
+                    <div class="val">同意</div>
+                    <div class="name">创建日期</div>
+                    <div class="val">2018-XX-XX</div>
+                    <div class="name">备注</div>
+                    <div class="val">XXXX</div>
+                </div>
+                <div>
+                    <div class="name">SQ总监</div>
+                    <div class="val">XXXX</div>
+                    <div class="name">审批意见</div>
+                    <div class="val">同意</div>
+                    <div class="name">创建日期</div>
+                    <div class="val">2018-XX-XX</div>
+                    <div class="name">备注</div>
+                    <div class="val">XXXX</div>
+                </div>
+
             </div>
         </div>
     </div>
-    <div class="ppap-approval-status">
-        <div class="title">PPAP批准状态</div>
-        <div class="content-wrapper">
-            <div>
-                <div class="name">临时批准有效期至</div>
-                <div class="val">不能超过三个月</div>
-                <div class="name">临时批准原因</div>
-                <div class="val">XXXXXXXX</div>
-            </div>
-            <div>
-                <div class="name">其他要求</div>
-                <div class="val">
-                    <div>
-                        <input type="radio" checked>
-                        <span>对前期的样件进行标识，隔离或报废处理</span>
-                    </div>
-                    <div>
-                        <input type="radio">
-                        <span>按照PPAP批准状态组织生产，如产品发生设计/工艺/生产场地/分供方等影响性能和装配的变更，则必须向SGMW变更提出申请</span>
-                    </div>
-                    <div>
-                        <input type="radio">
-                        <span>对前期的样件进行标识，隔离或报废处理</span>
-                    </div>
 
-                </div>
-            </div>
-            <div>
-                <div class="name">
-                    <div>尺寸</div>
-                    <div>外观</div>
-                    <div>试验</div>
-                    <div>工艺过程</div>
-                    <div>工程</div>
-                </div>
-                <div class="val">
-                    <div>I</div>
-                    <div>I</div>
-                    <div>N</div>
-                    <div>I</div>
-                    <div>I</div>
-                </div>
-            </div>
-            <div>
-                <div class="name">
-                    <div>问题描述</div>
-                    <div>行动计划</div>
-                    <div>要求完成时间</div>
-                    <div>负责人</div>
-                    <div>备注</div>
-                    <div>是否纳入GP12检查点</div>
-                </div>
-                <div class="val">
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                </div>
-                <div class="val">
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                </div>
-                <div class="val">
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                    <div>XXXXXX</div>
-                </div>
+</div>
+<script>
+    //遗留问题
+    //1.PPAP 文件要求提交列表
 
-            </div>
-        </div>
-    </div>
-    <div class="approval-column">
-        <div class="title">审批栏</div>
-        <div class="content-wrapper">
-            <div>
-                <div class="name">SQ经理</div>
-                <div class="val">XXXX</div>
-                <div class="name">审批意见</div>
-                <div class="val">同意</div>
-                <div class="name">创建日期</div>
-                <div class="val">2018-XX-XX</div>
-                <div class="name">备注</div>
-                <div class="val">XXXX</div>
-            </div>
-            <div>
-                <div class="name">平台总工</div>
-                <div class="val">XXXX</div>
-                <div class="name">审批意见</div>
-                <div class="val">同意</div>
-                <div class="name">创建日期</div>
-                <div class="val">2018-XX-XX</div>
-                <div class="name">备注</div>
-                <div class="val">XXXX</div>
-            </div>
-            <div>
-                <div class="name">SQ总监</div>
-                <div class="val">XXXX</div>
-                <div class="name">审批意见</div>
-                <div class="val">同意</div>
-                <div class="name">创建日期</div>
-                <div class="val">2018-XX-XX</div>
-                <div class="name">备注</div>
-                <div class="val">XXXX</div>
-            </div>
+    layui.use(['laydate'], function () {
+        let laydate = layui.laydate;
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#planTrialProductionAuditTime' //指定元素
+        });
+    })
 
-        </div>
-    </div>
+    $(function () {
+        //动态配置 “基础信息” 板块 内容
+        configBasicInfo1(['供应商质量工程师', '你猜', '2018-11-11', 'PGONE', '你再猜']);
+        configBasicInfo2(['0001', 'A186', '1110', '这个公司', '1', '0', '2018-11-11', '2']);
+        configBasicInfo3(['你可以猜猜猜', '22', '这是一个说明，内容是啥自行脑补']);
 
-    <script>
+        //动态配置 “零件批准状态” 板块 内容
+        configPartsApprovalStatus([
+            ['这个阶段啊', '001', '一个零件啊', '0001', 'EWO0啊', '这是一个备注，内容你猜啊'],
+            ['这个阶段呀', '002', '一个零件呀', '0002', 'EWO0呀', '这是一个备注，内容你猜呀'],
+            ['这个阶段哈', '003', '一个零件哈', '0003', 'EWO0哈', '这是一个备注，内容你猜哈']
+        ], '3');
 
-    </script>
+        //配置PPAP 文件要求提交列表
+        configSubmitList([
+            ['一个标识', '一个文件名', [[{type: 'excel', url: 'https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip'}, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]],
+            ['一个标识', '一个文件名', [[{type: 'excel', url: 'https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip'}, '这是一个说明（非必需）', '1', '又一个说明（非必须）'], [{type: 'word', url: '#'}, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]],
+            ['一个标识', '一个文件名', [[{type: 'word', url: 'https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip'}, '这是一个说明（非必需）', '0', '又一个说明（非必须）']]]
+        ])
+
+        //动态配置 “一次审批” 标题的徽标中的数字
+        configOneApproval('5');
+        //动态配置 “一次审批---PPAP批准状态” 板块 内容
+        configPpapApprovalStatus1(['今天', '回家过年', '2']);
+        configPpapApprovalStatus2(['N', 'R', 'SR', 'SSR', 'UR']);
+        configPpapApprovalStatus3([
+            ['这是个问题啊', 'PlanA', '2018-11-11', '小明啊', '这是一个备注啊', '是'],
+            ['这是个问题呀', 'PlanB', '2018-11-11', '小明呀', '这是一个备注呀', '否'],
+            ['这是个问题呦', 'PlanC', '2018-11-11', '小明呦', '这是一个备注呦', '是'],
+            ['这是个问题呦', 'PlanC', '2018-11-11', '小明呦', '这是一个备注呦', '是'],
+        ]);
+        //动态配置 “一次审批---审批栏” 板块 内容
+        configApprovalColumn([
+            ['小刘', '不通过', '2018-11-11', '又是一个备注'] //SQ经理
+            , ['小李', '通过', '2018-11-11', '又是一个备注']//平台总工
+            , ['小明', '不通过', '2018-11-11', '又是一个备注'] //SQ总监
+        ]);
+    })
+
+    /**
+     * “一次审批”模块里 内容的隐藏与显示
+     */
+    function oneApprovalshowAndHide() {
+        let dom = $('.one-approval .ppap-approval-status,.one-approval .approval-column');
+        if (dom.css('display') == 'none') {
+            $('.one-approval .arrow div').removeClass('arrow1').addClass('arrow2')
+            $('.one-approval .ppap-approval-status,.one-approval .approval-column').css('display', 'block');
+        } else {
+            $('.one-approval .arrow div').removeClass('arrow2').addClass('arrow1')
+            $('.one-approval .ppap-approval-status,.one-approval .approval-column').css('display', 'none');
+        }
+
+    }
+
+
+    /**
+     * 点击附件图片进行下载
+     * @param url : 下载的地址
+     */
+    function fujianDownload(url) {
+        layer.confirm('是否下载附件?', {icon: 3, title:'提示'}, function(index){
+            window.location.href = url;
+            layer.close(index);
+        });
+
+    }
+
+
+    //动态配置页面信息
+    //=======基础信息=========
+    /**
+     * 1.第一行，SQE：XXXXX，SQ业务科室：XXXXX，创建日期：XXXXX，PE：XXXXX，TDC业务科室：XXXXX
+     * @param dataArray : 依次要填入的内容，是一个数组
+     */
+    function configBasicInfo1(dataArray) {
+        let basicInfoVals = $('.basic-info .content-wrapper .content-top .val');
+        for (let i = 0; i < dataArray.length; i++) {
+            $(basicInfoVals[i]).find('span').text(dataArray[i]);
+        }
+    }
+
+    /**
+     * 2.第二行，项目跟踪单编码，项目车型/机型，供应商代码，供应商名称，风险检查结果，是否展开PPAP试生产审核，计划试生产审核的时间，PPAP文件提交等级
+     * @param dataArray : 依次要填入的内容，是一个数组
+     */
+    function configBasicInfo2(dataArray) {
+        let basicInfoVals = $('.basic-info .content-wrapper .content-center .val > div');
+        for (let i = 0; i < dataArray.length; i++) {
+            if (basicInfoVals[i].firstChild.nodeName == 'INPUT' || basicInfoVals[i].firstChild.nodeName == 'SELECT') {
+                basicInfoVals[i].firstChild.value = dataArray[i];
+            } else if (basicInfoVals[i].firstChild.nodeName == '#text') {
+                basicInfoVals[i].innerHTML = dataArray[i];
+            }
+        }
+    }
+
+    /**
+     * 3.第三行，PPAP提交原因，徽章里的数字，说明
+     * @param dataArray: 依次要填入的内容，是一个数组
+     */
+    function configBasicInfo3(dataArray) {
+        let basicInfoVals = $('.basic-info .content-wrapper .content-bottom .val');
+        $(basicInfoVals[0]).find('.text-left').text(dataArray[0]);
+        $(basicInfoVals[0]).find('.layui-badge').text(dataArray[1]);
+        basicInfoVals[1].innerHTML = dataArray[2];
+
+
+    }
+
+
+    /**
+     * 零件批准状态
+     * 产品阶段，最新零件号，零件名称，旧零件号，最新EWO，备注
+     * @param dataArray: 依次要填入的内容，是一个二维数组
+     * @param num: “删除”按钮上的徽标中的数字
+     */
+    function configPartsApprovalStatus(dataArray, num) {
+        let str = '';
+        for (let i = 0; i < dataArray.length; i++) {
+            str += ` <div class="val-item${+i + 1}">
+                <div>${+i + 1}</div>
+                <div>${dataArray[i][0]}</div>
+                <div>${dataArray[i][1]}</div>
+                <div>${dataArray[i][2]}</div>
+                <div>${dataArray[i][3]}</div>
+                <div>${dataArray[i][4]}</div>
+                <div><input style="width: 222px;margin-left: 3px" value="${dataArray[i][5]}"/></div>
+            </div>`;
+        }
+        $('.parts-approval-status .content-wrapper .val').html('');
+        $('.parts-approval-status .content-wrapper .val').append(str);
+        $('.parts-approval-status .btn .layui-badge').text(num);
+    }
+
+    /**
+     * PPAP 文件要求提交列表
+     * @param dataArray: 依次要填入的内容，是一个二维数组
+     */
+    function configSubmitList(dataArray) {
+        let str = '';
+        for (let i = 0; i < dataArray.length; i++) {
+
+            str += `<div class="val-item${+i + 1}">
+                <div>
+                    <div class="content-val1">${+i + 1}</div>
+                </div>
+                <div>
+                    <div class="content-val1">${dataArray[i][0]}</div>
+                </div>
+                <div>
+                    <div class="content-val1">${dataArray[i][1]}</div>
+                </div>`;
+
+            let fujian = '<div>'
+                , shuoming1 = '<div>'
+                , wenjianqueren = '<div>'
+                , shuoming2 = '<div>';
+
+            for (let j = 0; j < dataArray[i][2].length; j++) {
+                let src = ''; //附件图片的src
+                if (dataArray[i][2][j][0].type == 'excel') {
+                    src = '../../assets/images/approval-list/excel.jpg'
+                } else if (dataArray[i][2][j][0].type == 'word') {
+                    src = '../../assets/images/approval-list/word.jpg'
+                }
+                fujian += `<div class="content-val2"><img style="width: 50px;height: 50px;background-color: #ccc;"  src="${src}" onclick="fujianDownload('${dataArray[i][2][j][0].url}')"/></div>`;
+                shuoming1 += `<div class="content-val2">${dataArray[i][2][j][1]}</div>`;
+                wenjianqueren += ` <div class="content-val2"><select style="width: 145px;">`
+                        if(dataArray[i][2][j][2] == 0){
+                            wenjianqueren += ` <option value="0" selected>没通过</option><option value="1">通过</option>`
+                        }else if (dataArray[i][2][j][2] == 1){
+                            wenjianqueren += ` <option value="0" >没通过</option><option value="1" selected>通过</option>`
+                        }
+                wenjianqueren += `</select></div>`;
+                shuoming2 += `<div class="content-val2"><textarea style="width: 145px;">${dataArray[i][2][j][3]}</textarea></div>`;
+            }
+            fujian += '</div>';
+            shuoming1 += '</div>';
+            wenjianqueren += '</div>';
+            shuoming2 += '</div>';
+
+            str += fujian + shuoming1 + wenjianqueren + shuoming2 +'</div>';
+        }
+
+        $('.submit-list .content-wrapper .val').html('');
+        $('.submit-list .content-wrapper .val').append(str);
+
+        //动态调节边框的css
+        for (let i = 0; i < dataArray.length; i++) {
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1}`).css('height',dataArray[i][2].length * 73 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('height',dataArray[i][2].length * 61 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('padding-top',dataArray[i][2].length * 10 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val1`).css('border-bottom','2px solid #C1C0BF');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('height',61 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('padding-top', 10 + 'px');
+            $(`.submit-list .content-wrapper .val .val-item${+i + 1} .content-val2`).css('border-bottom','2px solid #C1C0BF');
+        }
+    }
+
+    /**
+     * 配置“一次审批” 标题的徽标中的数字
+     * num: “一次审批” 标题的徽标中的数字
+     */
+    function configOneApproval(num) {
+        $('.one-approval .title .layui-badge').text(num);
+    }
+
+
+    /**
+     * 一次审批---PPAP批准状态
+     * 1.临时批准有效期至,临时批准原因,其他要求
+     * @param dataArray: 依次要填入的内容，是一个二维数组
+     */
+    function configPpapApprovalStatus1(dataArray) {
+        $('.ppap-approval-status .content-wrapper .item1 .val')[0].innerHTML = dataArray[0];
+        $('.ppap-approval-status .content-wrapper .item1 .val')[1].innerHTML = dataArray[1];
+        $('.ppap-approval-status .content-wrapper .item2 .val input[name=\'ppap-approval-status-radio-other-req\'][value=' + dataArray[2] + ']').attr('checked', true);
+
+    }
+
+    /**
+     * 一次审批---PPAP批准状态
+     * 2.尺寸，外观，试验，工艺，过程，工程
+     * @param dataArray: 依次要填入的内容，是一个二维数组
+     */
+    function configPpapApprovalStatus2(dataArray) {
+        $('.ppap-approval-status .content-wrapper .item3 .val div')[0].innerHTML = dataArray[0];
+        $('.ppap-approval-status .content-wrapper .item3 .val div')[1].innerHTML = dataArray[1];
+        $('.ppap-approval-status .content-wrapper .item3 .val div')[2].innerHTML = dataArray[2];
+        $('.ppap-approval-status .content-wrapper .item3 .val div')[3].innerHTML = dataArray[3];
+        $('.ppap-approval-status .content-wrapper .item3 .val div')[4].innerHTML = dataArray[4];
+    }
+
+    /**
+     * 一次审批---PPAP批准状态
+     * 3.问题描述，行动计划，要求完成时间，负责人，备注，是否纳入GP12检查点
+     * @param dataArray: 依次要填入的内容，是一个二维数组
+     */
+    function configPpapApprovalStatus3(dataArray) {
+        let str = '';
+        for (let i = 0; i < dataArray.length; i++) {
+            str += ` <div class="val-item${+i + 1}">
+                            <div>${dataArray[i][0]}</div>
+                            <div>${dataArray[i][1]}</div>
+                            <div>${dataArray[i][2]}</div>
+                            <div>${dataArray[i][3]}</div>
+                            <div>${dataArray[i][4]}</div>
+                            <div>${dataArray[i][5]}</div>
+                        </div>`;
+        }
+        $('.ppap-approval-status .content-wrapper .item4 .val').html('');
+        $('.ppap-approval-status .content-wrapper .item4 .val').append(str);
+
+    }
+
+    /**
+     * 一次审批---审批栏
+     * @param dataArray: 依次要填入的内容，是一个二维数组
+     */
+    function configApprovalColumn(dataArray) {
+        for (let i = 0; i < dataArray[0].length; i++) {
+            $('.approval-column .content-wrapper > div:eq(0) .val')[i].innerHTML = dataArray[0][i];
+        }
+        for (let i = 0; i < dataArray[1].length; i++) {
+            $('.approval-column .content-wrapper > div:eq(1) .val')[i].innerHTML = dataArray[1][i];
+        }
+        for (let i = 0; i < dataArray[2].length; i++) {
+            $('.approval-column .content-wrapper > div:eq(2) .val')[i].innerHTML = dataArray[2][i];
+        }
+
+    }
+
+
+</script>
