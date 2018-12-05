@@ -1,3 +1,11 @@
+<style>
+    .layui-table-cell{
+        height:50px;
+        line-height:50px;
+    }
+
+</style>
+
 <div class="layui-row layui-col-space15">
     <div class="layui-col-md12 autoScrollLeft">
         <div class="layui-card">
@@ -25,7 +33,7 @@
 </script>
 
 <script type="text/html" id="d4-tool-photoshow">
-    <div id="d4-tab1-photoshow{{ d.id }}"></div>
+    <div id="d4-tab1-photoshow{{ d.id }}" lay-event="phoshow"></div>
 </script>
 
 <script>
@@ -53,23 +61,25 @@
             cols: [
                 [
                     {
-                        type: 'checkbox',
-                        height: 50
+                        type: 'checkbox'
                     },
                     {
                         title: '输入值',
                         align: 'center',
-                        toolbar: '#d4-tool-input'
+                        toolbar: '#d4-tool-input',
+                        width: 100
                     },
                     {
                         title: '输出值',
                         align: 'center',
-                        toolbar: '#d4-tool-outval'
+                        toolbar: '#d4-tool-outval',
+                        width: 100
                     },
                     {
                         title: '图标上传',
                         align: 'center',
-                        toolbar: '#d4-tool-photoup'
+                        toolbar: '#d4-tool-photoup',
+                        width: 200
                     },
                     {
                         title: '图标预览',
@@ -88,7 +98,7 @@
             val = $("#d4-tab1-input"+ id).val();
 
             //正则判断
-            var zz = /^[a~z]?$/;
+            var zz = /^[a-z]?$/;
 
             //判断上一个input是否失去焦点
             if(!(document.activeElement.id === ('d4-tab1-input' + id))){
@@ -111,16 +121,57 @@
                 }
             }
             //input获取焦点
-            if((document.activeElement.id === ('d4-tab1-input' + obj.data.id))) console.log(1);
+//            if((document.activeElement.id === ('d4-tab1-input' + obj.data.id))) console.log(1);
             id = obj.data.id;
 
             //图片回显
             photoshow(id);
 
+            //点击图片预览
+            $('#d4-tab1-photoshow'+id+'>img').click(function () {
+                console.log("asasas");
+                var img = '<img src="' + this.src + '" style="max-width: 700px;max-height: 600px" class="photo-show-img" />';
+                layer.closeAll();
+                layer.open({
+                    isOutAnim: false,
+                    type: 1,
+                    area: ['auto', 'auto'],
+                    title: false,
+                    content: img,
+                    shadeClose: true
+                });
+            });
         });
 
+        //获取表格的选中行
+        var checkrows = new Array();  //选定行缓存数组
+        table.on('checkbox(demo04_tab1)',function (obj) {
+            var isR = true;
+            if(checkrows.length<1){
+                checkrows.push(obj.data);
+            }else{
+                $.each(checkrows,function (index,item) {
+                    if(item.id === obj.data.id){
+                        checkrows.splice(index,1);
+                        isR = false;
+                    }
+                    if((index === (checkrows.length-1)) && isR){
+                        checkrows.push(obj.data);
+                    }
+                });
+            }
+
+            console.log(obj.type);
+            console.log(obj.data);
+            console.log(checkrows);
+
+        })
+
+        //图片回显
         function photoshow(id) {
+            $('#d4-tab1-photoup'+id).off("change");
             $('#d4-tab1-photoup'+id).on('change',function () {
+                $('#d4-tab1-photoshow'+id).empty();
                 var files = this.files;
                 var length = files.length;
                 console.log("回显：" + length);
@@ -130,13 +181,11 @@
                     fr.onload = function () {
                         img.src = this.result;
                         img.style = 'width: 45px;height: 45px;';
-                        //document.body.appendChild(img);
                         $('#d4-tab1-photoshow'+id).append(img);
                     }
                     fr.readAsDataURL(v);
-                })
-
-            })
+                });
+            });
         }
 
 
