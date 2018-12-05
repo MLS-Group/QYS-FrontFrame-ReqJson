@@ -1,0 +1,145 @@
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md12 autoScrollLeft">
+        <div class="layui-card">
+            <!--顶部标题-->
+            <div class="layui-card-header">XX管理</div>
+            <!--表格主体部分-->
+            <div class="layui-card-body">
+
+                <table id="demo04_tab1" lay-filter="demo04_tab1"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="d4-tool-input">
+    <input type="text" id="d4-tab1-input{{ d.id }}" style="width: 100%;height: 100%;border: none" lay-event="input">
+</script>
+
+<script type="text/html" id="d4-tool-outval">
+    <span id="d4-tab1-outval{{ d.id }}" style="width: 95%;height: 100%;text-align: center">-</span>
+</script>
+
+<script type="text/html" id="d4-tool-photoup">
+    <input type="file" accept="image/gif, image/jpeg" id="d4-tab1-photoup{{ d.id }}" multiple class="d4-tab1-phoup">
+</script>
+
+<script type="text/html" id="d4-tool-photoshow">
+    <div id="d4-tab1-photoshow{{ d.id }}"></div>
+</script>
+
+<script>
+    layui.use(['laytpl','table','layer'],function () {
+        var $ = layui.$,
+            table = layui.table,
+            admin = layui.admin,
+            layer = layui.layer,
+            laytpl = layui.laytpl;
+
+        var tab1 = table.render({
+            elem: '#demo04_tab1',
+            id: 'demo04_tab1',
+            url: admin.formatUrl('/api/testYb/demo04'),
+            //转换返回的结果集
+            parseData: function (res) {
+                return {
+                    "code": res.respCode,
+                    "msg": res.message,
+                    "count": res.data.count,
+                    "data": res.data.list
+                }
+            },
+            height: 500,
+            cols: [
+                [
+                    {
+                        type: 'checkbox',
+                        height: 50
+                    },
+                    {
+                        title: '输入值',
+                        align: 'center',
+                        toolbar: '#d4-tool-input'
+                    },
+                    {
+                        title: '输出值',
+                        align: 'center',
+                        toolbar: '#d4-tool-outval'
+                    },
+                    {
+                        title: '图标上传',
+                        align: 'center',
+                        toolbar: '#d4-tool-photoup'
+                    },
+                    {
+                        title: '图标预览',
+                        align: 'center',
+                        toolbar: '#d4-tool-photoshow'
+                    }
+                ]
+            ]
+        });
+
+        //获取选中行中input的索引和值
+        var id = "-";
+        var val = "-";
+        table.on('row(demo04_tab1)',function (obj) {
+
+            val = $("#d4-tab1-input"+ id).val();
+
+            //正则判断
+            var zz = /^[a~z]?$/;
+
+            //判断上一个input是否失去焦点
+            if(!(document.activeElement.id === ('d4-tab1-input' + id))){
+                if(zz.test(val)){
+                    //将输入值的对应值输出
+                    var kvs = obj.data.kv;
+                    $.each(kvs,function (i,da) {
+                        if(val === da.k){
+                            $("#d4-tab1-outval"+ id).text(da.v);
+                            return false;
+                        }else if(val === '' ||val === null ){
+                            $("#d4-tab1-outval"+ id).text("-");
+                        }else{
+                            $("#d4-tab1-outval"+ id).text("无对应值");
+                        }
+                    });
+                }else{
+                    $("#d4-tab1-input"+ id).val("");
+                    layer.tips('请输入一个小写英文字符',"#d4-tab1-input"+ id,{tips: 2});
+                }
+            }
+            //input获取焦点
+            if((document.activeElement.id === ('d4-tab1-input' + obj.data.id))) console.log(1);
+            id = obj.data.id;
+
+            //图片回显
+            photoshow(id);
+
+        });
+
+        function photoshow(id) {
+            $('#d4-tab1-photoup'+id).on('change',function () {
+                var files = this.files;
+                var length = files.length;
+                console.log("回显：" + length);
+                $.each(files,function (i,v) {
+                    var img = document.createElement("img");
+                    var fr = new FileReader();
+                    fr.onload = function () {
+                        img.src = this.result;
+                        img.style = 'width: 45px;height: 45px;';
+                        //document.body.appendChild(img);
+                        $('#d4-tab1-photoshow'+id).append(img);
+                    }
+                    fr.readAsDataURL(v);
+                })
+
+            })
+        }
+
+
+
+    });
+</script>

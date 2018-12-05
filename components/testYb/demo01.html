@@ -84,7 +84,7 @@
             table.render({
                 elem: '#demo01-tab1',
                 id: 'demo-tab1',
-                url: admin.formatUrl('/api/testYb/demo01'),
+                url: admin.formatUrl('/api/testYb/demo01'),//'/api/testYb/demo01', //
                 //转换返回的结果集
                 parseData: function (res) {
                     return {
@@ -255,7 +255,7 @@
                 table.render({
                     elem: '#table-from',
                     id: 'table-from',
-                    url: admin.formatUrl('/api/testYb/demo01_1?name=' + data.name),
+                    url: admin.formatUrl('/api/testYb/demo01_1?name=' + data.name),//'/api/testYb/demo01_1',  //
                     // 格式化后台返回的数据
                     parseData: function (res) { //res 即为原始返回的数据
                         // 返回结果，进行渲染表格
@@ -306,18 +306,17 @@
 
         }
 
-        //关闭同村表
         $('.layui-card-close').on('click',function () {
-            //判断是否打开了 同村表,判断class值中是否有layui-hide(隐藏)
-//            var dom = $('div[class*=autoScrollRight]');
-//            var isHide = dom[0].className.indexOf("layui-hide");
-//            if (isHide < 0){
-                //将 同村表隐藏
-                $('.autoScrollRight-from').addClass('layui-hide');
-                //将 用户表宽度回复
-                $('.autoScrollLeft').removeClass('layui-col-md7');
-                $('.autoScrollLeft').addClass('layui-col-md12');
-//            }
+
+            //将 同村表隐藏
+            $('.autoScrollRight-from').addClass('layui-hide');
+            //将 用户表宽度回复
+            $('.autoScrollLeft').removeClass('layui-col-md7');
+            $('.autoScrollLeft').addClass('layui-col-md12');
+
+            setTimeout(function () {
+                admin.resize();
+            }, 300);
 
         });
 
