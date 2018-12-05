@@ -4,11 +4,16 @@ Created: 2018-12-04
 Author : liuzhijie
 -->
 <style>
+    .layui-form.layui-border-box.layui-table-view {
+        margin-top: 0;
+    }
+
     .container {
+        width: 1228.89px;
         background-color: white;
     }
 
-    .container .title {
+    .container > div[class='title'] {
         width: 920px;
         height: 53px;
         font-weight: bolder;
@@ -17,46 +22,111 @@ Author : liuzhijie
         padding-left: 5px;
     }
 
-    .container .title > div {
+    .container > div[class='title'] > div {
         padding-bottom: 5px;
     }
 
-    .container .title > div:nth-child(1) {
+    .container > div[class='title'] > div:nth-child(1) {
         font-size: 18px;
         padding-left: 10px;
     }
 
-    .container .title > div:nth-child(2) {
+    .container > div[class='title'] > div:nth-child(2) {
         font-size: 6px;
     }
 
-    .container .title > div:nth-child(2) > div {
+    .container > div[class='title'] > div:nth-child(2) > div {
         float: left;
     }
 
-    .container .title > div:nth-child(2) > .name {
+    .container > div[class='title'] > div:nth-child(2) > .name {
         padding-left: 10px;
 
     }
 
-    .container .title > div:nth-child(2) > .val {
+    .container > div[class='title'] > div:nth-child(2) > .val {
         color: rgb(50, 153, 0);
         border-right: 2px solid rgb(235, 235, 235);
         padding-left: 10px;
         padding-right: 10px;
     }
 
-    .container .tab {
-        width: 1229px;
-        height: 504px;
-        margin-top: 40px;
-        /*overflow-y:hidden;*/
-        overflow-x:auto;
+    .container > div[class='tab'] {
+        width: 1228.89px;
+        height: 264px;
+        overflow-y: auto;
     }
 
-    .container .tab .my-table{
-      float: left;
-        width: 100px;
+    .container > div[class='tab'] .tab-wrapper {
+        width: 3500px;
+        height: 504px;
+        margin-top: 40px;
+        margin-left: 669px;
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table {
+        display: block;
+        float: left;
+        width: 693px;
+
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(1) {
+        width: 671px;
+        position: absolute;
+        left: 19px;
+        top: 151px;
+        z-index: 1;
+
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(2) {
+        width: 1092px;
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(3) {
+        width: 447px;
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(4) {
+        width: 506px;
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(5) {
+        width: 506px;
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table .title {
+        height: 70px;
+        position: relative;
+        border: 1px solid rgb(230, 230, 230);
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table .title span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(1) .title {
+        background-color: rgb(215, 235, 255);
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(2) .title {
+        background-color: rgb(205, 255, 205);
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(3) .title {
+        background-color: rgb(255, 255, 205);
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(4) .title {
+        background-color: rgb(243, 243, 243);
+    }
+
+    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(5) .title {
+        background-color: rgb(153, 205, 50);
     }
 
 
@@ -80,22 +150,30 @@ Author : liuzhijie
     </div>
 
     <div class="tab">
-        <div class="my-table">
-            <table id="basic-info"></table>
-        </div>
-        <div class="my-table">
-            <table id="system-recovery"></table>
-        </div>
-        <div class="my-table">
-            <table id="ots-approval"></table>
-        </div>
-        <div class="my-table">
-            <table id="appearance-approval"></table>
-        </div>
-        <div class="my-table">
-            <table id="fe-approval"></table>
+        <div class="tab-wrapper">
+            <div class="my-table">
+                <div class="title"><span>基础信息</span></div>
+                <table id="basic-info"></table>
+            </div>
+            <div class="my-table">
+                <div class="title"><span>零件批准计划-系统回写</span></div>
+                <table id="system-recovery"></table>
+            </div>
+            <div class="my-table">
+                <div class="title"><span>OST认可</span></div>
+                <table id="ots-approval"></table>
+            </div>
+            <div class="my-table">
+                <div class="title"><span>外观认可</span></div>
+                <table id="appearance-approval"></table>
+            </div>
+            <div class="my-table">
+                <div class="title"><span>FE认可</span></div>
+                <table id="fe-approval"></table>
+            </div>
         </div>
     </div>
+
 </div>
 
 <script>
@@ -104,20 +182,20 @@ Author : liuzhijie
             , admin = layui.admin;
         let basicInfoTab = table.render({
             elem: '#basic-info'
-            , url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            , url: admin.formatUrl('/api/ctform/item-list-details') //数据接口
             , page: false
             , cols: [[ //表头
-                {type: 'numbers', title: '序号No.', width: 80}
-                , {field: 'distributionDate', title: '分发日期Distribution Date'}
-                , {field: 'taskNumber', title: '任务单编号Task Number'}
-                , {field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
-                , {field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
-                , {field: 'supplierCode', title: '供应商代码Supplier Code'}
-                , {field: 'supplierName', title: '供应商名称Supplier Name'}
-                , {field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
-                , {field: 'pepeInChange', title: '负责PEPE in Change'}
-                , {field: 'sqe', title: 'SQE'}
-                , {field: 'approvalType', title: '批准形式Approval Type'}
+                  {type: 'numbers', title: '序号', width: 30}
+                , {field: 'distributionDate', title: '零件号R', width: 70}
+                , {field: 'taskNumber', title: '零件名称R', width: 70}
+                , {field: 'projectTrackingNumber', title: '新增A/D(A：增加 D：删除)R', width: 70}
+                , {field: 'projectVehicle', title: 'SQ科室', width: 70}
+                , {field: 'supplierCode', title: 'SQE1', width: 70}
+                , {field: 'supplierName', title: 'PER', width: 70}
+                , {field: 'riskCheckResult', title: '供应商1（本行跟踪）', width: 70}
+                , {field: 'pepeInChange', title: '供应商1代码', width: 70}
+                , {field: 'sqe', title: 'EWO编号', width: 70}
+
             ]]
             , parseData: function (res) { //res 即为原始返回的数据
                 return {
@@ -131,20 +209,22 @@ Author : liuzhijie
 
         let systemRecoveryTab = table.render({
             elem: '#system-recovery'
-            , url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            , url: admin.formatUrl('/api/ctform/item-list-details') //数据接口
             , page: false
             , cols: [[ //表头
-                {type: 'numbers', title: '序号No.', width: 80}
-                , {field: 'distributionDate', title: '分发日期Distribution Date'}
-                , {field: 'taskNumber', title: '任务单编号Task Number'}
-                , {field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
-                , {field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
-                , {field: 'supplierCode', title: '供应商代码Supplier Code'}
-                , {field: 'supplierName', title: '供应商名称Supplier Name'}
-                , {field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
-                , {field: 'pepeInChange', title: '负责PEPE in Change'}
-                , {field: 'sqe', title: 'SQE'}
-                , {field: 'approvalType', title: '批准形式Approval Type'}
+                , {field: 'distributionDate', title: 'OPAP/PPAP批准状态', width: 100}
+                , {field: 'taskNumber', title: 'PPAP计划最早', width: 97}
+                , {field: 'projectTrackingNumber', title: 'OPAP/PPAP认可延迟原因', width: 100}
+                , {field: 'projectVehicle', title: 'OPAP批准PCD', width: 79}
+                , {field: 'supplierCode', title: 'OPAP批准ACD', width: 68}
+                , {field: 'supplierName', title: '升级高风险描述', width: 59}
+                , {field: 'riskCheckResult', title: 'S-PPAP批准PCD', width: 100}
+                , {field: 'pepeInChange', title: 'S-PPAP批准ACD', width: 108}
+                , {field: 'sqe', title: '临时批准原因', width: 92}
+                , {field: 'sqe', title: 'F-PPAP批准PCD', width: 92}
+                , {field: 'sqe', title: 'F-PPAP批准ACD', width: 92}
+                , {field: 'sqe', title: '计划变更备注', width: 92}
+
             ]]
             , parseData: function (res) { //res 即为原始返回的数据
                 return {
@@ -158,20 +238,15 @@ Author : liuzhijie
 
         let otsApprovalTab = table.render({
             elem: '#ots-approval'
-            , url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            , url: admin.formatUrl('/api/ctform/item-list-details') //数据接口
             , page: false
             , cols: [[ //表头
-                {type: 'numbers', title: '序号No.', width: 80}
-                , {field: 'distributionDate', title: '分发日期Distribution Date'}
-                , {field: 'taskNumber', title: '任务单编号Task Number'}
-                , {field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
-                , {field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
-                , {field: 'supplierCode', title: '供应商代码Supplier Code'}
-                , {field: 'supplierName', title: '供应商名称Supplier Name'}
-                , {field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
-                , {field: 'pepeInChange', title: '负责PEPE in Change'}
-                , {field: 'sqe', title: 'SQE'}
-                , {field: 'approvalType', title: '批准形式Approval Type'}
+                , {field: 'distributionDate', title: '计划完整时间', width: 60}
+                , {field: 'taskNumber', title: '状态', width: 60}
+                , {field: 'projectTrackingNumber', title: '条件认可实际完成时间', width: 100}
+                , {field: 'projectVehicle', title: '完全认可实际完成时间', width: 60}
+                , {field: 'supplierCode', title: '认可类型', width: 60}
+                , {field: 'supplierName', title: '封样完成状态', width: 60}
             ]]
             , parseData: function (res) { //res 即为原始返回的数据
                 return {
@@ -185,20 +260,14 @@ Author : liuzhijie
 
         let appearanceApprovalTab = table.render({
             elem: '#appearance-approval'
-            , url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            , url: admin.formatUrl('/api/ctform/item-list-details') //数据接口
             , page: false
             , cols: [[ //表头
-                {type: 'numbers', title: '序号No.', width: 80}
-                , {field: 'distributionDate', title: '分发日期Distribution Date'}
-                , {field: 'taskNumber', title: '任务单编号Task Number'}
-                , {field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
-                , {field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
-                , {field: 'supplierCode', title: '供应商代码Supplier Code'}
-                , {field: 'supplierName', title: '供应商名称Supplier Name'}
-                , {field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
-                , {field: 'pepeInChange', title: '负责PEPE in Change'}
-                , {field: 'sqe', title: 'SQE'}
-                , {field: 'approvalType', title: '批准形式Approval Type'}
+                , {field: 'distributionDate', title: '计划完成时间PCD', width: 101}
+                , {field: 'projectTrackingNumber', title: '状态', width: 100}
+                , {field: 'projectVehicle', title: '条件认可实际完成时间', width: 100}
+                , {field: 'supplierCode', title: '完全认可实际完成时间', width: 100}
+                , {field: 'supplierName', title: '封样完成状态', width: 100}
             ]]
             , parseData: function (res) { //res 即为原始返回的数据
                 return {
@@ -212,20 +281,14 @@ Author : liuzhijie
 
         let feApprovalTab = table.render({
             elem: '#fe-approval'
-            , url: admin.formatUrl('/api/ctform/approval-notice-query') //数据接口
+            , url: admin.formatUrl('/api/ctform/item-list-details') //数据接口
             , page: false
             , cols: [[ //表头
-                {type: 'numbers', title: '序号No.', width: 80}
-                , {field: 'distributionDate', title: '分发日期Distribution Date'}
-                , {field: 'taskNumber', title: '任务单编号Task Number'}
-                , {field: 'projectTrackingNumber', title: '项目跟踪单编号Project Tracking Number'}
-                , {field: 'projectVehicle', title: '项目车型/机型Project Vehicle/Engine'}
-                , {field: 'supplierCode', title: '供应商代码Supplier Code'}
-                , {field: 'supplierName', title: '供应商名称Supplier Name'}
-                , {field: 'riskCheckResult', title: '风险检查结果Risk Check Result'}
-                , {field: 'pepeInChange', title: '负责PEPE in Change'}
-                , {field: 'sqe', title: 'SQE'}
-                , {field: 'approvalType', title: '批准形式Approval Type'}
+                , {field: 'distributionDate', title: '计划完成时间PCDR', width: 101}
+                , {field: 'projectTrackingNumber', title: '状态R', width: 100}
+                , {field: 'projectVehicle', title: '条件认可实际完成时间', width: 100}
+                , {field: 'supplierCode', title: '完全认可实际完成时间', width: 100}
+                , {field: 'supplierName', title: '封样完成状态RR', width: 100}
             ]]
             , parseData: function (res) { //res 即为原始返回的数据
                 return {
@@ -238,4 +301,5 @@ Author : liuzhijie
         })
 
     })
+
 </script>
