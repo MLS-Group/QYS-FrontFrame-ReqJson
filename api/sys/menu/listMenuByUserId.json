@@ -784,6 +784,23 @@
       "extInfo": null
     },
     {
+      "id": "75dc7c52f6",
+      "name": "项目单详情--2",
+      "parentId": "f3620e872e",
+      "parentIds": "0,6f6fafb4a7,f3620e872e,",
+      "parent": null,
+      "childList": null,
+      "delFlag": 0,
+      "href": "ctform/item-list-details2.html",
+      "icon": null,
+      "sort": "3-6",
+      "permission": null,
+      "remarks": null,
+      "belong": null,
+      "isShow": 1,
+      "extInfo": null
+    },
+    {
       "id": "2482bd7099",
       "name": "字典类型删除",
       "parentId": "e019b55642",
