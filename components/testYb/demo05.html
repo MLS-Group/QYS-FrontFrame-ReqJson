@@ -1,0 +1,287 @@
+<style>
+    .d5-select{
+        width: 100%;
+        height: auto;
+        padding: 1% 1% 1% 1%;
+    }
+    .d5-select-title{
+        width: 98%;
+        height: auto;
+    }
+    .d5-select-title-line{
+        vertical-align: top;
+        float: right;
+        width: 90%;
+        height: 1px;
+        margin: 1% 2% 0 0;
+        background-color: #0C0C0C;
+        display: inline-block;
+    }
+    .d5-select-title-btn{
+        display: inline-block;
+        height: 80%;
+        width: 7%;
+        font-size: 24%;
+        border-radius: 30%;
+    }
+
+    .d5-select-item{
+        width: 96%;
+        height: auto;
+    }
+    .d5-select-item-line{
+        width: 1px;
+        height: 120px;
+        margin: 0.5% 0 0 3.7%;
+        background-color: #0C0C0C;
+        display: inline-block;
+    }
+    .d5-select-item-tab{
+        margin: 1% 1% 0 0;
+        float: right;
+        display: inline-block;
+        width: 92%;
+        height: auto;
+    }
+    .d5-select-item-tabItem{
+        height: 35px;
+        text-align: right;
+        font-size: 20%;
+    }
+    .d5-select-item-tabValue{
+        height: 35px;
+    }
+    .d5-select-item-tabValue>input{
+        margin: 0 0 0 5%;
+        width: 92%;
+        height: 80%;
+        border-radius: 10%;
+
+    }
+
+    .d5-select-btn{
+        width: 98%;
+        height: auto;
+    }
+    .d5-select-btn-title{
+        display: inline-block;
+        height: 90%;
+        width: 8%;
+        font-size: 26%;
+        font-weight: bold;
+        border-radius: 30%;
+    }
+    .d5-select-btn-line{
+        width: 52%;
+        height: 1px;
+        margin: 1% 0 0 0.5%;
+        background-color: #0C0C0C;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .d5-select-btn-query{
+        width: 40%;
+        float: right;
+        display: inline-block;
+    }
+    .d5-select-btn-query-a{
+        border: none;
+        background: none;
+        color: #0e90d2;
+        margin: 0 0 0 0;
+    }
+    .d5-select-btn-query-a:hover{
+        cursor: pointer;
+    }
+    .d5-select-btn-query-a:active{
+        color: #4E5465;
+    }
+
+    .d5-select-btn-1{
+        width: 28%;
+        text-align: center;
+        font-size: 26%;
+    }
+
+    .layui-table-cell {
+        height: auto;
+        line-height: 28px;
+        padding: 0 15px;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        box-sizing: border-box;
+    }
+
+</style>
+
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md12 autoScrollLeft">
+        <div class="layui-card">
+            <div class="d5-select">
+                <div class="d5-select-title">
+                    <div class="d5-select-title-line"></div>
+                    <button class="d5-select-title-btn" id="select-show">数据查找</button>
+                </div>
+                <div class="d5-select-item">
+                    <div class="d5-select-item-line"></div>
+                    <div class="d5-select-item-tab">
+                        <table style="" class="d5-select-item-table">
+                            <tr>
+                                <td class="d5-select-item-tabItem" style="width: 8%"><p>&nbsp;&nbsp;日期范围:</p><p>Data Range</p></td>
+                                <td class="d5-select-item-tabValue"><input type="text" placeholder="输入日期范围/input Date Range"></td>
+                                <td class="d5-select-item-tabItem" style="width: 8%"><p>&nbsp;&nbsp;任务单单号:</p><p>Task Number</p></td>
+                                <td class="d5-select-item-tabValue"><input type="text" placeholder="键入/input..."></td>
+                                <td class="d5-select-item-tabItem" style="width: 14%"><p>&nbsp;&nbsp;项目跟踪表编号:</p><p>Project Tracking Number</p></td>
+                                <td class="d5-select-item-tabValue"><input type="text" placeholder="键入..."></td>
+                                <td class="d5-select-item-tabItem" style="width: 12%"><p>&nbsp;&nbsp;项目车型/机型:</p><p>Project Vehicle/Engine</p></td>
+                                <td class="d5-select-item-tabValue"><input type="text" placeholder="键入/input..."></td>
+                            </tr>
+                            <tr>
+                                <td class="d5-select-item-tabItem"><p>&nbsp;&nbsp;供应商代码:</p><p>Supplier Code</p></td>
+                                <td class="d5-select-item-tabValue"><input type="text" placeholder="键入/input..."></td>
+                                <td class="d5-select-item-tabItem"><p>&nbsp;&nbsp;供应商名称:</p><p>Supplier Name</p></td>
+                                <td class="d5-select-item-tabValue"><input type="text" placeholder="键入/input..."></td>
+                                <td class="d5-select-item-tabItem"><p>&nbsp;&nbsp;分险检查结果:</p><p>Risk Check Result</p></td>
+                                <td class="d5-select-item-tabValue"><input type="text" placeholder="键入/input..."></td>
+                                <td class="d5-select-item-tabItem"><p>&nbsp;&nbsp;负责PE:</p><p>PE in Charge</p></td>
+                                <td class="d5-select-item-tabValue"><input type="text" placeholder="键入/input..."></td>
+                            </tr>
+                            <tr>
+                                <td class="d5-select-item-tabItem"><p>&nbsp;&nbsp;SQE:</p></td>
+                                <td class="d5-select-item-tabValue"><input type="text" placeholder="键入/input..."></td>
+                                <td class="d5-select-item-tabItem"><p>&nbsp;&nbsp;批准形式:</p><p>Approve</p></td>
+                                <td class="d5-select-item-tabValue"><input type="text" placeholder="键入/input..."></td>
+                                <td colspan="4">
+                                    <div class="d5-select-btn-query" >
+                                        <button class="layui-btn layui-btn-sm layui-btn-primary" style="width: 25%;font-size: 26%;float: right">重置</button>
+                                        <button class="layui-btn layui-btn-sm layui-btn-normal" style="width: 25%;font-size: 26%;float: right;margin: 0 3% 0 0">查询</button>
+                                        <button class="d5-select-btn-query-a" id="select-hidden" style="width: 30%;font-size: 26%;float: right;margin: 3.5% 0 0 0">收起搜索</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="d5-select-btn">
+                    <button class="d5-select-btn-title">任务单列表</button>
+                    <div class="d5-select-btn-line" ></div>
+                    <div class="d5-select-btn-query" style="margin: 0 3% 0 0;width: 35%">
+                        <button class="layui-btn d5-select-btn-1" style="float: right">单一表单导出</button>
+                        <button class="layui-btn d5-select-btn-1" style="float: right;margin: 0 2% 0 0">总清单导出</button>
+                        <button class="layui-btn d5-select-btn-1" style="width: 20%;float: right;margin: 0 2% 0 0">查看</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d5-content">
+                <table id="d5-tab1" lay-filter="d5-tab1"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use('table',function () {
+        var $ = layui.$,
+            admin = layui.admin,
+            table = layui.table;
+
+        //隐藏搜索项
+        $('#select-hidden').click(function () {
+            $('.d5-select-item').animate({height: 0},500);
+            $('.d5-select-item-line').animate({height: 0},480);
+            $('.d5-select-item-tab').animate({height: 0},480);
+            $('.d5-select-item-table').css('display','none');
+        });
+
+        //展示搜索项
+        $('#select-show').click(function () {
+            $('.d5-select-item').animate({height: '96%'},500);
+            $('.d5-select-item-line').animate({height: 120},480);
+            $('.d5-select-item-tab').animate({height: 'auto'},480);
+            $('.d5-select-item-table').css('display','');
+        });
+
+        table.render({
+            elem: '#d5-tab1',
+            id: 'd5-tab1',
+            url: admin.formatUrl('api/testYb/demo05'),
+            //转换返回的结果集
+            parseData: function (res) {
+                return {
+                    "code": res.respCode,
+                    "msg": res.message,
+                    "count": res.data.count,
+                    "data": res.data.list
+                }
+            },
+            cols: [[
+                {
+                    title: '序号<br/>No.',
+                    type: 'numbers'
+                },
+                {
+                    title: '分发日期<br/>Distribution Date',
+                    align: "center",
+                    edit: 'text'
+                },
+                {
+                    title: '任务单编号<br/>Task Number',
+                    align: "center",
+                    edit: 'text'
+                },
+                {
+                    title: '项目跟踪表编号<br/>Project Tracking Number',
+                    align: "center",
+                    edit: 'text'
+                },
+                {
+                    title: '项目车型/机型<br/>Project Vehicle/Engine',
+                    align: "center",
+                    field: 'proVE'
+                },
+                {
+                    title: '供应商代码<br/>Supplier Code',
+                    align: "center",
+                    field: 'suppCode'
+                },
+                {
+                    title: '供应商名称<br/>Supplier Name',
+                    align: "center",
+                    field: 'suppName'
+                },
+                {
+                    title: '分险检查结果<br/>Risk Check Result',
+                    align: "center",
+                    field: 'riskCheck'
+                },
+                {
+                    title: '负责PE<br/>PE in charge',
+                    align: "center",
+                    field: 'pe'
+                },
+                {
+                    title: 'SQE',
+                    align: "center",
+                    edit: 'text'
+                },
+                {
+                    title: '批准形式<br/>Approval Type',
+                    align: "center",
+                    field: 'approvalType'
+                }
+            ]],
+            cellMinWidth: 200,
+            page: {
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+            },
+            request: {
+                pageName: 'pageNo',
+                limitName: 'pageSize'
+            }
+        })
+
+
+    });
+</script>
