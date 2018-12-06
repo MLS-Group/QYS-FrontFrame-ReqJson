@@ -1,0 +1,192 @@
+<!--
+Describe: 项目单详情 demo ===== 冻结部分使用layui框架实现
+Created: 2018-12-04
+Author : liuzhijie
+-->
+<style>
+    .layui-form.layui-border-box.layui-table-view {
+        margin-top: 0;
+    }
+    .layui-table-cell {
+        height: 100%;
+    }
+
+    .container {
+        width: 1094px;
+        background-color: white;
+    }
+
+    .container > div[class='title'] {
+        width: 758px;
+        height: 43px;
+        font-weight: bolder;
+        border: 2px solid rgb(235, 235, 235);
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+
+    .container > div[class='title'] > div {
+        padding-bottom: 5px;
+    }
+
+    .container > div[class='title'] > div:nth-child(1) {
+        font-size: 12px;
+        padding-left: 10px;
+    }
+
+    .container > div[class='title'] > div:nth-child(2) {
+        font-size: 4px;
+    }
+
+    .container > div[class='title'] > div:nth-child(2) > div {
+        float: left;
+    }
+
+    .container > div[class='title'] > div:nth-child(2) > .name {
+        padding-left: 10px;
+
+    }
+
+    .container > div[class='title'] > div:nth-child(2) > .val {
+        color: rgb(50, 153, 0);
+        border-right: 2px solid rgb(235, 235, 235);
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .container > div[class='tab'] {
+        width: 1084px;
+        margin-top: 40px;
+        margin-left: 10px;
+    }
+
+    .container > div[class='tab'] .my-table .layui-table-header thead {
+        display: block;
+    }
+
+    .container > div[class='tab'] .my-table .layui-table-header thead tr th{
+        height: 27px !important;
+    }
+
+    .container > div[class='tab'] .my-table .layui-table-header thead tr:nth-child(1) th:nth-child(1) {
+        background-color: rgb(215, 235, 255);
+    }
+
+    .container > div[class='tab'] .my-table .layui-table-header thead tr:nth-child(1) th:nth-child(2) {
+        background-color: rgb(205, 255, 205);
+    }
+
+    .container > div[class='tab'] .my-table .layui-table-header thead tr:nth-child(1) th:nth-child(3) {
+        background-color: rgb(255, 255, 205);
+    }
+
+    .container > div[class='tab'] .my-table .layui-table-header thead tr:nth-child(1) th:nth-child(4) {
+        background-color: rgb(243, 243, 243);
+    }
+
+    .container > div[class='tab'] .my-table .layui-table-header thead tr:nth-child(1) th:nth-child(5) {
+        background-color: rgb(153, 205, 50);
+    }
+
+
+</style>
+
+<div class="container">
+    <div class="title">
+        <div>
+            <div>项目零件跟踪表</div>
+        </div>
+        <div>
+            <div class="name">BETA/OTS2:</div>
+            <div class="val">XXX-XX-XX</div>
+            <div class="name">GAMMA/OTS2:</div>
+            <div class="val">XXX-XX-XX</div>
+            <div class="name">3C Piolt/NS:</div>
+            <div class="val">XXX-XX-XX</div>
+            <div class="name">SOP:</div>
+            <div class="val">XXX-XX-XX</div>
+        </div>
+    </div>
+
+    <div class="tab">
+        <div class="my-table">
+            <table id="basic-info"></table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    layui.use(['table'], function () {
+        let table = layui.table
+            , admin = layui.admin;
+        let basicInfoTab = table.render({
+            elem: '#basic-info'
+            , url: admin.formatUrl('/api/ctform/item-list-details') //数据接口
+            , page: false
+            , cols: [[
+                {field: '', title: '信息基础', colspan: 10, align: 'center', fixed: 'left'}
+                , {field: '', title: '零件批准计划-系统回写', colspan: 12, align: 'center'}
+                , {field: '', title: 'OST认可', colspan: 6, align: 'center'}
+                , {field: '', title: '外观认可', colspan: 5, align: 'center'}
+                , {field: '', title: 'FE认可', colspan: 5, align: 'center'}
+            ], [ //表头
+                //-------基础信息-------
+                {type: 'numbers', title: '序号',  fixed: 'left'}
+                , {field: 'distributionDate', title: '<div>零件号R</div>', fixed: 'left', width:69}
+                , {field: 'taskNumber', title: '<div>零件名称R</div>', fixed: 'left', width:84}
+                , {field: 'projectTrackingNumber', title: '<div>新增A/D<br/>(A：增加 D：删除)R</div>',  fixed: 'left', width:146}
+                , {field: 'projectVehicle', title: '<div>SQ科室</div>', fixed: 'left', width:67}
+                , {field: 'supplierCode', title: '<div>SQE1</div>',  fixed: 'left', width:60}
+                , {field: 'supplierName', title: '<div>PER</div>',  fixed: 'left', width:60}
+                , {field: 'riskCheckResult', title: '<div>供应商1<br/>（本行跟踪）</div>', fixed: 'left', width:92}
+                , {field: 'pepeInChange', title: '<div>供应商1<br/>代码</div>',  fixed: 'left', width:68}
+                , {field: 'sqe', title: '<div>EWO编号</div>',  fixed: 'left', width:80}
+                //-------零件批准计划-系统回写--------
+                , {field: 'distributionDate', title: '<div>OPAP/PPAP<br/>批准状态</div>'}
+                , {field: 'taskNumber', title: '<div>PPAP计划最早</div>'}
+                , {field: 'projectTrackingNumber', title: '<div>OPAP/PPAP<br/>认可延迟原因</div>'}
+                , {field: 'projectVehicle', title: '<div>OPAP批准<br/>PCD</div>'}
+                , {field: 'supplierCode', title: '<div>OPAP批准<br/>ACD</div>'}
+                , {field: 'supplierName', title: '<div>升级高风险<br/>描述</div>'}
+                , {field: 'riskCheckResult', title: '<div>S-PPAP批准<br/>PCD</div>'}
+                , {field: 'pepeInChange', title: '<div>S-PPAP批准<br/>ACD</div>'}
+                , {field: 'sqe', title: '<div>临时批准<br/>原因</div>'}
+                , {field: 'sqe', title: '<div>F-PPAP批准<br/>PCD</div>'}
+                , {field: 'sqe', title: '<div>F-PPAP批准<br/>ACD</div>'}
+                , {field: 'sqe', title: '<div>计划变更<br/>备注</div>'}
+                //--------OST认可--------
+                , {field: 'distributionDate', title: '<div>计划完整时间</div>'}
+                , {field: 'taskNumber', title: '<div>状态</div>'}
+                , {field: 'projectTrackingNumber', title: '<div>条件认可实际<br/>完成时间</div>'}
+                , {field: 'projectVehicle', title: '<div>完全认可实际<br/>完成时间</div>'}
+                , {field: 'supplierCode', title: '<div>认可类型</div>'}
+                , {field: 'supplierName', title: '<div>封样完成<br/>状态</div>'}
+                //--------外观认可-------
+                , {field: 'distributionDate', title: '<div>计划完成时间<br/>PCD</div>'}
+                , {field: 'projectTrackingNumber', title: '<div>状态</div>'}
+                , {field: 'projectVehicle', title: '<div>条件认可实际<br/>完成时间</div>'}
+                , {field: 'supplierCode', title: '<div>完全认可实际<br/>完成时间</div>'}
+                , {field: 'supplierName', title: '<div>封样完成<br/>状态</div>'}
+                //--------FE认可---------
+                , {field: 'distributionDate', title: '<div>计划完成时间<br/>PCDR</div>'}
+                , {field: 'projectTrackingNumber', title: '<div>状态R</div>'}
+                , {field: 'projectVehicle', title: '<div>条件认可实际<br/>完成时间</div>'}
+                , {field: 'supplierCode', title: '<div>完全认可实际<br/>完成时间</div>'}
+                , {field: 'supplierName', title: '<div>封样完成<br/>状态RR</div>'}
+
+            ]]
+            , parseData: function (res) { //res 即为原始返回的数据
+                return {
+                    "code": res.respCode, //解析接口状态
+                    "msg": res.message, //解析提示文本
+                    "count": res.data.count, //解析数据长度
+                    "data": res.data.list //解析数据列表
+                };
+            }
+        })
+
+
+    })
+
+</script>
