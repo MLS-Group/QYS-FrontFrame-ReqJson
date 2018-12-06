@@ -9,13 +9,13 @@ Author : liuzhijie
     }
 
     .container {
-        width: 1228.89px;
+        width: 1094px;
         background-color: white;
     }
 
     .container > div[class='title'] {
-        width: 920px;
-        height: 53px;
+        width: 758px;
+        height: 43px;
         font-weight: bolder;
         border: 2px solid rgb(235, 235, 235);
         padding-top: 5px;
@@ -27,12 +27,12 @@ Author : liuzhijie
     }
 
     .container > div[class='title'] > div:nth-child(1) {
-        font-size: 18px;
+        font-size: 12px;
         padding-left: 10px;
     }
 
     .container > div[class='title'] > div:nth-child(2) {
-        font-size: 6px;
+        font-size: 4px;
     }
 
     .container > div[class='title'] > div:nth-child(2) > div {
@@ -52,80 +52,87 @@ Author : liuzhijie
     }
 
     .container > div[class='tab'] {
-        width: 1228.89px;
-        height: 264px;
-        overflow-y: auto;
+        position: relative;
     }
 
-    .container > div[class='tab'] .tab-wrapper {
-        width: 3500px;
+    .container > div[class='tab'] .scroll-bar {
+        width: 1084px;
+        height: 264px;
+        overflow-x:scroll;
+        overflow-y: hidden;
+        margin-left: 10px;
+    }
+
+    .container > div[class='tab'] .scroll-bar .tab-wrapper {
+        width: 2552px;
         height: 504px;
         margin-top: 40px;
         margin-left: 669px;
+
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table {
         display: block;
         float: left;
         width: 693px;
 
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(1) {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table:nth-child(1) {
         width: 671px;
         position: absolute;
-        left: 19px;
-        top: 151px;
+        left: 9px;
+        top: 40px;
         z-index: 1;
 
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(2) {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table:nth-child(2) {
         width: 1092px;
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(3) {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table:nth-child(3) {
         width: 447px;
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(4) {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table:nth-child(4) {
         width: 506px;
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(5) {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table:nth-child(5) {
         width: 506px;
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table .title {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table .title {
         height: 70px;
         position: relative;
         border: 1px solid rgb(230, 230, 230);
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table .title span {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table .title span {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(1) .title {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table:nth-child(1) .title {
         background-color: rgb(215, 235, 255);
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(2) .title {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table:nth-child(2) .title {
         background-color: rgb(205, 255, 205);
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(3) .title {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table:nth-child(3) .title {
         background-color: rgb(255, 255, 205);
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(4) .title {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table:nth-child(4) .title {
         background-color: rgb(243, 243, 243);
     }
 
-    .container > div[class='tab'] .tab-wrapper .my-table:nth-child(5) .title {
+    .container > div[class='tab'] .scroll-bar .tab-wrapper .my-table:nth-child(5) .title {
         background-color: rgb(153, 205, 50);
     }
 
@@ -150,28 +157,31 @@ Author : liuzhijie
     </div>
 
     <div class="tab">
-        <div class="tab-wrapper">
-            <div class="my-table">
-                <div class="title"><span>基础信息</span></div>
-                <table id="basic-info"></table>
-            </div>
-            <div class="my-table">
-                <div class="title"><span>零件批准计划-系统回写</span></div>
-                <table id="system-recovery"></table>
-            </div>
-            <div class="my-table">
-                <div class="title"><span>OST认可</span></div>
-                <table id="ots-approval"></table>
-            </div>
-            <div class="my-table">
-                <div class="title"><span>外观认可</span></div>
-                <table id="appearance-approval"></table>
-            </div>
-            <div class="my-table">
-                <div class="title"><span>FE认可</span></div>
-                <table id="fe-approval"></table>
+        <div class="scroll-bar">
+            <div class="tab-wrapper">
+                <div class="my-table">
+                    <div class="title"><span>基础信息</span></div>
+                    <table id="basic-info"></table>
+                </div>
+                <div class="my-table">
+                    <div class="title"><span>零件批准计划-系统回写</span></div>
+                    <table id="system-recovery"></table>
+                </div>
+                <div class="my-table">
+                    <div class="title"><span>OST认可</span></div>
+                    <table id="ots-approval"></table>
+                </div>
+                <div class="my-table">
+                    <div class="title"><span>外观认可</span></div>
+                    <table id="appearance-approval"></table>
+                </div>
+                <div class="my-table">
+                    <div class="title"><span>FE认可</span></div>
+                    <table id="fe-approval"></table>
+                </div>
             </div>
         </div>
+
     </div>
 
 </div>
@@ -241,7 +251,7 @@ Author : liuzhijie
             , url: admin.formatUrl('/api/ctform/item-list-details') //数据接口
             , page: false
             , cols: [[ //表头
-                , {field: 'distributionDate', title: '计划完整时间', width: 60}
+                , {field: 'distributionDate', title: '计划完整时间', width: 100}
                 , {field: 'taskNumber', title: '状态', width: 60}
                 , {field: 'projectTrackingNumber', title: '条件认可实际完成时间', width: 100}
                 , {field: 'projectVehicle', title: '完全认可实际完成时间', width: 60}
@@ -263,7 +273,7 @@ Author : liuzhijie
             , url: admin.formatUrl('/api/ctform/item-list-details') //数据接口
             , page: false
             , cols: [[ //表头
-                , {field: 'distributionDate', title: '计划完成时间PCD', width: 101}
+                , {field: 'distributionDate', title: '计划完成时间PCD', width: 100}
                 , {field: 'projectTrackingNumber', title: '状态', width: 100}
                 , {field: 'projectVehicle', title: '条件认可实际完成时间', width: 100}
                 , {field: 'supplierCode', title: '完全认可实际完成时间', width: 100}
