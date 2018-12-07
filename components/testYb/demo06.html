@@ -275,11 +275,11 @@
             ],
             cellMinWidth: 150,
             done: function (res, curr, count) {
-                var s = $('.layui-table-header');
-                //这是一个笨办法暂时想不到其他方法，layui冻住的列是将该列提取出来新建一个表格然后覆盖，
-                // 这样会导致多级列表头的样式发生变化，所以我将上层表格的高度缩小露出下层的表头
-               $(s[1]).attr("style","height: 58px");
-               $(".layui-table-fixed-l").css({"margin": "3.2% 0 0 0"});
+//                var s = $('.layui-table-header');
+//                //这是一个笨办法暂时想不到其他方法，layui冻住的列是将该列提取出来新建一个表格然后覆盖，
+//                // 这样会导致多级列表头的样式发生变化，所以我将上层表格的高度缩小露出下层的表头
+//               $(s[1]).attr("style","height: '28%'");
+//               $(".layui-table-fixed-l").css({"margin": "3% 0 0 0"});
             }
 
         })

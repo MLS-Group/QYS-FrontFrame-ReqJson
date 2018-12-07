@@ -1,0 +1,189 @@
+<style>
+    .d7-title{
+        width: 96%;
+        height: 130px;
+        text-align: center;
+        margin: 0 2% 0 2%;
+    }
+    .d7-title-top-left{
+        float: left;
+        font-weight: bold;
+        width: 100%;
+        text-align: left;
+    }
+    .d7-title-center-big{
+        width: 100%;
+        text-align: center;
+    }
+    .d7-title-bottom{
+        width: 100%;
+        margin: 1% 0 0 0;
+        float: right;
+        font-weight: bold;
+        text-align: right;
+    }
+    .d7-table-message{
+
+    }
+    .d7-content{
+        width: 96%;
+        margin: 1.5% 2% 0 2%;
+        font-size: 16px;
+    }
+
+    .d7-span{
+        text-align: center;
+        border-bottom: 1px solid #000;
+        padding: 0 5% 0 5%;
+    }
+
+    .d7-tab-bottom{
+        height: 80px;
+        width: 50%;
+        margin: 0 0 0 50%;
+        text-align: right;
+    }
+
+</style>
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md12 autoScrollLeft">
+        <div class="layui-card">
+            <!--表格标题-->
+            <div class="d7-title">
+                <div class="d7-title-top-left">表G 0505 Q-02-17 (0/A)</div>
+                <div class="d7-title-center-big">
+                    <p style="font-size: 20px;font-weight: bold">PRODUCTION PART APPROVAL STATUS NOTICE</p>
+                    <p style="font-size: 35px;font-weight: 200">生&nbsp;&nbsp;产&nbsp;&nbsp;件&nbsp;&nbsp;批&nbsp;&nbsp;准&nbsp;&nbsp;
+                        状&nbsp;&nbsp;况&nbsp;&nbsp;通&nbsp;&nbsp;知&nbsp;&nbsp;函</p>
+                </div>
+                <div class="d7-title-bottom">
+                    <span>SGMW PPAP NUMBER SGMW-PPAP编号：</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="d7-span">xxxxxxxxxxxxx</span>
+                </div>
+            </div>
+            <!--表信息-->
+            <div class="d7-table-message">
+                <table style="width: 96%;margin: 0 2%">
+                    <tr>
+                        <td style="width: 25%;text-align: left"><span style="font-weight: bold">致(女士/先生)To(Ms./Mr.): </span></td>
+                        <td style="width: 25%;text-align: left"><span class="d7-span">xxxxxxxxxxxxx</span></td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;text-align: left"><span style="font-weight: bold">职务Title: </span></td>
+                        <td style="width: 25%;text-align: left"><span class="d7-span">xxxxxxxxxxxxx</span></td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;text-align: left"><span style="font-weight: bold">公司名称Company name: </span></td>
+                        <td style="width: 25%;text-align: left"><span class="d7-span">xxxxxxxxxxxxx</span></td>
+                        <td style="width: 25%;text-align: left"><span style="font-weight: bold">公司地址Address: </span></td>
+                        <td style="width: 25%;text-align: left"><span class="d7-span">xxxxxxxxxxxxx</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;text-align: left"><span style="font-weight: bold">工厂名称Plant name: </span></td>
+                        <td style="width: 25%;text-align: left"><span class="d7-span">xxxxxxxxxxxxx</span></td>
+                        <td style="width: 25%;text-align: left"><span style="font-weight: bold">工厂地址Address: </span></td>
+                        <td style="width: 25%;text-align: left"><span class="d7-span">xxxxxxxxxxxxx</span></td>
+                    </tr>
+                </table>
+
+            </div>
+            <!--表内容-->
+            <div class="d7-content">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好！</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贵公司<span class="d7-span" width="50px" style="font-weight: bold;color: #0e90d2"></span>车型/机型零部件因
+                    <span class="d7-span" width="50px" style="font-weight: bold;color: #0e90d2">xxxx</span>原因提交的PPAP生产件批准审核结果为
+                    <span class="d7-span" width="50px">批准/临时批准</span>
+                    <span id="isTemporary">
+                        ，临时批准有效期至
+                        <span class="d7-span" width="50px" style="font-weight: bold;color: #0e90d2"></span>
+                    </span>
+                    请按照以下要求执行：
+                </p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;对前期的样件进行标识/隔离/报废处理。Mark/segreg
+                    ate/scrap the samples in prophase<span class="d7-content-item" style="color: #0e90d2">(不批准，临时批准，批准)</span>
+                </p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;GP-12(初期生产次品遏制)<input type="checkbox">
+                   遏制数量：<span class="d7-span" width="50px"></span><input type="checkbox">日期至：<span class="d7-span" width="50px"></span>
+                    ；如在GP-12期间无重大质量问题，请向SQE书面提交GP-12退出确认报告。Containment of the GP-12(Ear Production Containment)
+                     quantity/period.If there are no momentous quality problems in GP-12 period. please submit a written for quitting GP-12 to SQE.
+                    <span class="d7-content-item" style="color: #0e90d2">(不批准，临时批准，批准)</span>
+                </p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;按PPAP批准状态组织生产，如产品发生设计/工艺/生成场地/分供方等影响性能和装配的更变，则必须向
+                    SGMW提出变更申请。Produce as approved PPAP status, if there is any ground/sub-supplier changes to effect function or assemblage, you must submit
+                    design/technics/production the change application to SQE SGMW<span class="d7-content-item" style="color: #0e90d2">(不批准，临时批准，批准)</span>
+                </p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体零件信息如下，特此函告：</p>
+            </div>
+            <!--零件信息-->
+            <table id="d7-tab1" lay-filter="d7-tab1"></table>
+            <!--落款-->
+            <div class="d7-tab-bottom">
+                <div style="text-align: center">
+                    <p style="font-weight: 500;margin: 1% 0 0 0;">上汽通用五菱汽车股份有限公司</p>
+                    <p style="font-weight: 500;margin: 2% 0 0 0;">采购及供应链管理中心供应商质量管理部</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use('table',function () {
+        var table = layui.table,
+            admin = layui.admin;
+
+        table.render({
+            elem: '#d7-tab1',
+            id: 'd7-tab1',
+            url: admin.formatUrl('api/testYb/demo07'),
+            //转换返回的结果集
+            parseData: function (res) {
+                return {
+                    "code": res.respCode,
+                    "msg": res.message,
+                    "count": res.data.count,
+                    "data": res.data.list
+                }
+            },
+            cols:[[
+                {
+                    title: '序号',
+                    align: 'center',
+                    type: 'numbers'
+                },
+                {
+                    title: '最新零件号',
+                    align: 'center',
+                    field: 'a'
+                },
+                {
+                    title: '零件名称',
+                    align: 'center',
+                    field: 'b'
+                },
+                {
+                    title: '旧零件号',
+                    align: 'center',
+                    field: 'c'
+                },
+                {
+                    title: '最新EWO',
+                    align: 'center',
+                    field: 'd'
+                },
+                {
+                    title: '图纸版本',
+                    align: 'center',
+                    field: 'e'
+                },
+                {
+                    title: '图纸批准日期',
+                    align: 'center',
+                    field: 'f'
+                }
+            ]]
+        })
+    })
+</script>

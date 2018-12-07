@@ -1904,6 +1904,23 @@
       "belong": null,
       "isShow": 1,
       "extInfo": null
+    },
+    {
+      "id": "yueben_demo07",
+      "name": "demo_07",
+      "parentId": "yueben",
+      "parentIds": null,
+      "parent": null,
+      "childList": null,
+      "delFlag": 0,
+      "href": "testYb/demo07.html",
+      "icon": null,
+      "sort": "8-7",
+      "permission": null,
+      "remarks": null,
+      "belong": null,
+      "isShow": 1,
+      "extInfo": null
     }
   ],
   "ok": true,
