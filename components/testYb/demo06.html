@@ -15,13 +15,44 @@
     .layui-table>thead>tr>th{
         padding: 0px!important;
     }
+    .d6-title{
+        width: 96%;
+        height: 50px;
+        margin: 0 2% 0 2%;
+        /*border-style: solid;*/
+        border-left: 1px solid #EBEBEB;
+        border-bottom: 1px solid #EBEBEB;
+        border-right: 1px solid #EBEBEB;
+        /*border-color: #EBEBEB;*/
 
+
+    }
+    .d6-title-top{
+        font-weight: bold;
+        font-size: 120%;
+        padding: 0 0 0 3%;
+    }
+    .d6-title-bottom{
+    }
+    .d6-title-bottom-item{
+        display: inline-block;
+        border-right: 1px solid #EBEBEB;
+        padding: 0 3% 0 3%;
+    }
 
 </style>
 <div class="layui-row layui-col-space15">
     <div class="layui-col-md12 autoScrollLeft">
         <div class="layui-card">
-            <div class="d6-title"></div>
+            <div class="d6-title">
+                <div class="d6-title-top">项目零件跟踪表</div>
+                <div class="d6-title-bottom">
+                    <div class="d6-title-bottom-item">BETA/OTS2:&nbsp;<span style="color: #329900">XXXX-XX-XX</span></div>
+                    <div class="d6-title-bottom-item">GAMMA/OTS2:&nbsp;<span style="color: #329900">XXXX-XX-XX</span></div>
+                    <div class="d6-title-bottom-item">3C&nbsp;Piolt/NS:&nbsp;<span style="color: #329900">XXXX-XX-XX</span></div>
+                    <div class="d6-title-bottom-item" style="border: none">SOP:&nbsp;<span style="color: #329900">XXXX-XX-XX</span></div>
+                </div>
+            </div>
             <div class="d6-table">
                 <table id="d6-table-tab1" lay-filter="d6-table-tab1"></table>
             </div>
