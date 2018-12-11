@@ -122,7 +122,6 @@
         border: 1px solid #000000;
     }
     .d8-select-inputShow-item{
-        background-color: #008200;
     }
     .d8-select-inputShow-item:hover{
         cursor: pointer;
@@ -196,7 +195,7 @@
                             <td class="d8-data-select-table-item">项目年份：</td>
                             <td class="d8-data-select-table-value"><input type="text"></td>
                             <td class="d8-data-select-table-item">项目车型/机型：</td>
-                            <td class="d8-data-select-table-value"><input type="text"></td>
+                            <td class="d8-data-select-table-value"><select style="width: 98%;height:60%;" id="d8-data-selsel"></select></td>
                             <td class="d8-data-select-table-item">项跟踪表单号：</td>
                             <td class="d8-data-select-table-value"><input type="text"></td>
                             <td class="d8-data-select-table-item" style="width: 6%">动力：</td>
@@ -481,5 +480,11 @@
             $('.d8-select-inputShow').css('display','none');
             $('.d8-select-inputShow').empty();
         });
+
+        var initDataSelect = [{"name":"吉利","value":'a'},{"name":"奇瑞","value":'b'},{"name":"红旗","value":'b'}];
+        $('#d8-data-selsel').append('<option>请选择</option>');
+        $.each(initDataSelect,function (i,v) {
+            $('#d8-data-selsel').append('<option value="'+v.value+'">'+v.name+'</option>');
+        })
     });
 </script>
