@@ -113,6 +113,20 @@
     .d8-message-remind-row>td{
         text-align: center;
     }
+    .d8-select-inputShow{
+        position: absolute;
+        width: 110px;
+        height: 50px;
+        background-color: #FFFFFF;
+        display: none;
+        border: 1px solid #000000;
+    }
+    .d8-select-inputShow-item{
+        background-color: #008200;
+    }
+    .d8-select-inputShow-item:hover{
+        cursor: pointer;
+    }
 </style>
 <div class="layui-row layui-col-space15">
     <div class="layui-col-md12 autoScrollLeft">
@@ -173,9 +187,11 @@
                 </div>
 
                 <div class="d8-data-select-table">
+                    <div class="d8-select-inputShow" id="qqqqqqq">
+                    </div>
                     <table style="width: 100%;margin: 0 0 0 2%">
                         <tr>
-                            <td class="d8-data-select-table-item" style="width: 8%">项目管理：</td>
+                            <td class="d8-data-select-table-item" style="width: 8%">项目类型：</td>
                             <td class="d8-data-select-table-value"><input type="text"></td>
                             <td class="d8-data-select-table-item">项目年份：</td>
                             <td class="d8-data-select-table-value"><input type="text"></td>
@@ -315,7 +331,6 @@
         </div>
     </div>
 </div>
-
 <script>
     layui.use('laytpl',function () {
         var laytpl = layui.laytpl,
@@ -431,5 +446,40 @@
             layer.confirm('确定删除？',{title: '删除',btn: ['删除','取消']});
         })
 
+        //及时搜索模拟数据
+        var ddd = ['abc','bcd','cde','def','efg','fgh','ghi','hig','igk','gkl','klm','lmn','mno','nop','opr'];
+        //及时搜索
+        var thisInput;
+        $('.d8-data-select-table-value>input').keyup(function () {
+            thisInput = this;
+            $('.d8-select-inputShow').empty();
+            var inputTop = $(this).offset().top;
+            var inputLeft = $(this).offset().left;
+            jsSelect($(this).val());
+            $('.d8-select-inputShow').css({'left': inputLeft-242,'top': inputTop-70,'display':'inherit'});
+            var d8zzz = $('.d8-select-inputShow-item');
+            console.log(d8zzz.length);
+
+        });
+        //输入框匹配
+        function jsSelect(val) {
+            var is = false;
+            if(val === null || val === '') return;
+            $.each(ddd,function (i,v) {
+                if (v.indexOf(val)>=0){
+                    $('.d8-select-inputShow').append('<div class="d8-select-inputShow-item">' + v + '</div>');
+                    is = true;
+                }
+                if(i === ddd.length-1 && !is) $('.d8-select-inputShow').append('<div>无匹配项</div>');
+            });
+        }
+
+        //点击选项
+        $('#qqqqqqq').on('click','.d8-select-inputShow-item',function () {
+            var text = $(this).text();
+            $(thisInput).val(text);
+            $('.d8-select-inputShow').css('display','none');
+            $('.d8-select-inputShow').empty();
+        });
     });
 </script>
