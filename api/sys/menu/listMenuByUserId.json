@@ -1822,7 +1822,7 @@
     },
     {
       "id": "yueben_demo02",
-      "name": "demo_02",
+      "name": "违反程序索赔确认单",
       "parentId": "yueben",
       "parentIds": null,
       "parent": null,
@@ -1839,7 +1839,7 @@
     },
     {
       "id": "yueben_demo03",
-      "name": "demo_03",
+      "name": "PPAP审批单创建",
       "parentId": "yueben",
       "parentIds": null,
       "parent": null,
@@ -1856,7 +1856,7 @@
     },
     {
       "id": "yueben_demo04",
-      "name": "demo_04",
+      "name": "图片上传预览",
       "parentId": "yueben",
       "parentIds": null,
       "parent": null,
@@ -1873,7 +1873,7 @@
     },
     {
       "id": "yueben_demo05",
-      "name": "demo_05",
+      "name": "项目跟踪表",
       "parentId": "yueben",
       "parentIds": null,
       "parent": null,
@@ -1890,7 +1890,7 @@
     },
     {
       "id": "yueben_demo06",
-      "name": "demo_06",
+      "name": "项目零件跟踪表",
       "parentId": "yueben",
       "parentIds": null,
       "parent": null,
@@ -1907,7 +1907,7 @@
     },
     {
       "id": "yueben_demo07",
-      "name": "demo_07",
+      "name": "生产件批准状况通知函",
       "parentId": "yueben",
       "parentIds": null,
       "parent": null,
@@ -1916,6 +1916,23 @@
       "href": "testYb/demo07.html",
       "icon": null,
       "sort": "8-7",
+      "permission": null,
+      "remarks": null,
+      "belong": null,
+      "isShow": 1,
+      "extInfo": null
+    },
+    {
+      "id": "yueben_demo08",
+      "name": "项目单管理",
+      "parentId": "yueben",
+      "parentIds": null,
+      "parent": null,
+      "childList": null,
+      "delFlag": 0,
+      "href": "testYb/menuManage.html",
+      "icon": null,
+      "sort": "8-8",
       "permission": null,
       "remarks": null,
       "belong": null,
