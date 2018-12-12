@@ -1,4 +1,8 @@
 <style>
+    html{
+        overflow-x: hidden;
+        width: 98%;
+    }
     .layui-table-cell{
         margin: 0;
         padding: 0;
@@ -16,24 +20,31 @@
         padding: 0px!important;
     }
     .d6-title{
+        width: 100%;
+        height: 75px;
+        margin: 0;
+    }
+    .d6-table{
         width: 96%;
-        height: 50px;
         margin: 0 2% 0 2%;
-        border-left: 1px solid #EBEBEB;
-        border-bottom: 1px solid #EBEBEB;
-        border-right: 1px solid #EBEBEB;
-    }
-    .d6-title-top{
-        font-weight: bold;
-        font-size: 120%;
-        padding: 0 0 0 3%;
-    }
-    .d6-title-bottom{
     }
     .d6-title-bottom-item{
+        float: left;
+        width: 21%;
         display: inline-block;
-        border-right: 1px solid #EBEBEB;
-        padding: 0 3% 0 3%;
+        padding: 5px 2% 0 2%;
+    }
+    .d6-title-bottom-item>span{
+        width: 50%;
+        text-align: right;
+        color: #6495ED;
+    }
+    .d6-title-bottom-item>input{
+        float: right;
+        width: 50%;
+        background-color: #F7F7F7;
+        border: none;
+        height: 25px;
     }
 
 </style>
@@ -41,13 +52,30 @@
     <div class="layui-col-md12 autoScrollLeft">
         <div class="layui-card">
             <div class="d6-title">
-                <div class="d6-title-top">项目零件跟踪表</div>
-                <div class="d6-title-bottom">
-                    <div class="d6-title-bottom-item">BETA/OTS2:&nbsp;<span style="color: #329900">XXXX-XX-XX</span></div>
-                    <div class="d6-title-bottom-item">GAMMA/OTS2:&nbsp;<span style="color: #329900">XXXX-XX-XX</span></div>
-                    <div class="d6-title-bottom-item">3C&nbsp;Piolt/NS:&nbsp;<span style="color: #329900">XXXX-XX-XX</span></div>
-                    <div class="d6-title-bottom-item" style="border: none">SOP:&nbsp;<span style="color: #329900">XXXX-XX-XX</span></div>
-                </div>
+                    <div class="d6-title-bottom-item">
+                        <span>项目单编号：</span>
+                        <input type="text" disabled="disabled" value="xxx-xxx-xxx">
+                    </div>
+                    <div class="d6-title-bottom-item">
+                        <span>BETA：</span>
+                        <input type="text" disabled="disabled" value="xxx-xxx-xxx">
+                    </div>
+                    <div class="d6-title-bottom-item">
+                        <span>GAMMA：</span>
+                        <input type="text" disabled="disabled" value="xxx-xxx-xxx">
+                    </div>
+                    <div class="d6-title-bottom-item">
+                        <span>3C Pilot：</span>
+                        <input type="text" disabled="disabled" value="xxx-xxx-xxx">
+                    </div>
+                    <div class="d6-title-bottom-item">
+                        <span>项目车型/机型：</span>
+                        <input type="text" disabled="disabled" value="xxx-xxx-xxx">
+                    </div>
+                    <div class="d6-title-bottom-item">
+                        <span>Piolt：</span>
+                        <input type="text" disabled="disabled" value="xxx-xxx-xxx">
+                    </div>
             </div>
             <div class="d6-table">
                 <table id="d6-table-tab1" lay-filter="d6-table-tab1"></table>
@@ -106,27 +134,22 @@
                     {
                         type: 'numbers',
                         title: '<div class="table-title-blue" style="padding: 35% 0 35% 0">序号</div>',
-                        align: 'center',
-                        fixed: 'left'
+                        align: 'center'
                     },
                     {
                         field: '1-2',
                         title: '<div class="table-title-blue" style="padding: 9% 0 9.7% 0">零件号R</div>',
-                        align: 'center',
-                        edit: 'text',
-                        fixed: 'left'
+                        align: 'center'
                     },
                     {
                         field: '1-3',
                         title: '<div class="table-title-blue" style="padding: 9% 0 9.7% 0">零件名称R</div>',
-                        align: 'center',
-                        fixed: 'left'
+                        align: 'center'
                     },
                     {
                         field: '1-4',
                         title: '<div class="table-title-blue">增删A/D<br>(A:增加,D:删除)R</div>',
-                        align: 'center',
-                        fixed: 'left'
+                        align: 'center'
                     },
                     {
                         field: '1-5',
@@ -310,5 +333,6 @@
             }
 
         })
+        console.log(111)
     })
 </script>

@@ -116,7 +116,7 @@
     .d8-select-inputShow{
         position: absolute;
         width: 110px;
-        height: 50px;
+        height: auto;
         background-color: #FFFFFF;
         display: none;
         border: 1px solid #000000;
@@ -126,6 +126,11 @@
     .d8-select-inputShow-item:hover{
         cursor: pointer;
     }
+    .layui-layer-title-blue{
+        background-color: #0F7BD7;
+        color: #FFFFFF;
+    }
+
 </style>
 <div class="layui-row layui-col-space15">
     <div class="layui-col-md12 autoScrollLeft">
@@ -334,7 +339,8 @@
     layui.use('laytpl',function () {
         var laytpl = layui.laytpl,
             $ = layui.$,
-            layer = layui.layer;
+            layer = layui.layer,
+            admin = layui.admin;
 
 
         //新增项目单列表
@@ -433,7 +439,15 @@
                 layer.confirm('导入项目跟踪表',{title: '请选择导入模版',btn: ['确定','取消']});
             });
             $('#d8-menu-list-btn-2').click(function () {
-                layer.confirm('查看项目跟踪表',{title: '请选择项目跟踪表查看',btn: ['确定','取消']});
+                admin.popupCenter({
+                    title: '项目单',
+                    area: ['1000px', '450px'],
+                    path: 'components/testYb/demo06.html',     //弹出框页面
+                    success: function () {
+                        $('#adminPopupC').css('overflow-x','hidden');
+                        $('.layui-layer-title').addClass('layui-layer-title-blue');
+                    }
+                });
             });
             $('#d8-menu-list-btn-3').click(function () {
                 layer.confirm('导出项目跟踪表',{title: '请选择导出模版',btn: ['确定','取消']});
@@ -443,7 +457,7 @@
         //删除按钮
         $('#d8-btn-menu-del').click(function () {
             layer.confirm('确定删除？',{title: '删除',btn: ['删除','取消']});
-        })
+        });
 
         //及时搜索模拟数据
         var ddd = ['abc','bcd','cde','def','efg','fgh','ghi','hig','igk','gkl','klm','lmn','mno','nop','opr'];
@@ -472,7 +486,13 @@
                 if(i === ddd.length-1 && !is) $('.d8-select-inputShow').append('<div>无匹配项</div>');
             });
         }
+        $('.d8-data-select-table-value>input').blur(function () {
 
+            setTimeout(function () {
+                $('.d8-select-inputShow').css('display','none');
+                $('.d8-select-inputShow').empty();
+            }, 150);
+        })
         //点击选项
         $('#qqqqqqq').on('click','.d8-select-inputShow-item',function () {
             var text = $(this).text();
