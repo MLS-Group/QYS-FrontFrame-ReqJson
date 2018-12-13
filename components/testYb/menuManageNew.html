@@ -1,0 +1,523 @@
+<link rel="stylesheet" href="../../assets/testYb/select2.min.css">
+<style>
+    .d8-message-remind{
+        width: 100%;
+        height: auto;
+        /*margin: 1% 1% 0 1%;*/
+    }
+    .d8-data-select{
+        width: 98%;
+        height: auto;
+        margin: 1% 1% 0 1%;
+        padding: 0.5% 0 0 0;
+    }
+    .d8-data-select-table-value>input{
+        width: 96%;
+        height:60%;
+    }
+    .d8-message-remind-content{
+        width: 100%;
+        height: 0px;
+        margin: 0;
+        border: none;
+    }
+    .d8-message-remind-content>table{
+        margin: 0 0 0 10px;
+    }
+    .d8-message-remind-head{
+        height: 45px;
+        background-color: #D7EBFF;
+    }
+    .d8-message-remind-row{
+        height: 45px;
+    }
+    .d8-message-remind-row>td{
+        text-align: center;
+    }
+    .layui-layer-title-blue{
+        background-color: #0F7BD7;
+        color: #FFFFFF;
+    }
+    .d8-message-remind-title{
+        width: 98.8%;
+        height: 19px;
+        font-size: 16px;
+        padding: 9px 0 12px 1%;
+        margin: 0;
+        background-color: #87CEFA;
+        border: 1px solid #0078FF;
+        border-radius:5px;
+    }
+    .d8-message-remind-title-btn{
+        color: #5e5e5e;
+        display: inline-block;
+        float: right;
+        margin: 0 1% 0 0;
+        /*双击不选中文本*/
+        -moz-user-select:none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    .d8-message-remind-title-btn:active{
+        color: #000000;
+    }
+    .d8-message-remind-title-btn:hover{
+        cursor: pointer;
+    }
+    .d8-data-select-title{
+        height: 20px;
+        width: 100%;
+        margin: 0 0 8px 0;
+        /*background-color: #1E9FFF;*/
+        /*border: 1px solid #000000;*/
+    }
+    .d8-data-select-item{
+        width: 98%;
+        height: 215px;
+        padding: 0;
+        /*border: 1px solid #00a2d4;*/
+    }
+    .d8-data-select-item-1{
+        width: 9.5%;
+        height: 30px;
+        /*border: 1px solid #aa7700;*/
+        display: inline-block;
+        text-align: right;
+        vertical-align: top;
+        margin: 5px 0 0 0;
+        font-size: 16px;
+        padding: 8px 0 7px 0;
+    }
+    .d8-data-select-item-2{
+        width:15%;
+        height: 39px;
+        /*border: 1px solid #5e5e5e;*/
+        display: inline-block;
+        vertical-align: top;
+        margin: 5px 0 0 0;
+        padding: 6px 0 0 0;
+    }
+    .d8-data-select-item-2>select{
+        width: 99%;
+    }
+    .d8-data-select-btn{
+        display: inline-block;
+        float: right;
+        color: #5e5e5e;
+        font-size: 16px;
+        /*双击不选中文本*/
+        -moz-user-select:none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    .d8-data-select-btn:active{
+        color: #000000;
+    }
+    .d8-pro-list-btns{
+        margin: 0.5% 0 0 0;
+        width: 100%;
+    }
+</style>
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md12 autoScrollLeft">
+        <!--未处理消息-->
+        <div class="layui-card">
+            <!--消息提醒-->
+            <div class="d8-message-remind">
+                <div class="d8-message-remind-title">
+                    <div style="display: inline-block;">尚有<span id="d8-span-message-num" style="color: #0078FF">X</span>条待处理消息</div>
+                    <div class="d8-message-remind-title-btn">收起</div>
+                </div>
+                <!--未处理消息-->
+                <div class="d8-message-remind-content" style="display: none">
+                    <table style="width: 98%;margin: 1%;" border="1">
+                        <tr class="d8-message-remind-head">
+                            <th width="4%">序号</th>
+                            <th width="10%">项目跟踪单单号</th>
+                            <th width="9%">项目车型/机型</th>
+                            <th width="8%">供应商代码</th>
+                            <th width="8%">供应商名称</th>
+                            <th width="8%">最新零件号</th>
+                            <th width="8%">零件名称</th>
+                            <th width="8%">初始零件号</th>
+                            <th width="7%">负责PE</th>
+                            <th width="6%">原SQE</th>
+                            <th width="14%">备注</th>
+                            <th width="9%">变更SQE</th>
+                        </tr>
+
+                        <script type="text/html" id="d8MessageRow">
+                            {{# var rows = d.data.list; }}
+                            {{# $.each(rows,function(i,v){ }}
+                            <tr class="d8-message-remind-row">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ v.proTracNum }}</td>
+                                <td>{{ v.proVE }}</td>
+                                <td>{{ v.suppCode }}</td>
+                                <td>{{ v.suppName }}</td>
+                                <td>{{ v.partsNewNum }}</td>
+                                <td>{{ v.partsName }}</td>
+                                <td>{{ v.initPartsNum }}</td>
+                                <td>{{ v.pe }}</td>
+                                <td>{{ v.sqe }}</td>
+                                <td>{{ v.note }}</td>
+                                <td><input type="text" style="width: 95%;height: 40px;border: none"></td>
+                            </tr>
+                            {{# }); }}
+                        </script>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--数据搜索项-->
+        <div class="layui-card">
+            <div style="float: left;width: 4px;height: 20px;background-color: #1E9FFF;margin: 7px 0 0 0"></div>
+            <!--数据查找-->
+            <div class="d8-data-select">
+                <div class="d8-data-select-title">
+                    <div style="display: inline-block;font-weight: bold;font-size: 17px;">数据查找</div>
+                    <div class="d8-data-select-btn">收起</div>
+                </div>
+                <hr style="margin: 0;">
+                <div class="d8-data-select-item">
+                    <div class="d8-data-select-item-1">项目类型：</div>
+                    <div class="d8-data-select-item-2"><select></select></div>
+
+                    <div class="d8-data-select-item-1">项目年份：</div>
+                    <div class="d8-data-select-item-2">
+                        <input type="text" class="layui-input" name="date-year"
+                               style="border: 1px solid #AAAAAA;border-radius: 5px" placeholder="请选择年份">
+                    </div>
+
+                    <div class="d8-data-select-item-1" style="width: 11%;">项目车型/机型：</div>
+                    <div class="d8-data-select-item-2" style="width: 13%;"><select multiple="multiple" id="dddd"></select></div>
+
+                    <div class="d8-data-select-item-1">项目单编号：</div>
+                    <div class="d8-data-select-item-2"><select></select></div>
+
+                    <div class="d8-data-select-item-1">配置：</div>
+                    <div class="d8-data-select-item-2"><select></select></div>
+
+                    <div class="d8-data-select-item-1">BETA/OTS1：</div>
+                    <div class="d8-data-select-item-2">
+                        <input type="text" class="layui-input" name="date-day"
+                               style="border: 1px solid #AAAAAA;border-radius: 5px" placeholder="请选择日期">
+                    </div>
+
+                    <div class="d8-data-select-item-1" style="width: 11%;">GAMMA/OTS2：</div>
+                    <div class="d8-data-select-item-2" style="width: 13%;">
+                        <input type="text" class="layui-input" name="date-day"
+                               style="border: 1px solid #AAAAAA;border-radius: 5px" placeholder="请选择日期">
+                    </div>
+
+                    <div class="d8-data-select-item-1">3CPiolt/NS：</div>
+                    <div class="d8-data-select-item-2">
+                        <input type="text" class="layui-input" name="date-day"
+                               style="border: 1px solid #AAAAAA;border-radius: 5px" placeholder="请选择日期">
+                    </div>
+
+                    <div class="d8-data-select-item-1">Pilot/S：</div>
+                    <div class="d8-data-select-item-2"><select></select></div>
+
+                    <div class="d8-data-select-item-1">SOP：</div>
+                    <div class="d8-data-select-item-2">
+                        <input type="text" class="layui-input" name="date-day"
+                               style="border: 1px solid #AAAAAA;border-radius: 5px" placeholder="请选择日期">
+                    </div>
+
+                    <div class="d8-data-select-item-1" style="width: 11%;">项目管理员：</div>
+                    <div class="d8-data-select-item-2" style="width: 13%;"><select></select></div>
+
+                    <div class="d8-data-select-item-1">项目状态：</div>
+                    <div class="d8-data-select-item-2"><select></select></div>
+
+                    <div class="d8-data-select-item-1">状态：</div>
+                    <div class="d8-data-select-item-2"><select></select></div>
+
+                    <div style="display: inline-block;float: right;padding: 5px 0 0 0;
+                                width: 30%;height: 40px;vertical-align: top;margin: 5px 0 0 0;">
+                        <button style="float: right;" class="layui-btn layui-btn-primary">重置</button>
+                        <button style="float: right;margin: 0 10px 0 0" class="layui-btn layui-btn-normal">查询</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--项目单列表-->
+        <div class="layui-card">
+            <div style="float: left;width: 4px;height: 20px;background-color: #1E9FFF;margin: 7px 0 0 0"></div>
+            <div class="d8-data-select">
+                <div class="d8-data-select-title">
+                    <div style="display: inline-block;font-weight: bold;font-size: 17px;">项目单列表</div>
+                </div>
+                <hr style="margin: 0;">
+                <div class="d8-pro-list-btns">
+                    <div style="display: inline-block;width: 35%;padding: 5px 0 0 0;
+                        height: 40px;">
+
+                        <button class="layui-btn layui-btn-primary" style="background-color: #06C5D2;color: #FFFFFF;
+                            border: none;border-radius: 5px;" id="d8-pro-list-btn-add">新增</button>
+                        <button class="layui-btn layui-btn-primary" style="background-color: #E493A1;color: #FFFFFF;
+                            border: none;border-radius: 5px;">删除</button>
+                        <button class="layui-btn layui-btn-primary" style="background-color: #53AFFC;color: #FFFFFF;
+                            border: none;border-radius: 5px;">发布任务</button>
+
+                    </div>
+                    <div style="display: inline-block;width: 55.6%;float: right;padding: 5px 0 0 0;text-align: right;
+                        height: 40px;">
+
+                        <button class="layui-btn layui-btn-primary">导入项目跟踪表</button>
+                        <button class="layui-btn layui-btn-primary">项目跟踪单详情</button>
+                        <button class="layui-btn layui-btn-primary">导出项目跟踪单</button>
+                        <button class="layui-btn layui-btn-primary">导出项目墙列表</button>
+
+                    </div>
+                </div>
+                <!-- 表格容器 -->
+                <table id="d8-pro-list-tab" lay-filter="d8-pro-list-tab"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../assets/testYb/select2.min.js"></script>
+<script>
+    layui.use('laytpl',function () {
+        var laytpl = layui.laytpl,
+            $ = layui.$,
+            layer = layui.layer,
+            admin = layui.admin,
+            laydate = layui.laydate,
+            table = layui.table;
+
+
+        //加载待处理消息列表
+        var contentHeig = 0;
+        $.ajax({
+            type: 'get',
+            url: '../../api/testYb/menuMessage.json',
+            dataType: 'json',
+            success: function (data) {
+                contentHeig = data.data.count*45+56;
+                $('#d8-span-message-num').text(data.data.count);
+                laytpl(d8MessageRow.innerHTML).render(data,function (html) {
+                    $('#d8MessageRow').after(html);
+                });
+            }
+        });
+        //待处理显隐
+        var ismessageHiider = true;
+        $('.d8-message-remind-title').click(function () {
+            if(ismessageHiider){
+                $('.d8-message-remind-content').animate({height: contentHeig,margin: 0},300);
+                $('.d8-message-remind-content').css('display','');
+                ismessageHiider = false;
+            }else{
+                $('.d8-message-remind-content').animate({height: 0,margin: 0},300);
+                setTimeout(function () {
+                    $('.d8-message-remind-content').css('display','none');
+                },300);
+
+                ismessageHiider = true;
+            }
+        });
+
+        //导入项目跟踪表
+        {
+            $('#d8-menu-list-btn-1').click(function () {
+                layer.confirm('导入项目跟踪表',{title: '请选择导入模版',btn: ['确定','取消']});
+            });
+            $('#d8-menu-list-btn-2').click(function () {
+                admin.popupCenter({
+                    title: '项目单',
+                    area: ['1000px', '450px'],
+                    path: 'components/testYb/demo06.html',     //弹出框页面
+                    success: function () {
+                        $('#adminPopupC').css('overflow-x','hidden');
+                        $('.layui-layer-title').addClass('layui-layer-title-blue');
+                    }
+                });
+            });
+            $('#d8-menu-list-btn-3').click(function () {
+                layer.confirm('导出项目跟踪表',{title: '请选择导出模版',btn: ['确定','取消']});
+            });
+        }
+
+        //搜索项
+        {
+            //搜索项下拉框
+            $('.d8-data-select-item-2>select').select2({
+                placeholder : '请选择',
+//            multiple : false,
+//            height: '40px',
+//            maximumSelectionLength : 3,
+//            allowClear : false,
+                language: "zh-CN",
+                data: [{id:"",text:"请选择"},{id:"1",text:"abc"},{id:"2",text:"bcdi"},{id:"3",text:"cde"},{id:"4",text:"defi"},{id:"5",text:"efgi"}]
+            });
+
+            //搜索项日期
+            laydate.render({
+                elem: 'input[name="date-year"]',
+                type: 'year'
+            });
+            laydate.render({
+                elem: 'input[name="date-day"]'
+            });
+        }
+
+        //数据查找显隐
+        var isSelectHidder = true;
+        $('.d8-data-select-btn').click(function () {
+            if(isSelectHidder){
+                $('.d8-data-select-item').animate({height: 0},300);
+                setTimeout(function () {
+                    $('.d8-data-select-item').css('display','none');
+                },300);
+                isSelectHidder = false;
+            }else{
+                $('.d8-data-select-item').animate({height: 215},300);
+                $('.d8-data-select-item').css('display','');
+                isSelectHidder = true;
+            }
+        });
+
+        //页面数据缓存
+        var bufferProList = [];
+        var d8Tab = table.render({
+            elem: '#d8-pro-list-tab',
+            id: 'd8-pro-list-tab',
+            url: admin.formatUrl('/api/testYb/menuManage'),
+            parseData: function (res) {
+                bufferProList = res.data.list;
+                return {
+                    "code": res.respCode,
+                    "msg": res.message,
+                    "count": res.data.count,
+                    "data": res.data.list
+                }
+            },
+            cols:[
+                [
+                    {
+                        type: 'checkbox'
+                    },
+                    {
+                        title: '序号',
+                        type: 'numbers'
+                    },
+                    {
+                        title: '项目单编号',
+                        field: 'q',
+                        edit: 'text',
+                        align: 'center'
+                    },
+                    {
+                        title: '项目车型/机型',
+                        field: 'b',
+                        edit: 'text',
+                        align: 'center'
+                    },
+                    {
+                        title: '配置',
+                        field: 'c',
+                        edit: 'text',
+                        align: 'center'
+                    },
+                    {
+                        title: '项目类型',
+                        field: 'd',
+                        align: 'center'
+                    },
+                    {
+                        title: '动力',
+                        field: 'e',
+                        align: 'center'
+                    },
+                    {
+                        title: 'BETA/OTS1',
+                        field: 'f',
+                        edit: 'text',
+                        align: 'center'
+                    },
+                    {
+                        title: 'GAMMA/OTS2',
+                        field: 'g',
+                        edit: 'text',
+                        align: 'center'
+                    },
+                    {
+                        title: '3CPoilt/NS',
+                        field: 'h',
+                        edit: 'text',
+                        align: 'center'
+                    },
+                    {
+                        title: 'Piolt/S',
+                        field: 'i',
+                        edit: 'text',
+                        align: 'center'
+                    },
+                    {
+                        title: 'SOP',
+                        field: 'j',
+                        edit: 'text',
+                        align: 'center'
+                    },
+                    {
+                        title: '项目管理人',
+                        field: 'k',
+                        edit: 'text',
+                        align: 'center'
+                    }
+                ]
+            ],
+            cellMinWidth: 60,
+            page: {
+                layout: ['limit','count','prev','page','next','skip']
+            },
+            request: {
+                pageName: 'pageNo',
+                limitName: 'pageSize'
+            },
+            done: function () {
+            }
+        });
+
+        //添加一个新行
+        $('#d8-pro-list-btn-add').click(function () {
+            bufferProList.unshift({"id":"-", "a":"", "b":"", "c":"", "d":"", "e":"", "f":"", "g":"", "h":"", "i":"", "j":"", "k":"","q":""});
+            table.reload('d8-pro-list-tab',{
+                parseData: function (res) {
+                    return {
+                        "code": res.respCode,
+                        "msg": res.message,
+                        "count": bufferProList.length,
+                        "data": bufferProList
+                    }
+                }
+            });
+        });
+
+ 
+        table.on('rowDouble(d8-pro-list-tab)',function (obj) {
+            var row = obj.tr;
+            $(row).children('td[data-field="d"]').empty();
+            $(row).children('td[data-field="e"]').empty();
+            $(row).children('td[data-field="d"]').append('<select name="d8ProType"></select>');
+            $('select[name=d8ProType]').select2({
+                language: "zh-CN",
+                data: [{id:"",text:"请选择"},{id:"1",text:"A"},{id:"1",text:"B"}]
+            });
+            $(row).children('td[data-field="e"]').append('<select name="d8Power"></select>');
+            $('select[name=d8Power]').select2({
+                language: "zh-CN",
+                data: [{id:"",text:"请选择"},{id:"1",text:"A"},{id:"1",text:"B"}]
+            });
+            //测试多选下拉框
+            console.log($('#dddd').val());
+        });
+
+
+    });
+</script>

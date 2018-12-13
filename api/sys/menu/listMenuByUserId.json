@@ -1938,6 +1938,23 @@
       "belong": null,
       "isShow": 1,
       "extInfo": null
+    },
+    {
+      "id": "yueben_demo08",
+      "name": "项目单管理(新)",
+      "parentId": "yueben",
+      "parentIds": null,
+      "parent": null,
+      "childList": null,
+      "delFlag": 0,
+      "href": "testYb/menuManageNew.html",
+      "icon": null,
+      "sort": "8-9",
+      "permission": null,
+      "remarks": null,
+      "belong": null,
+      "isShow": 1,
+      "extInfo": null
     }
   ],
   "ok": true,
