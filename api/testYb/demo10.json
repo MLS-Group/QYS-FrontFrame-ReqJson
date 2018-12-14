@@ -1,0 +1,35 @@
+{
+  "respCode": "0",
+  "data": {
+    "pageNo": 1,
+    "pageSize": 10000,
+    "count": 2,
+    "pageCount": 1,
+    "list": [
+      {
+        "id": "1",
+        "menuNum":"43123423",
+        "proCM":"R",
+        "supplierNum":"ASS-43123423",
+        "supplierName":"XXX",
+        "isPPAPAudit":"1",
+        "planTime":"2018-12-14",
+        "submitLevel":"1"
+      },
+      {
+        "id": "2",
+        "menuNum":"54334123",
+        "proCM":"P",
+        "supplierNum":"ASF-54334123",
+        "supplierName":"XXX",
+        "isPPAPAudit":"2",
+        "planTime":"2018-12-14",
+        "submitLevel":"2"
+      }
+    ],
+    "ext": {},
+    "orderBy": ""
+  },
+  "ok": true,
+  "message": ""
+}

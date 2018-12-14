@@ -1940,7 +1940,7 @@
       "extInfo": null
     },
     {
-      "id": "yueben_demo08",
+      "id": "yueben_demo09",
       "name": "项目单管理(新)",
       "parentId": "yueben",
       "parentIds": null,
@@ -1950,6 +1950,23 @@
       "href": "testYb/menuManageNew.html",
       "icon": null,
       "sort": "8-9",
+      "permission": null,
+      "remarks": null,
+      "belong": null,
+      "isShow": 1,
+      "extInfo": null
+    },
+    {
+      "id": "yueben_demo10",
+      "name": "PPAP文件提交通知",
+      "parentId": "yueben",
+      "parentIds": null,
+      "parent": null,
+      "childList": null,
+      "delFlag": 0,
+      "href": "testYb/PPAPSubmitNotice.html",
+      "icon": null,
+      "sort": "8-10",
       "permission": null,
       "remarks": null,
       "belong": null,

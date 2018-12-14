@@ -1,0 +1,598 @@
+<style>
+    /*页面标题*/
+    .d10-title{
+        width: 100%;
+        height: 60px;
+        text-align: center;
+    }
+    .d10-title-left{
+        display: inline-block;
+        width: 15%;
+        height: 50px;
+        margin: 5px 0 5px 0;
+        /*background-color: #1E9FFF;*/
+        vertical-align: top;
+        float: left;
+    }
+    .d10-title-center{
+        display: inline-block;
+        width: 30%;
+        height: 50px;
+        margin: 5px 0 5px 0;
+        /*background-color: #1E9FFF;*/
+        vertical-align: top;
+    }
+    .d10-title-right{
+        display: inline-block;
+        width: 15%;
+        height: 50px;
+        margin: 5px 0 5px 0;
+        /*background-color: #1E9FFF;*/
+        vertical-align: top;
+        float: right;
+    }
+    /*基础信息*/
+    .d10-basisMes{
+        width: 98%;
+        margin: 1%;
+    }
+    .d10-basisMes-title{
+        width: 100%;
+        height: 24px;
+        font-size: 15px;
+        font-weight: bold;
+        /*background-color: #aa7700;*/
+        margin:0 0 0 0;
+        padding: 6px 0 0 0;
+        /*双击不选中文本*/
+        -moz-user-select:none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    .d10-basisMes-title:active{
+        color: #DCDCDC;
+    }
+    .d10-basisMes-content{
+        width: 100%;
+        height: auto;
+        /*background-color: #1E9FFF;*/
+        margin: 5px 0 0 0;
+    }
+    .d10-basisMes-content-select{
+        width: 100%;
+        height: 45px;
+        /*background-color: #1E9FFF;*/
+    }
+    .d10-basisMes-content-select-1{
+        text-align: right;
+        display: inline-block;
+        height: 19px;
+        vertical-align: top;
+        float: left;
+        /*background-color: #aa7700;*/
+        padding: 13px 0 13px 0;
+    }
+    .d10-basisMes-content-select-2{
+        display: inline-block;
+        width: 13%;
+        height: 45px;
+        vertical-align: top;
+        float: left;
+        /*background-color: #008200;*/
+    }
+    .d10-basisMes-content-select-2>input{
+        width: 99%;
+        height: 30px;
+        margin: 6px 0 7px 0;
+        border: 1px solid #DCDCDC;
+        border-radius: 5px;
+        background-color: #F5F5F5;
+    }
+    .d10-basisMes-content-tab{
+        width: 100%;
+    }
+    .d10-basisMes-content-explain{
+        width: 100%;
+        height: 45px;
+        margin: 0 0 5px 0;
+    }
+    .d10-basisMes-content-explain>div{
+        display: inline-block;
+        width: 50%;
+        height: 45px;
+        float: left;
+        vertical-align: top;
+        /*background-color: #aa7700;*/
+    }
+    .d10-basisMes-content-explain>div>input{
+        width: 60%;
+        height: 30px;
+        margin: 6px 0 7px 0;
+        border: 1px solid #DCDCDC;
+        border-radius: 5px;
+        background-color: #F5F5F5;
+    }
+    /*分发与报送*/
+    .d10-dispense{
+        width: 100%;
+        height: 45px;
+    }
+    .d10-dispense-person{
+        width: 34%;
+        height: 45px;
+        display: inline-block;
+        vertical-align: top;
+        float: left;
+        text-align: center;
+    }
+    .d10-dispense-email{
+        width: 33%;
+        height: 45px;
+        display: inline-block;
+        vertical-align: top;
+        float: left;
+        text-align: center;
+    }
+    .d10-dispense-time{
+        width: 33%;
+        height: 45px;
+        display: inline-block;
+        vertical-align: top;
+        float: left;
+        text-align: center;
+    }
+    .d10-dispense-input{
+        width: 60%;
+        height: 30px;
+        margin: 6px 0 7px 0;
+        border: 1px solid #DCDCDC;
+        border-radius: 5px;
+        background-color: #F5F5F5;
+    }
+    /*页面提交按钮*/
+    .d10-btn{
+        width: 100%;
+        height: 45px;
+        text-align: center;
+    }
+
+</style>
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md12 autoScrollLeft">
+        <!--页面标题-->
+        <div class="layui-card">
+            <div class="d10-title">
+                <div class="d10-title-left">
+                    <img style="width: 50px;height: 50px;float: left;" src="../../assets/images/avatar/boy1.png">
+                    <div style="height: 20px;margin: 15px 0 15px 0">供应商管理系统</div>
+                </div>
+                <div class="d10-title-center">
+                    <div style="margin: 5px 0 5px 0;">
+                        <p style="font-size: 16px;font-weight: bold;">试生产与PPAP文件提交通知</p>
+                        <p>表单编号：XXXXXXX</p>
+                    </div>
+                </div>
+                <div class="d10-title-right">
+                    <div style="margin: 15px 0 15px 0;">
+                        状态：<span style="color: #FF0000;">待发布</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--基础信息-->
+        <div class="layui-card">
+            <div style="float: left;width: 4px;height: 20px;background-color: #1E9FFF;margin: 7px 0 0 0"></div>
+            <div class="d10-basisMes">
+                <div class="d10-basisMes-title" id="d10-hidden-btn1">
+                    基础信息
+                </div>
+                <hr style="margin: 0;color: #5e5e5e;">
+                <div class="d10-basisMes-content" id="d10-hidden-1">
+                    <div class="d10-basisMes-content-select">
+                        <div class="d10-basisMes-content-select-1" style="width: 4%"><div>SQE：</div></div>
+                        <div class="d10-basisMes-content-select-2">
+                            <input type="text" name="d10-select-text" placeholder="请输入...">
+                        </div>
+
+                        <div class="d10-basisMes-content-select-1" style="width: 9%">SQ业务科室：</div>
+                        <div class="d10-basisMes-content-select-2">
+                            <input type="text" name="d10-select-text" placeholder="请输入...">
+                        </div>
+
+                        <div class="d10-basisMes-content-select-1" style="width: 7%">创建日期：</div>
+                        <div class="d10-basisMes-content-select-2">
+                            <input type="text" name="d10-select-data" placeholder="请选择...">
+                        </div>
+
+                        <div class="d10-basisMes-content-select-1" style="width: 5%">PE：</div>
+                        <div class="d10-basisMes-content-select-2">
+                            <input type="text" name="d10-select-text" placeholder="请输入...">
+                        </div>
+
+                        <div class="d10-basisMes-content-select-1" style="width: 10%">TDC业务科室：</div>
+                        <div class="d10-basisMes-content-select-2">
+                            <input type="text" name="d10-select-text" placeholder="请输入...">
+                        </div>
+                    </div>
+                    <div class="d10-basisMes-content-tab">
+                        <table id="d10-basisMes-content-tab" lay-filter="d10-basisMes-content-tab"></table>
+                    </div>
+                    <div class="d10-basisMes-content-explain">
+                        <div>
+                            <span style="color: red">*</span>PPAP提交原因：
+                            <input type="text" placeholder="请输入...">
+                        </div>
+                        <div>
+                            <span style="color: red">*</span>说明：
+                            <input type="text" placeholder="选择“其他”时必须填写">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--零件审批状态1-->
+        <div class="layui-card">
+            <div style="float: left;width: 4px;height: 20px;background-color: #1E9FFF;margin: 7px 0 0 0"></div>
+            <div class="d10-basisMes">
+                <div class="d10-basisMes-title" id="d10-hidden-btn2">
+                    零件批准状态
+                </div>
+                <hr style="margin: 0;color: #5e5e5e;">
+                <div class="d10-basisMes-content" style="padding: 0 0 1px 0;"  id="d10-hidden-2">
+                    <table id="d10-tab2" lay-filter="d10-tab2"></table>
+                </div>
+            </div>
+        </div>
+        <!--零件审批状态2-->
+        <div class="layui-card">
+            <div style="float: left;width: 4px;height: 20px;background-color: #1E9FFF;margin: 7px 0 0 0"></div>
+            <div class="d10-basisMes">
+                <div class="d10-basisMes-title" id="d10-hidden-btn3">
+                    零件批准状态
+                </div>
+                <hr style="margin: 0;color: #5e5e5e;">
+                <div class="d10-basisMes-content" style="padding: 0 0 1px 0;" id="d10-hidden-3">
+                    <button class="layui-btn layui-btn-primary" style="background-color: #06C5D2;color: #FFFFFF;
+                        border: none;border-radius: 5px;">新增</button>
+                    <button class="layui-btn layui-btn-primary" style="background-color: #E493A1;color: #FFFFFF;
+                        border: none;border-radius: 5px;">删除</button>
+                    <button class="layui-btn layui-btn-primary" style=";color: #5e5e5e;
+                        border: 1px solid #DCDCDC;border-radius: 3px;float: right;">修改</button>
+                    <table id="d10-tab3" lay-filter="d10-tab3"></table>
+                </div>
+            </div>
+        </div>
+        <!--分发与报送-->
+        <div class="layui-card">
+            <div style="float: left;width: 4px;height: 20px;background-color: #1E9FFF;margin: 7px 0 0 0"></div>
+            <div class="d10-basisMes">
+                <div class="d10-basisMes-title" id="d10-hidden-btn4">
+                    <span style="color: red">*</span>分发与报送
+                </div>
+                <hr style="margin: 0;color: #5e5e5e;">
+                <div class="d10-basisMes-content" id="d10-hidden-4">
+                    <div class="d10-dispense">
+                        <div class="d10-dispense-person">
+                            <input type="text" readonly="readonly" value="采购员" style="text-align: center;
+                                width: 30%;" class="d10-dispense-input">
+                            <input type="text" placeholder="请输入..." class="d10-dispense-input">
+                        </div>
+                        <div class="d10-dispense-email">
+                            邮件：
+                            <input type="text" placeholder="请输入..." class="d10-dispense-input">
+                        </div>
+                        <div class="d10-dispense-time">
+                            分发日期：
+                            <input type="text" name="d10-select-data" placeholder="请选择..." class="d10-dispense-input">
+                        </div>
+                    </div>
+                    <div class="d10-dispense">
+                        <div class="d10-dispense-person">
+                            <input type="text" readonly="readonly" value="计划员" style="text-align: center;
+                                width: 30%;" class="d10-dispense-input">
+                            <input type="text" placeholder="请输入..." class="d10-dispense-input">
+                        </div>
+                        <div class="d10-dispense-email">
+                            邮件：
+                            <input type="text" placeholder="请输入..." class="d10-dispense-input">
+                        </div>
+                        <div class="d10-dispense-time">
+                            分发日期：
+                            <input type="text" name="d10-select-data" placeholder="请选择..." class="d10-dispense-input">
+                        </div>
+                    </div>
+                    <div class="d10-dispense">
+                        <div class="d10-dispense-person">
+                            <input type="text" readonly="readonly" value="供应商" style="text-align: center;
+                                width: 30%;" class="d10-dispense-input">
+                            <input type="text" placeholder="请输入..." class="d10-dispense-input">
+                        </div>
+                        <div class="d10-dispense-email">
+                            邮件：
+                            <input type="text" placeholder="请输入..." class="d10-dispense-input">
+                        </div>
+                        <div class="d10-dispense-time">
+                            分发日期：
+                            <input type="text" name="d10-select-data" placeholder="请选择..." class="d10-dispense-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--页面提交按钮-->
+        <div class="d10-btn">
+            <button class="layui-btn layui-btn-primary">重置</button>
+            <button class="layui-btn layui-btn-primary" style="color: #229FFF;border-color: #229FFF">保存</button>
+            <button class="layui-btn layui-btn-normal">提交</button>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="d10-scr-mod1-1">
+    {{# var val = d.isPPAPAudit; }}
+    <select style="border: none">
+        <option value="1" selected="{{ val===1?'selected':'' }}">是</option>
+        <option value="2" selected="{{ val===2?'selected':'' }}">否</option>
+    </select>
+</script>
+<script type="text/html" id="d10-scr-mod1-2">
+    <input type="text" name="d10-select-data" value="{{ d.planTime }}" style="width: 98%;height: 25px;border: none;">
+</script>
+<script type="text/html" id="d10-scr-mod1-3">
+    {{# var val = d.submitLevel; }}
+    <select style="border: none">
+        <option value="1" selected="{{ val===1?'selected':'' }}">一级</option>
+        <option value="2" selected="{{ val===2?'selected':'' }}">二级</option>
+    </select>
+</script>
+<script type="text/html" id="d10-scr-mod2-1">
+    <input type="text" style="width: 98%;height: 25px;border: none;" placeholder="请输入备注...">
+</script>
+<script>
+    layui.use('table',function () {
+        var table = layui.table,
+            admin = layui.admin,
+            laydate = layui.laydate;
+
+        //基础信息表
+        var heig1;
+        table.render({
+            elem: '#d10-basisMes-content-tab',
+            id: 'd10-basisMes-content-tab',
+            url: admin.formatUrl('/api/testYb/demo10'),
+            parseData: function (res) {
+                var n = res.data.list.length;
+                if(n === 0){
+                    heig1 = 216;
+                }else{
+                    heig1 = 160 + n*39;
+                }
+                return {
+                    "code": res.respCode,
+                    "msg": res.message,
+                    "count": res.data.count,
+                    "data": res.data.list
+                }
+            },
+            cols:[
+                [
+                    {
+                        title: '项目单编号',
+                        field: 'menuNum',
+                        align: 'center'
+                    },
+                    {
+                        title: '项目车型/机型',
+                        field: 'proCM',
+                        align: 'center'
+                    },
+                    {
+                        title: '供应商代码',
+                        field: 'supplierNum',
+                        align: 'center'
+                    },
+                    {
+                        title: '供应商名称',
+                        field: 'supplierName',
+                        align: 'center'
+                    },
+                    {
+                        title: '是否开展PPAP试生产审核',
+                        templet: '#d10-scr-mod1-1'
+                    },
+                    {
+                        title: '计划生成审核的时间',
+                        templet: '#d10-scr-mod1-2',
+                        align: 'center'
+                    },
+                    {
+                        title: 'PPAP文件提交等级',
+                        templet: '#d10-scr-mod1-3',
+                        align: 'center'
+                    }
+                ]
+            ]
+        });
+
+        //零件批准状态1
+        var heig2;
+        table.render({
+            elem: '#d10-tab2',
+            id: 'd10-tab2',
+            url: admin.formatUrl('/api/testYb/demo10'),
+            parseData: function (res) {
+                var n = res.data.list.length;
+                if(n === 0){
+                    heig2 = 127;
+                }else{
+                    heig2 = 71 + n*39;
+                }
+                return {
+                    "code": res.respCode,
+                    "msg": res.message,
+                    "count": res.data.count,
+                    "data": res.data.list
+                }
+            },
+            cols: [
+                [
+                    {
+                        title: '序号',
+                        type: 'numbers'
+                    },
+                    {
+                        title: '来源',
+                        field: 'menuNum',
+                        align: 'center'
+                    },
+                    {
+                        title: '最新零件号',
+                        field: 'proCM',
+                        align: 'center'
+                    },
+                    {
+                        title: '零件名称',
+                        field: 'supplierNum',
+                        align: 'center'
+                    },
+                    {
+                        title: '旧零件号',
+                        field: 'supplierName',
+                        align: 'center'
+                    },
+                    {
+                        title: '最新EWO',
+                        field: 'planTime',
+                        align: 'center'
+                    },
+                    {
+                        title: '备注',
+                        align: 'center',
+                        templet: '#d10-scr-mod2-1'
+                    }
+                ]
+            ]
+        });
+
+        //零件批准状态2
+        var heig3;
+        table.render({
+            elem: '#d10-tab3',
+            id: 'd10-tab3',
+            url: admin.formatUrl('/api/testYb/demo10'),
+            parseData: function (res) {
+                var n = res.data.list.length;
+                if(n === 0){
+                    heig3 = 161;
+                }else{
+                    heig3 = 105 + n*39;
+                }
+                return {
+                    "code": res.respCode,
+                    "msg": res.message,
+                    "count": res.data.count,
+                    "data": res.data.list
+                }
+            },
+            cols: [
+                [
+                    {
+                        type: 'checkbox'
+                    },
+                    {
+                        title: '序号',
+                        type: 'numbers'
+                    },
+                    {
+                        title: '推荐文件标识',
+                        align: 'center',
+                        width: 140
+                    },
+                    {
+                        title: '文件标识',
+                        align: 'center',
+                        width: 140
+                    },
+                    {
+                        title: '文件名',
+                        align: 'center',
+                        field: 'supplierNum'
+                    }
+                ]
+            ]
+        });
+
+        //时间选择输入框
+        laydate.render({
+            elem: 'input[name="d10-select-data"]'
+        });
+
+        //模块折叠
+        {
+            //折叠基础信息
+            var btnHidden1 = true;
+            $('#d10-hidden-btn1').click(function () {
+                if(btnHidden1){
+                    $('#d10-hidden-1').animate({height: 0},300);
+                    setTimeout(function () {
+                        $('#d10-hidden-1').css('display','none');
+                    },300);
+                    btnHidden1 = false;
+                }else{
+                    $('#d10-hidden-1').animate({height: heig1},300);
+                    $('#d10-hidden-1').css('display','');
+                    btnHidden1 = true;
+                }
+            });
+
+            //折叠零件批准状态1
+            var btnHidden2 = true;
+            $('#d10-hidden-btn2').click(function () {
+                if(btnHidden2){
+                    $('#d10-hidden-2').animate({height: 0},300);
+                    setTimeout(function () {
+                        $('#d10-hidden-2').css('display','none');
+                    },300);
+                    btnHidden2 = false;
+                }else{
+                    $('#d10-hidden-2').animate({height: heig2},300);
+                    $('#d10-hidden-2').css('display','');
+                    btnHidden2 = true;
+                }
+            });
+
+            //折叠零件批准状态2
+            var btnHidden3 = true;
+            $('#d10-hidden-btn3').click(function () {
+                if(btnHidden3){
+                    $('#d10-hidden-3').animate({height: 0},300);
+                    setTimeout(function () {
+                        $('#d10-hidden-3').css('display','none');
+                    },300);
+                    btnHidden3 = false;
+                }else{
+                    $('#d10-hidden-3').animate({height: heig3},300);
+                    $('#d10-hidden-3').css('display','');
+                    btnHidden3 = true;
+                }
+            });
+
+            //折叠分发与报送
+            var btnHidden4 = true;
+            $('#d10-hidden-btn4').click(function () {
+                if(btnHidden4){
+                    $('#d10-hidden-4').animate({height: 0},300);
+                    setTimeout(function () {
+                        $('#d10-hidden-4').css('display','none');
+                    },300);
+                    btnHidden4 = false;
+                }else{
+                    $('#d10-hidden-4').animate({height: 135},300);
+                    $('#d10-hidden-4').css('display','');
+                    btnHidden4 = true;
+                }
+            });
+
+        }
+
+    });
+</script>
